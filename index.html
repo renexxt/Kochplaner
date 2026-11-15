@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kochplaner</title>
+  <meta name="description" content="7-Tage-Kochplan mit Einkaufszettel">
+  <meta name="theme-color" content="#2f6b4f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Kochplaner">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <noscript><p style="padding:1rem">Der Kochplaner braucht JavaScript.</p></noscript>
+  <div id="app">
+    <header class="top">
+      <button id="btn-zurueck" class="icon-btn" aria-label="Zurück" data-testid="btn-zurueck" hidden></button>
+      <h1 id="titel" data-testid="titel">Kochplaner</h1>
+      <div class="top-actions">
+        <span id="sync" class="sync" data-testid="sync-zeit"></span>
+        <button id="btn-aktualisieren" class="icon-btn" aria-label="Aktualisieren" data-testid="btn-aktualisieren"></button>
+        <button id="btn-hilfe" class="icon-btn help" aria-label="Hilfe" data-testid="btn-hilfe"></button>
+      </div>
+    </header>
+    <div id="banner" class="banner-wrap"></div>
+    <main id="view" tabindex="-1"></main>
+    <nav class="tabs" aria-label="Hauptmenü" id="tabs"></nav>
+    <div id="overlay" class="overlay"></div>
+    <div id="tour" class="tour"></div>
+    <div id="toast" class="toast" role="status" aria-live="polite" data-testid="toast"></div>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
