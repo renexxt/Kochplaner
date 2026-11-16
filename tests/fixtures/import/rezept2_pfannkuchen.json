@@ -1,0 +1,44 @@
+{
+ "bild": "rezept2_pfannkuchen.png",
+ "gericht": {
+  "name": "Buttermilch-Crêpes",
+  "basis_portionen": 2,
+  "kcal_pro_portion": "",
+  "tags": "süß, schnell",
+  "quelle": "Screenshot 14.11.2026",
+  "status": "fertig",
+  "schritte": "Teig verrühren, 10 Minuten ruhen lassen, in Butter ausbacken."
+ },
+ "zutaten": [
+  {
+   "name": "Mehl",
+   "menge": "250",
+   "einheit": "g",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Milch",
+   "menge": "500",
+   "einheit": "ml",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Eier",
+   "menge": "3",
+   "einheit": "Stück",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Salz",
+   "menge": "",
+   "einheit": "Prise",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Butter",
+   "menge": "2",
+   "einheit": "EL",
+   "einkaufen": "ja"
+  }
+ ]
+}

@@ -1,0 +1,3370 @@
+{
+ "einstellungen": {
+  "standard_portionen": 2,
+  "wiederholungssperre_tage": 21
+ },
+ "gerichte": [
+  {
+   "id": "G001",
+   "name": "Spaghetti Bolognese",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 720,
+   "tags": [
+    "Pasta",
+    "Hackfleisch"
+   ],
+   "favorit": true,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Zwiebel und Knoblauch anbraten, Hack dazu, Tomaten einkochen, Nudeln kochen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-01",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G001",
+     "pos": 1,
+     "name": "Spaghetti",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 2,
+     "name": "Hackfleisch gemischt",
+     "menge": 300,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 3,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 4,
+     "name": "Knoblauch",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 5,
+     "name": "Tomaten gehackt",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 6,
+     "name": "Tomatenmark",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 7,
+     "name": "Olivenöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 8,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 9,
+     "name": "Pfeffer",
+     "menge": null,
+     "einheit": "",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G002",
+   "name": "Spaghetti Carbonara",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 780,
+   "tags": [
+    "Pasta"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Speck auslassen, Eier mit Parmesan verrühren, alles mit den heißen Nudeln mischen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-04",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G002",
+     "pos": 1,
+     "name": "Spaghetti",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G002",
+     "pos": 2,
+     "name": "Speck",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G002",
+     "pos": 3,
+     "name": "Eier",
+     "menge": 3,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G002",
+     "pos": 4,
+     "name": "Parmesan",
+     "menge": 60,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G002",
+     "pos": 5,
+     "name": "Pfeffer",
+     "menge": null,
+     "einheit": "",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G002",
+     "pos": 6,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G003",
+   "name": "Hähnchen-Curry mit Reis",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 650,
+   "tags": [
+    "Curry",
+    "Reis"
+   ],
+   "favorit": true,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Hähnchen anbraten, Gemüse und Currypaste dazu, mit Kokosmilch ablöschen, Reis kochen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-07",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G003",
+     "pos": 1,
+     "name": "Hähnchenbrust",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 2,
+     "name": "Reis",
+     "menge": 300,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 3,
+     "name": "Kokosmilch",
+     "menge": 0.4,
+     "einheit": "l",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 4,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 5,
+     "name": "Currypaste",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 6,
+     "name": "Paprika",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 7,
+     "name": "Knoblauch",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 8,
+     "name": "Rapsöl",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 9,
+     "name": "Wasser",
+     "menge": 600,
+     "einheit": "ml",
+     "einkaufen": false
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 10,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G004",
+   "name": "Linsensuppe",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 420,
+   "tags": [
+    "Suppe",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse würfeln, mit Linsen und Brühe 25 Minuten kochen, pürieren.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-10",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G004",
+     "pos": 1,
+     "name": "Rote Linsen",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G004",
+     "pos": 2,
+     "name": "Karotten",
+     "menge": 3,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G004",
+     "pos": 3,
+     "name": "zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G004",
+     "pos": 4,
+     "name": "Gemüsebrühe",
+     "menge": 1,
+     "einheit": "l",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G004",
+     "pos": 5,
+     "name": "Olivenöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G004",
+     "pos": 6,
+     "name": "Tomatenmark",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G004",
+     "pos": 7,
+     "name": "Zitronensaft",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G004",
+     "pos": 8,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G005",
+   "name": "Kartoffelsuppe",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 380,
+   "tags": [
+    "Suppe",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse und Kartoffeln würfeln, in Brühe weich kochen, mit Sahne abschmecken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-13",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G005",
+     "pos": 1,
+     "name": "Kartoffeln",
+     "menge": 800,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 2,
+     "name": "Karotten",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 3,
+     "name": "Lauch",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 4,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 5,
+     "name": "Gemüsebrühe",
+     "menge": 1,
+     "einheit": "l",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 6,
+     "name": "Sahne",
+     "menge": 100,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 7,
+     "name": "Butter",
+     "menge": 20,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 8,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 9,
+     "name": "Pfeffer",
+     "menge": null,
+     "einheit": "",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G006",
+   "name": "Gemüselasagne",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 610,
+   "tags": [
+    "Auflauf",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse anbraten, Béchamel kochen, schichten, 35 Minuten backen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-16",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G006",
+     "pos": 1,
+     "name": "Lasagneplatten",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 2,
+     "name": "Zucchini",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 3,
+     "name": "Paprika",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 4,
+     "name": "Tomaten gehackt",
+     "menge": 2,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 5,
+     "name": "Mozzarella",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 6,
+     "name": "Milch",
+     "menge": 500,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 7,
+     "name": "Butter",
+     "menge": 40,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 8,
+     "name": "Mehl",
+     "menge": 40,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 9,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G007",
+   "name": "Chili con Carne",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 690,
+   "tags": [
+    "Hackfleisch",
+    "scharf"
+   ],
+   "favorit": true,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Hack anbraten, Zwiebeln, Paprika und Tomaten dazu, 30 Minuten köcheln, Bohnen und Mais zugeben.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-19",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G007",
+     "pos": 1,
+     "name": "Hackfleisch gemischt",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 2,
+     "name": "Kidneybohnen",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 3,
+     "name": "Mais",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 4,
+     "name": "Tomaten gehackt",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 5,
+     "name": "Zwiebel",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 6,
+     "name": "Paprika",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 7,
+     "name": "Chilipulver",
+     "menge": 1,
+     "einheit": "TL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 8,
+     "name": "Tomatenmark",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 9,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G008",
+   "name": "Pfannkuchen",
+   "basis_portionen": 2,
+   "kcal_pro_portion": null,
+   "tags": [
+    "süß",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Teig rühren, 10 Minuten ruhen lassen, portionsweise ausbacken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-22",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G008",
+     "pos": 1,
+     "name": "Mehl",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G008",
+     "pos": 2,
+     "name": "Milch",
+     "menge": 300,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G008",
+     "pos": 3,
+     "name": "Eier",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G008",
+     "pos": 4,
+     "name": "Butter",
+     "menge": 20,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G008",
+     "pos": 5,
+     "name": "Zucker",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G008",
+     "pos": 6,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G009",
+   "name": "Schnitzel mit Kartoffelsalat",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 850,
+   "tags": [
+    "Fleisch",
+    "Klassiker"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Kartoffelsalat anmachen, Schnitzel panieren und ausbacken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-25",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G009",
+     "pos": 1,
+     "name": "Schweineschnitzel",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G009",
+     "pos": 2,
+     "name": "Semmelbrösel",
+     "menge": 100,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G009",
+     "pos": 3,
+     "name": "Eier",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G009",
+     "pos": 4,
+     "name": "Mehl",
+     "menge": 50,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G009",
+     "pos": 5,
+     "name": "Kartoffeln",
+     "menge": 600,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G009",
+     "pos": 6,
+     "name": "Gewürzgurken",
+     "menge": 4,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G009",
+     "pos": 7,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G009",
+     "pos": 8,
+     "name": "Rapsöl",
+     "menge": 4,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G009",
+     "pos": 9,
+     "name": "Essig",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G009",
+     "pos": 10,
+     "name": "Salz",
+     "menge": 1,
+     "einheit": "TL",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G010",
+   "name": "Gebratener Reis mit Ei",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 560,
+   "tags": [
+    "Reis",
+    "schnell"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Reis kochen und abkühlen lassen, mit Gemüse und Ei im Wok braten.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-28",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G010",
+     "pos": 1,
+     "name": "Reis",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G010",
+     "pos": 2,
+     "name": "Eier",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G010",
+     "pos": 3,
+     "name": "Karotten",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G010",
+     "pos": 4,
+     "name": "Erbsen TK",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G010",
+     "pos": 5,
+     "name": "Sojasauce",
+     "menge": 3,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G010",
+     "pos": 6,
+     "name": "Frühlingszwiebel",
+     "menge": 1,
+     "einheit": "Bund",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G010",
+     "pos": 7,
+     "name": "Rapsöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G011",
+   "name": "Ofengemüse mit Feta",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 480,
+   "tags": [
+    "vegetarisch",
+    "Ofen"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse schneiden, mit Öl und Kräutern 30 Minuten backen, Feta darüber.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-01",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G011",
+     "pos": 1,
+     "name": "Zucchini",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G011",
+     "pos": 2,
+     "name": "Paprika",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G011",
+     "pos": 3,
+     "name": "Karotten",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G011",
+     "pos": 4,
+     "name": "Süßkartoffel",
+     "menge": 400,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G011",
+     "pos": 5,
+     "name": "Feta",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G011",
+     "pos": 6,
+     "name": "Olivenöl",
+     "menge": 3,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G011",
+     "pos": 7,
+     "name": "Thymian",
+     "menge": 1,
+     "einheit": "Bund",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G011",
+     "pos": 8,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G011",
+     "pos": 9,
+     "name": "Pfeffer",
+     "menge": null,
+     "einheit": "",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G012",
+   "name": "Lachs mit Brokkoli",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 590,
+   "tags": [
+    "Fisch"
+   ],
+   "favorit": true,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Kartoffeln kochen, Lachs in Butter braten, Brokkoli dämpfen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-04",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G012",
+     "pos": 1,
+     "name": "Lachsfilet",
+     "menge": 300,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G012",
+     "pos": 2,
+     "name": "Brokkoli",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G012",
+     "pos": 3,
+     "name": "Kartoffeln",
+     "menge": 400,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G012",
+     "pos": 4,
+     "name": "Zitrone",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G012",
+     "pos": 5,
+     "name": "Butter",
+     "menge": 1.5,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G012",
+     "pos": 6,
+     "name": "Olivenöl",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G012",
+     "pos": 7,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G012",
+     "pos": 8,
+     "name": "Pfeffer",
+     "menge": null,
+     "einheit": "",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G013",
+   "name": "Kürbissuppe",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 340,
+   "tags": [
+    "Suppe",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Kürbis würfeln, mit Zwiebeln anschwitzen, mit Brühe und Kokosmilch kochen, pürieren.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-07",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G013",
+     "pos": 1,
+     "name": "Hokkaido-Kürbis",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G013",
+     "pos": 2,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G013",
+     "pos": 3,
+     "name": "Kokosmilch",
+     "menge": 200,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G013",
+     "pos": 4,
+     "name": "Gemüsebrühe",
+     "menge": 600,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G013",
+     "pos": 5,
+     "name": "Ingwer",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G013",
+     "pos": 6,
+     "name": "Olivenöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G013",
+     "pos": 7,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G014",
+   "name": "Tortellini in Sahnesauce",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 700,
+   "tags": [
+    "Pasta"
+   ],
+   "favorit": false,
+   "nie_wieder": true,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Tortellini kochen, Schinken anbraten, mit Sahne ablöschen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-10",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G014",
+     "pos": 1,
+     "name": "Tortellini",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G014",
+     "pos": 2,
+     "name": "Sahne",
+     "menge": 200,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G014",
+     "pos": 3,
+     "name": "Schinken",
+     "menge": 100,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G014",
+     "pos": 4,
+     "name": "Parmesan",
+     "menge": 40,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G014",
+     "pos": 5,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G015",
+   "name": "Rührei mit Brot",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 450,
+   "tags": [
+    "Ei",
+    "schnell"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Eier mit Milch verquirlen, in Butter stocken lassen, Brot toasten.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-13",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G015",
+     "pos": 1,
+     "name": "Eier",
+     "menge": 4,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G015",
+     "pos": 2,
+     "name": "Butter",
+     "menge": 20,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G015",
+     "pos": 3,
+     "name": "Brot",
+     "menge": 4,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G015",
+     "pos": 4,
+     "name": "Schnittlauch",
+     "menge": 1,
+     "einheit": "Bund",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G015",
+     "pos": 5,
+     "name": "Milch",
+     "menge": 50,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G015",
+     "pos": 6,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G016",
+   "name": "Kartoffelauflauf",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 640,
+   "tags": [
+    "Auflauf",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": false,
+   "reicht_fuer_tage": 1,
+   "schritte": "Kartoffeln in Scheiben schichten, mit Sahne übergießen, mit Käse überbacken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-16",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G016",
+     "pos": 1,
+     "name": "Kartoffeln",
+     "menge": 1,
+     "einheit": "kg",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G016",
+     "pos": 2,
+     "name": "Sahne",
+     "menge": 200,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G016",
+     "pos": 3,
+     "name": "Käse gerieben",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G016",
+     "pos": 4,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G016",
+     "pos": 5,
+     "name": "Knoblauch",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G016",
+     "pos": 6,
+     "name": "Butter",
+     "menge": 20,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G016",
+     "pos": 7,
+     "name": "Muskat",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G017",
+   "name": "Gulasch mit Nudeln",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 740,
+   "tags": [
+    "Fleisch",
+    "Schmorgericht"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Fleisch scharf anbraten, Zwiebeln und Paprika zugeben, 90 Minuten schmoren.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-19",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G017",
+     "pos": 1,
+     "name": "Rindergulasch",
+     "menge": 600,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G017",
+     "pos": 2,
+     "name": "Zwiebel",
+     "menge": 3,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G017",
+     "pos": 3,
+     "name": "Paprika",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G017",
+     "pos": 4,
+     "name": "Tomatenmark",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G017",
+     "pos": 5,
+     "name": "Nudeln",
+     "menge": 400,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G017",
+     "pos": 6,
+     "name": "Paprikapulver",
+     "menge": 2,
+     "einheit": "TL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G017",
+     "pos": 7,
+     "name": "Gemüsebrühe",
+     "menge": 500,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G017",
+     "pos": 8,
+     "name": "Rapsöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G018",
+   "name": "Tomatensuppe mit Reis",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 360,
+   "tags": [
+    "Suppe",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Zwiebel anschwitzen, Tomaten und Brühe zugeben, Reis darin garen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-22",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G018",
+     "pos": 1,
+     "name": "Tomaten gehackt",
+     "menge": 2,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G018",
+     "pos": 2,
+     "name": "Reis",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G018",
+     "pos": 3,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G018",
+     "pos": 4,
+     "name": "Gemüsebrühe",
+     "menge": 0.5,
+     "einheit": "l",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G018",
+     "pos": 5,
+     "name": "Sahne",
+     "menge": 100,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G018",
+     "pos": 6,
+     "name": "Olivenöl",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G018",
+     "pos": 7,
+     "name": "Basilikum",
+     "menge": 1,
+     "einheit": "Bund",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G018",
+     "pos": 8,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G019",
+   "name": "Thai-Gemüsepfanne",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 430,
+   "tags": [
+    "vegetarisch",
+    "Asia"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse im Wok braten, mit Kokosmilch und Currypaste ablöschen, Reisnudeln dazu.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-25",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G019",
+     "pos": 1,
+     "name": "Reisnudeln",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G019",
+     "pos": 2,
+     "name": "Paprika",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G019",
+     "pos": 3,
+     "name": "Karotten",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G019",
+     "pos": 4,
+     "name": "Brokkoli",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G019",
+     "pos": 5,
+     "name": "Sojasauce",
+     "menge": 3,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G019",
+     "pos": 6,
+     "name": "Kokosmilch",
+     "menge": 200,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G019",
+     "pos": 7,
+     "name": "Currypaste",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G019",
+     "pos": 8,
+     "name": "Erdnüsse",
+     "menge": 50,
+     "einheit": "g",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G020",
+   "name": "Fischstäbchen mit Kartoffelpüree",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 610,
+   "tags": [
+    "Fisch",
+    "Kinderklassiker"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Kartoffeln kochen und stampfen, Fischstäbchen backen, Erbsen erhitzen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-28",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G020",
+     "pos": 1,
+     "name": "Fischstäbchen",
+     "menge": 8,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G020",
+     "pos": 2,
+     "name": "Kartoffeln",
+     "menge": 600,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G020",
+     "pos": 3,
+     "name": "Milch",
+     "menge": 100,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G020",
+     "pos": 4,
+     "name": "Butter",
+     "menge": 30,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G020",
+     "pos": 5,
+     "name": "Erbsen TK",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G020",
+     "pos": 6,
+     "name": "Muskat",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G021",
+   "name": "Wraps mit Hähnchen",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 640,
+   "tags": [
+    "Hähnchen",
+    "schnell"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Hähnchen braten, Gemüse schneiden, Wraps füllen und aufrollen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-31",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G021",
+     "pos": 1,
+     "name": "Wraps",
+     "menge": 4,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G021",
+     "pos": 2,
+     "name": "Hähnchenbrust",
+     "menge": 300,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G021",
+     "pos": 3,
+     "name": "Paprika",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G021",
+     "pos": 4,
+     "name": "Gurke",
+     "menge": 0.5,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G021",
+     "pos": 5,
+     "name": "Joghurt",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G021",
+     "pos": 6,
+     "name": "Eisbergsalat",
+     "menge": 0.5,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G021",
+     "pos": 7,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G022",
+   "name": "Käsespätzle",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 820,
+   "tags": [
+    "vegetarisch",
+    "Klassiker"
+   ],
+   "favorit": true,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Zwiebeln rösten, Spätzle mit Käse schichten, im Ofen überbacken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-11-03",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G022",
+     "pos": 1,
+     "name": "Spätzle",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G022",
+     "pos": 2,
+     "name": "Käse gerieben",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G022",
+     "pos": 3,
+     "name": "Zwiebel",
+     "menge": 3,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G022",
+     "pos": 4,
+     "name": "Butter",
+     "menge": 30,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G022",
+     "pos": 5,
+     "name": "Schnittlauch",
+     "menge": 1,
+     "einheit": "Bund",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G022",
+     "pos": 6,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G022",
+     "pos": 7,
+     "name": "Pfeffer",
+     "menge": null,
+     "einheit": "",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G023",
+   "name": "Grüne-Bohnen-Eintopf",
+   "basis_portionen": 4,
+   "kcal_pro_portion": null,
+   "tags": [
+    "Eintopf"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Fleisch anbraten, Bohnen, Kartoffeln und Bohnenkraut in Brühe garen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-11-06",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G023",
+     "pos": 1,
+     "name": "Grüne Bohnen",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G023",
+     "pos": 2,
+     "name": "Kartoffeln",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G023",
+     "pos": 3,
+     "name": "Rindfleisch",
+     "menge": 300,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G023",
+     "pos": 4,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G023",
+     "pos": 5,
+     "name": "Bohnenkraut",
+     "menge": 1,
+     "einheit": "TL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G023",
+     "pos": 6,
+     "name": "Gemüsebrühe",
+     "menge": 800,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G023",
+     "pos": 7,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G024",
+   "name": "Zucchini-Puffer",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 470,
+   "tags": [
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Zucchini raspeln, ausdrücken, mit Ei und Mehl mischen, braten.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-11-09",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G024",
+     "pos": 1,
+     "name": "Zucchini",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G024",
+     "pos": 2,
+     "name": "Eier",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G024",
+     "pos": 3,
+     "name": "Mehl",
+     "menge": 60,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G024",
+     "pos": 4,
+     "name": "Feta",
+     "menge": 100,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G024",
+     "pos": 5,
+     "name": "Joghurt",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G024",
+     "pos": 6,
+     "name": "Rapsöl",
+     "menge": 3,
+     "einheit": "EL",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G025",
+   "name": "Putengeschnetzeltes mit Reis",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 600,
+   "tags": [
+    "Pute",
+    "Reis"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Pute anbraten, Champignons und Zwiebeln dazu, mit Sahne ablöschen, Reis kochen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-03",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G025",
+     "pos": 1,
+     "name": "Putenbrust",
+     "menge": 350,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G025",
+     "pos": 2,
+     "name": "Reis",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G025",
+     "pos": 3,
+     "name": "Champignons",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G025",
+     "pos": 4,
+     "name": "Sahne",
+     "menge": 150,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G025",
+     "pos": 5,
+     "name": "zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G025",
+     "pos": 6,
+     "name": "Rapsöl",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G025",
+     "pos": 7,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G025",
+     "pos": 8,
+     "name": "Pfeffer",
+     "menge": null,
+     "einheit": "",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G026",
+   "name": "Shakshuka",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 440,
+   "tags": [
+    "Ei",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Zwiebeln und Paprika anbraten, Tomaten einkochen, Eier hineinschlagen und stocken lassen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-06",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G026",
+     "pos": 1,
+     "name": "Eier",
+     "menge": 4,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G026",
+     "pos": 2,
+     "name": "Tomaten gehackt",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G026",
+     "pos": 3,
+     "name": "Paprika",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G026",
+     "pos": 4,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G026",
+     "pos": 5,
+     "name": "Knoblauch",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G026",
+     "pos": 6,
+     "name": "Kreuzkümmel",
+     "menge": 1,
+     "einheit": "TL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G026",
+     "pos": 7,
+     "name": "Olivenöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G026",
+     "pos": 8,
+     "name": "Fladenbrot",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G027",
+   "name": "Hackbällchen in Tomatensauce",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 680,
+   "tags": [
+    "Hackfleisch",
+    "Pasta"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": false,
+   "reicht_fuer_tage": 1,
+   "schritte": "Hackbällchen formen und braten, in Tomatensauce ziehen lassen, Nudeln kochen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-09",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G027",
+     "pos": 1,
+     "name": "Hackfleisch gemischt",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G027",
+     "pos": 2,
+     "name": "Eier",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G027",
+     "pos": 3,
+     "name": "Semmelbrösel",
+     "menge": 50,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G027",
+     "pos": 4,
+     "name": "Tomaten gehackt",
+     "menge": 2,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G027",
+     "pos": 5,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G027",
+     "pos": 6,
+     "name": "Knoblauch",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G027",
+     "pos": 7,
+     "name": "Nudeln",
+     "menge": 400,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G027",
+     "pos": 8,
+     "name": "Olivenöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G028",
+   "name": "Kichererbsen-Curry",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 520,
+   "tags": [
+    "vegetarisch",
+    "Curry"
+   ],
+   "favorit": true,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Zwiebel und Ingwer anbraten, Gewürze, Tomaten, Kokosmilch und Kichererbsen 20 Minuten köcheln.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-12",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G028",
+     "pos": 1,
+     "name": "Kichererbsen",
+     "menge": 2,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G028",
+     "pos": 2,
+     "name": "Kokosmilch",
+     "menge": 400,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G028",
+     "pos": 3,
+     "name": "Tomaten gehackt",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G028",
+     "pos": 4,
+     "name": "Spinat",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G028",
+     "pos": 5,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G028",
+     "pos": 6,
+     "name": "Ingwer",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G028",
+     "pos": 7,
+     "name": "Currypulver",
+     "menge": 2,
+     "einheit": "TL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G028",
+     "pos": 8,
+     "name": "Reis",
+     "menge": 300,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G028",
+     "pos": 9,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G029",
+   "name": "Pellkartoffeln mit Quark",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 510,
+   "tags": [
+    "vegetarisch",
+    "schnell"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Kartoffeln kochen, Quark mit Leinöl und Schnittlauch anrühren.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-15",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G029",
+     "pos": 1,
+     "name": "Kartoffeln",
+     "menge": 800,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G029",
+     "pos": 2,
+     "name": "Quark",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G029",
+     "pos": 3,
+     "name": "Leinöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G029",
+     "pos": 4,
+     "name": "Schnittlauch",
+     "menge": 1,
+     "einheit": "Bund",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G029",
+     "pos": 5,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G029",
+     "pos": 6,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G030",
+   "name": "Maultaschen in Brühe",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 560,
+   "tags": [
+    "Suppe",
+    "schwäbisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": false,
+   "reicht_fuer_tage": 1,
+   "schritte": "Brühe erhitzen, Maultaschen 10 Minuten ziehen lassen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-18",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G030",
+     "pos": 1,
+     "name": "Maultaschen",
+     "menge": 6,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G030",
+     "pos": 2,
+     "name": "Gemüsebrühe",
+     "menge": 1,
+     "einheit": "l",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G030",
+     "pos": 3,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G030",
+     "pos": 4,
+     "name": "Schnittlauch",
+     "menge": 1,
+     "einheit": "Bund",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G030",
+     "pos": 5,
+     "name": "Karotten",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G031",
+   "name": "Ratatouille mit Baguette",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 430,
+   "tags": [
+    "vegetarisch",
+    "Gemüse"
+   ],
+   "favorit": false,
+   "nie_wieder": true,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse würfeln, nacheinander anbraten, mit Tomaten 30 Minuten schmoren.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-21",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G031",
+     "pos": 1,
+     "name": "Aubergine",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G031",
+     "pos": 2,
+     "name": "Zucchini",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G031",
+     "pos": 3,
+     "name": "Paprika",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G031",
+     "pos": 4,
+     "name": "Tomaten gehackt",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G031",
+     "pos": 5,
+     "name": "Zwiebel",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G031",
+     "pos": 6,
+     "name": "Knoblauch",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G031",
+     "pos": 7,
+     "name": "Olivenöl",
+     "menge": 4,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G031",
+     "pos": 8,
+     "name": "Baguette",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G031",
+     "pos": 9,
+     "name": "Thymian",
+     "menge": 1,
+     "einheit": "Bund",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G032",
+   "name": "Reispfanne mit Paprika",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 520,
+   "tags": [
+    "Reis",
+    "schnell"
+   ],
+   "favorit": false,
+   "nie_wieder": true,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Hähnchen und Paprika braten, Reis und Mais zugeben, mit Sojasauce würzen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-24",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G032",
+     "pos": 1,
+     "name": "Reis",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G032",
+     "pos": 2,
+     "name": "Paprika",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G032",
+     "pos": 3,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G032",
+     "pos": 4,
+     "name": "Mais",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G032",
+     "pos": 5,
+     "name": "Hähnchenbrust",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G032",
+     "pos": 6,
+     "name": "Sojasauce",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G032",
+     "pos": 7,
+     "name": "Rapsöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G033",
+   "name": "Spaghetti Bolognese",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 650,
+   "tags": [
+    "Pasta",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Linsen statt Hack: Gemüse anbraten, Linsen und Tomaten zugeben, 20 Minuten köcheln.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-27",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G033",
+     "pos": 1,
+     "name": "Spaghetti",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G033",
+     "pos": 2,
+     "name": "Tellerlinsen",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G033",
+     "pos": 3,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G033",
+     "pos": 4,
+     "name": "Karotten",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G033",
+     "pos": 5,
+     "name": "Tomaten gehackt",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G033",
+     "pos": 6,
+     "name": "Tomatenmark",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G033",
+     "pos": 7,
+     "name": "Olivenöl",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G033",
+     "pos": 8,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G034",
+   "name": "Linsensuppe",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 520,
+   "tags": [
+    "Suppe",
+    "Eintopf"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Linsen und Gemüse in Brühe garen, Würstchen zum Schluss erhitzen, mit Essig abschmecken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-30",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G034",
+     "pos": 1,
+     "name": "Tellerlinsen",
+     "menge": 300,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G034",
+     "pos": 2,
+     "name": "Würstchen",
+     "menge": 4,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G034",
+     "pos": 3,
+     "name": "Kartoffeln",
+     "menge": 400,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G034",
+     "pos": 4,
+     "name": "Karotten",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G034",
+     "pos": 5,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G034",
+     "pos": 6,
+     "name": "Essig",
+     "menge": 1,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G034",
+     "pos": 7,
+     "name": "Gemüsebrühe",
+     "menge": 1.5,
+     "einheit": "l",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G034",
+     "pos": 8,
+     "name": "Wasser",
+     "menge": 500,
+     "einheit": "ml",
+     "einkaufen": false
+    },
+    {
+     "gericht_id": "G034",
+     "pos": 9,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G035",
+   "name": "Frikadellen mit Gurkensalat",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 700,
+   "tags": [
+    "Hackfleisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Hackmasse formen und braten, Gurke hobeln und mit Joghurt-Dill anmachen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-03",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G035",
+     "pos": 1,
+     "name": "Hackfleisch gemischt",
+     "menge": 400,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G035",
+     "pos": 2,
+     "name": "Brötchen",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G035",
+     "pos": 3,
+     "name": "Eier",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G035",
+     "pos": 4,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G035",
+     "pos": 5,
+     "name": "Gurke",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G035",
+     "pos": 6,
+     "name": "Joghurt",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G035",
+     "pos": 7,
+     "name": "Dill",
+     "menge": 1,
+     "einheit": "Bund",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G035",
+     "pos": 8,
+     "name": "Senf",
+     "menge": 1,
+     "einheit": "TL",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G036",
+   "name": "Blumenkohl-Gratin",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 480,
+   "tags": [
+    "Auflauf",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Blumenkohl vorgaren, Sauce kochen, überbacken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-06",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G036",
+     "pos": 1,
+     "name": "Blumenkohl",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G036",
+     "pos": 2,
+     "name": "Käse gerieben",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G036",
+     "pos": 3,
+     "name": "Sahne",
+     "menge": 200,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G036",
+     "pos": 4,
+     "name": "Milch",
+     "menge": 200,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G036",
+     "pos": 5,
+     "name": "Butter",
+     "menge": 30,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G036",
+     "pos": 6,
+     "name": "Mehl",
+     "menge": 30,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G036",
+     "pos": 7,
+     "name": "Muskat",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G036",
+     "pos": 8,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G037",
+   "name": "Rindfleisch-Eintopf (Meal-Prep)",
+   "basis_portionen": 6,
+   "kcal_pro_portion": 600,
+   "tags": [
+    "Eintopf",
+    "Meal-Prep"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 3,
+   "schritte": "Großen Topf ansetzen, 2 Stunden schmoren, portionsweise einfrieren oder drei Tage essen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-09",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G037",
+     "pos": 1,
+     "name": "Rindfleisch",
+     "menge": 900,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G037",
+     "pos": 2,
+     "name": "Kartoffeln",
+     "menge": 1,
+     "einheit": "kg",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G037",
+     "pos": 3,
+     "name": "Karotten",
+     "menge": 5,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G037",
+     "pos": 4,
+     "name": "Lauch",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G037",
+     "pos": 5,
+     "name": "Zwiebel",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G037",
+     "pos": 6,
+     "name": "Gemüsebrühe",
+     "menge": 2,
+     "einheit": "l",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G037",
+     "pos": 7,
+     "name": "Tomatenmark",
+     "menge": 2,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G037",
+     "pos": 8,
+     "name": "Lorbeerblatt",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G037",
+     "pos": 9,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G038",
+   "name": "Griechischer Bauernsalat mit Fladenbrot",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 450,
+   "tags": [
+    "vegetarisch",
+    "Salat"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse schneiden, mit Feta, Oliven und Öl anmachen, Fladenbrot aufbacken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-12",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G038",
+     "pos": 1,
+     "name": "Tomaten",
+     "menge": 4,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G038",
+     "pos": 2,
+     "name": "Gurke",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G038",
+     "pos": 3,
+     "name": "Feta",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G038",
+     "pos": 4,
+     "name": "Oliven",
+     "menge": 100,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G038",
+     "pos": 5,
+     "name": "Rote Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G038",
+     "pos": 6,
+     "name": "Olivenöl",
+     "menge": 3,
+     "einheit": "EL",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G038",
+     "pos": 7,
+     "name": "Fladenbrot",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G038",
+     "pos": 8,
+     "name": "Oregano",
+     "menge": 0.5,
+     "einheit": "TL",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G039",
+   "name": "Erbsensuppe",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 390,
+   "tags": [
+    "Suppe"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": false,
+   "reicht_fuer_tage": 1,
+   "schritte": "Kartoffeln und Erbsen in Brühe kochen, pürieren, Würstchen dazu.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-15",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G039",
+     "pos": 1,
+     "name": "Erbsen TK",
+     "menge": 600,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G039",
+     "pos": 2,
+     "name": "Kartoffeln",
+     "menge": 400,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G039",
+     "pos": 3,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G039",
+     "pos": 4,
+     "name": "Gemüsebrühe",
+     "menge": 1,
+     "einheit": "l",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G039",
+     "pos": 5,
+     "name": "Sahne",
+     "menge": 100,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G039",
+     "pos": 6,
+     "name": "Würstchen",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G039",
+     "pos": 7,
+     "name": "Salz",
+     "menge": null,
+     "einheit": "Prise",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G040",
+   "name": "Ente mit Rotkohl",
+   "basis_portionen": 2,
+   "kcal_pro_portion": null,
+   "tags": [
+    "Idee",
+    "Festtag"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-10-18",
+   "status": "idee",
+   "zutaten": []
+  }
+ ],
+ "plan": [],
+ "bewertungen": [
+  {
+   "gericht_id": "G003",
+   "datum": "2026-10-03",
+   "sterne": 5,
+   "notiz": "sehr lecker",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G003",
+   "datum": "2026-10-24",
+   "sterne": 4,
+   "notiz": "",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G003",
+   "datum": "2026-11-07",
+   "sterne": 5,
+   "notiz": "gern wieder",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G012",
+   "datum": "2026-10-10",
+   "sterne": 4,
+   "notiz": "",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G012",
+   "datum": "2026-11-02",
+   "sterne": 5,
+   "notiz": "Lachs war top",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G022",
+   "datum": "2026-10-17",
+   "sterne": 5,
+   "notiz": "",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G022",
+   "datum": "2026-11-09",
+   "sterne": 4,
+   "notiz": "etwas fettig",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G028",
+   "datum": "2026-10-06",
+   "sterne": 4,
+   "notiz": "",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G028",
+   "datum": "2026-10-30",
+   "sterne": 5,
+   "notiz": "mehr Ingwer",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G014",
+   "datum": "2026-10-08",
+   "sterne": 2,
+   "notiz": "zu schwer",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G014",
+   "datum": "2026-10-29",
+   "sterne": 1,
+   "notiz": "",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G024",
+   "datum": "2026-10-12",
+   "sterne": 2,
+   "notiz": "matschig",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G024",
+   "datum": "2026-11-04",
+   "sterne": 2,
+   "notiz": "",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G035",
+   "datum": "2026-10-15",
+   "sterne": 1,
+   "notiz": "trocken",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G035",
+   "datum": "2026-11-06",
+   "sterne": 2,
+   "notiz": "",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G011",
+   "datum": "2026-10-20",
+   "sterne": 5,
+   "notiz": "überraschend gut",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G001",
+   "datum": "2026-10-01",
+   "sterne": 3,
+   "notiz": "",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G001",
+   "datum": "2026-10-22",
+   "sterne": 4,
+   "notiz": "",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G001",
+   "datum": "2026-11-11",
+   "sterne": 3,
+   "notiz": "",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G007",
+   "datum": "2026-10-14",
+   "sterne": 3,
+   "notiz": "",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G007",
+   "datum": "2026-11-05",
+   "sterne": 4,
+   "notiz": "",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G010",
+   "datum": "2026-10-19",
+   "sterne": 3,
+   "notiz": "",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G010",
+   "datum": "2026-11-10",
+   "sterne": 3,
+   "notiz": "okay",
+   "von": "Partnerin"
+  },
+  {
+   "gericht_id": "G004",
+   "datum": "2026-10-26",
+   "sterne": 2,
+   "notiz": "zu fad",
+   "von": "René"
+  },
+  {
+   "gericht_id": "G004",
+   "datum": "2026-11-12",
+   "sterne": 3,
+   "notiz": "",
+   "von": "Partnerin"
+  }
+ ]
+}

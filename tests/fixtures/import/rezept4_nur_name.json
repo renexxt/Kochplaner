@@ -1,0 +1,13 @@
+{
+ "bild": "rezept4_nur_name.png",
+ "gericht": {
+  "name": "Pizza Hawaii",
+  "basis_portionen": 2,
+  "kcal_pro_portion": "",
+  "tags": "Idee",
+  "quelle": "Screenshot 14.11.2026",
+  "status": "idee",
+  "schritte": ""
+ },
+ "zutaten": []
+}

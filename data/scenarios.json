@@ -1,0 +1,1190 @@
+[
+  {
+    "id": "H01_standard",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G001",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G012",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G022",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G028",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G031",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "sieben verschiedene Gerichte, je 2 Portionen"
+  },
+  {
+    "id": "H02_gkg_mix",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G005",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G037",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G009",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G034",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G013",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G023",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G029",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "Kartoffeln g und kg zu 3,2 kg, Gemuesebruehe l und ml zu 4,1 l"
+  },
+  {
+    "id": "H03_stueck",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G001",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G015",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G002",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G026",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G010",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G021",
+        "portionen": 3
+      }
+    ],
+    "beschreibung": "Stueckzutaten, Aufrunden auf 0,5 erst nach dem Addieren, Schreibweisen von Zwiebel"
+  },
+  {
+    "id": "H04_ohne_menge",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G001",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G002",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G009",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G008",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G003",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G012",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G020",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "Zutaten ohne Menge: Salz geht in der Menge auf, Pfeffer bleibt ohne Menge"
+  },
+  {
+    "id": "H05_wasser",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G003",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G034",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G018",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G013",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G005",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G006",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G017",
+        "portionen": 4
+      }
+    ],
+    "beschreibung": "einkaufen = nein bei Wasser, ml und l gemischt"
+  },
+  {
+    "id": "H06_extrem",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G001",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G001",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G037",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G003",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G022",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G028",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 20
+      }
+    ],
+    "beschreibung": "Portionen 1 und 20, dasselbe Gericht zweimal"
+  },
+  {
+    "id": "H07_wiederholung",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G001",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G001",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G001",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 5
+      }
+    ],
+    "beschreibung": "dasselbe Gericht mehrfach mit verschiedenen Portionen"
+  },
+  {
+    "id": "H08_idee",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G040",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G001",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G012",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G022",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G028",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "Idee ohne Zutaten im Plan darf nichts kaputt machen"
+  },
+  {
+    "id": "H09_doppelte_namen",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G001",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G033",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G034",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G011",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G012",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G021",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "zwei Gerichte mit gleichem Namen, gemeinsame Zutaten"
+  },
+  {
+    "id": "H10_weber",
+    "datei": "profile_weber.xlsx",
+    "start": "2026-12-30",
+    "tage": [
+      {
+        "gericht_id": "G037",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G022",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G013",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G036",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G037",
+        "portionen": 4
+      }
+    ],
+    "beschreibung": "Weber, Meal-Prep-Gericht zweimal, Jahreswechsel"
+  },
+  {
+    "id": "H11_anna",
+    "datei": "profile_anna.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G001",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G002",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G003",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G005",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G006",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G009",
+        "portionen": 1
+      }
+    ],
+    "beschreibung": "Anna, je 1 Portion"
+  },
+  {
+    "id": "H12_brueche",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G038",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G021",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G012",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G038",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G029",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G015",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G026",
+        "portionen": 3
+      }
+    ],
+    "beschreibung": "Bruchmengen, Dezimalkomma und Text-Zahlen in den Zellen"
+  },
+  {
+    "id": "H13_ohne_zutaten",
+    "datei": "edge_noingredients.xlsx",
+    "start": "2026-11-18",
+    "tage": [
+      {
+        "gericht_id": "G001",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G002",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G003",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G005",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G006",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "fertiges Gericht ohne Zutaten (G004) im Plan"
+  },
+  {
+    "id": "R01_zufall",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2026-12-25",
+    "tage": [
+      {
+        "gericht_id": "G029",
+        "portionen": 8
+      },
+      {
+        "gericht_id": "G038",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G028",
+        "portionen": 12
+      },
+      {
+        "gericht_id": "G019",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G017",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G010",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G037",
+        "portionen": 8
+      }
+    ],
+    "beschreibung": "Zufallsplan 1, Datei kochplaner_test.xlsx"
+  },
+  {
+    "id": "R02_zufall",
+    "datei": "profile_ben_clara.xlsx",
+    "start": "2026-12-07",
+    "tage": [
+      {
+        "gericht_id": "G013",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G034",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G008",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G012",
+        "portionen": 8
+      },
+      {
+        "gericht_id": "G024",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G033",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G029",
+        "portionen": 10
+      }
+    ],
+    "beschreibung": "Zufallsplan 2, Datei profile_ben_clara.xlsx"
+  },
+  {
+    "id": "R03_zufall",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2027-02-05",
+    "tage": [
+      {
+        "gericht_id": "G015",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G008",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G037",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G023",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G009",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G032",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G012",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "Zufallsplan 3, Datei kochplaner_test.xlsx"
+  },
+  {
+    "id": "R04_zufall",
+    "datei": "profile_ben_clara.xlsx",
+    "start": "2027-01-30",
+    "tage": [
+      {
+        "gericht_id": "G010",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G012",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G010",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G034",
+        "portionen": 6
+      },
+      {
+        "gericht_id": "G031",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G028",
+        "portionen": 8
+      },
+      {
+        "gericht_id": "G010",
+        "portionen": 4
+      }
+    ],
+    "beschreibung": "Zufallsplan 4, Datei profile_ben_clara.xlsx"
+  },
+  {
+    "id": "R05_zufall",
+    "datei": "profile_ben_clara.xlsx",
+    "start": "2027-02-21",
+    "tage": [
+      {
+        "gericht_id": "G037",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G035",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G010",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G035",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G008",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G036",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G033",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "Zufallsplan 5, Datei profile_ben_clara.xlsx"
+  },
+  {
+    "id": "R06_zufall",
+    "datei": "profile_ben_clara.xlsx",
+    "start": "2027-03-09",
+    "tage": [
+      {
+        "gericht_id": "G018",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G035",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G013",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G002",
+        "portionen": 12
+      },
+      {
+        "gericht_id": "G026",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G013",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G031",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "Zufallsplan 6, Datei profile_ben_clara.xlsx"
+  },
+  {
+    "id": "R07_zufall",
+    "datei": "profile_ben_clara.xlsx",
+    "start": "2026-12-08",
+    "tage": [
+      {
+        "gericht_id": "G038",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G025",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G001",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G028",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G032",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G008",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G017",
+        "portionen": 5
+      }
+    ],
+    "beschreibung": "Zufallsplan 7, Datei profile_ben_clara.xlsx"
+  },
+  {
+    "id": "R08_zufall",
+    "datei": "profile_anna.xlsx",
+    "start": "2027-01-22",
+    "tage": [
+      {
+        "gericht_id": "G011",
+        "portionen": 6
+      },
+      {
+        "gericht_id": "G018",
+        "portionen": 12
+      },
+      {
+        "gericht_id": "G018",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G005",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G019",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 5
+      }
+    ],
+    "beschreibung": "Zufallsplan 8, Datei profile_anna.xlsx"
+  },
+  {
+    "id": "R09_zufall",
+    "datei": "profile_anna.xlsx",
+    "start": "2027-01-14",
+    "tage": [
+      {
+        "gericht_id": "G004",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G010",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G003",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G032",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G020",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G031",
+        "portionen": 12
+      }
+    ],
+    "beschreibung": "Zufallsplan 9, Datei profile_anna.xlsx"
+  },
+  {
+    "id": "R10_zufall",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2027-01-14",
+    "tage": [
+      {
+        "gericht_id": "G031",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G025",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G025",
+        "portionen": 12
+      },
+      {
+        "gericht_id": "G003",
+        "portionen": 12
+      },
+      {
+        "gericht_id": "G021",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G001",
+        "portionen": 12
+      },
+      {
+        "gericht_id": "G036",
+        "portionen": 3
+      }
+    ],
+    "beschreibung": "Zufallsplan 10, Datei kochplaner_test.xlsx"
+  },
+  {
+    "id": "R11_zufall",
+    "datei": "profile_anna.xlsx",
+    "start": "2027-01-04",
+    "tage": [
+      {
+        "gericht_id": "G012",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G025",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G039",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G016",
+        "portionen": 12
+      },
+      {
+        "gericht_id": "G008",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G026",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G002",
+        "portionen": 8
+      }
+    ],
+    "beschreibung": "Zufallsplan 11, Datei profile_anna.xlsx"
+  },
+  {
+    "id": "R12_zufall",
+    "datei": "profile_anna.xlsx",
+    "start": "2027-01-10",
+    "tage": [
+      {
+        "gericht_id": "G020",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G017",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G028",
+        "portionen": 6
+      },
+      {
+        "gericht_id": "G003",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G011",
+        "portionen": 8
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G024",
+        "portionen": 4
+      }
+    ],
+    "beschreibung": "Zufallsplan 12, Datei profile_anna.xlsx"
+  },
+  {
+    "id": "R13_zufall",
+    "datei": "profile_ben_clara.xlsx",
+    "start": "2027-02-17",
+    "tage": [
+      {
+        "gericht_id": "G018",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G028",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G011",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G034",
+        "portionen": 6
+      },
+      {
+        "gericht_id": "G036",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G033",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G011",
+        "portionen": 5
+      }
+    ],
+    "beschreibung": "Zufallsplan 13, Datei profile_ben_clara.xlsx"
+  },
+  {
+    "id": "R14_zufall",
+    "datei": "profile_weber.xlsx",
+    "start": "2027-03-26",
+    "tage": [
+      {
+        "gericht_id": "G004",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G037",
+        "portionen": 8
+      },
+      {
+        "gericht_id": "G037",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G022",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G037",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G036",
+        "portionen": 1
+      }
+    ],
+    "beschreibung": "Zufallsplan 14, Datei profile_weber.xlsx"
+  },
+  {
+    "id": "R15_zufall",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2027-01-19",
+    "tage": [
+      {
+        "gericht_id": "G032",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G033",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G023",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G025",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G015",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G034",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G014",
+        "portionen": 6
+      }
+    ],
+    "beschreibung": "Zufallsplan 15, Datei kochplaner_test.xlsx"
+  },
+  {
+    "id": "R16_zufall",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2027-01-07",
+    "tage": [
+      {
+        "gericht_id": "G019",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G019",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G011",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G026",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G033",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G001",
+        "portionen": 4
+      }
+    ],
+    "beschreibung": "Zufallsplan 16, Datei kochplaner_test.xlsx"
+  },
+  {
+    "id": "R17_zufall",
+    "datei": "profile_ben_clara.xlsx",
+    "start": "2026-12-01",
+    "tage": [
+      {
+        "gericht_id": "G005",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G024",
+        "portionen": 12
+      },
+      {
+        "gericht_id": "G026",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G034",
+        "portionen": 6
+      },
+      {
+        "gericht_id": "G033",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G012",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G002",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "Zufallsplan 17, Datei profile_ben_clara.xlsx"
+  },
+  {
+    "id": "R18_zufall",
+    "datei": "kochplaner_test.xlsx",
+    "start": "2027-03-09",
+    "tage": [
+      {
+        "gericht_id": "G005",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G005",
+        "portionen": 6
+      },
+      {
+        "gericht_id": "G026",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G006",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G029",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G006",
+        "portionen": 6
+      },
+      {
+        "gericht_id": "G031",
+        "portionen": 6
+      }
+    ],
+    "beschreibung": "Zufallsplan 18, Datei kochplaner_test.xlsx"
+  },
+  {
+    "id": "R19_zufall",
+    "datei": "profile_weber.xlsx",
+    "start": "2027-02-26",
+    "tage": [
+      {
+        "gericht_id": "G013",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 1
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 3
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 5
+      },
+      {
+        "gericht_id": "G004",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G022",
+        "portionen": 2
+      }
+    ],
+    "beschreibung": "Zufallsplan 19, Datei profile_weber.xlsx"
+  },
+  {
+    "id": "R20_zufall",
+    "datei": "profile_weber.xlsx",
+    "start": "2026-12-17",
+    "tage": [
+      {
+        "gericht_id": "G013",
+        "portionen": 8
+      },
+      {
+        "gericht_id": "G013",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G037",
+        "portionen": 10
+      },
+      {
+        "gericht_id": "G007",
+        "portionen": 20
+      },
+      {
+        "gericht_id": "G022",
+        "portionen": 2
+      },
+      {
+        "gericht_id": "G036",
+        "portionen": 4
+      },
+      {
+        "gericht_id": "G036",
+        "portionen": 10
+      }
+    ],
+    "beschreibung": "Zufallsplan 20, Datei profile_weber.xlsx"
+  }
+]

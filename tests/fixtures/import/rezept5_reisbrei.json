@@ -1,0 +1,44 @@
+{
+ "bild": "rezept5_reisbrei.png",
+ "gericht": {
+  "name": "Milchreis mit Zimt",
+  "basis_portionen": 2,
+  "kcal_pro_portion": 410,
+  "tags": "süß",
+  "quelle": "Screenshot 14.11.2026",
+  "status": "fertig",
+  "schritte": "Reis in der Milch 35 Minuten quellen lassen, süßen, mit Zimt und Apfelmus servieren."
+ },
+ "zutaten": [
+  {
+   "name": "Rundkornreis",
+   "menge": "200",
+   "einheit": "g",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Milch",
+   "menge": "1.5",
+   "einheit": "l",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Zimt",
+   "menge": "0.5",
+   "einheit": "TL",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Zucker",
+   "menge": "2",
+   "einheit": "EL",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Apfelmus",
+   "menge": "1",
+   "einheit": "Packung",
+   "einkaufen": "ja"
+  }
+ ]
+}

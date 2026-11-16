@@ -1,0 +1,10 @@
+# Nachweise sind gross (Videos, Screenshots, Traces) und liegen nicht im Repo
+evidence/
+node_modules/
+__pycache__/
+*.pyc
+*.zip
+.DS_Store
+# Zugangsdaten nie einchecken
+*.token
+.env

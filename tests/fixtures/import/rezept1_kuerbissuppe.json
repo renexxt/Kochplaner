@@ -1,0 +1,50 @@
+{
+ "bild": "rezept1_kuerbissuppe.png",
+ "gericht": {
+  "name": "Hokkaido-Cremesuppe",
+  "basis_portionen": 4,
+  "kcal_pro_portion": 320,
+  "tags": "Suppe, vegetarisch",
+  "quelle": "Screenshot 14.11.2026",
+  "status": "fertig",
+  "schritte": "Kürbis würfeln, mit Zwiebeln anbraten, mit Brühe auffüllen, 20 Minuten kochen, pürieren, Kokosmilch einrühren."
+ },
+ "zutaten": [
+  {
+   "name": "Hokkaido-Kürbis",
+   "menge": "1",
+   "einheit": "kg",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Zwiebel",
+   "menge": "2",
+   "einheit": "Stück",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Olivenöl",
+   "menge": "1",
+   "einheit": "EL",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Gemüsebrühe",
+   "menge": "800",
+   "einheit": "ml",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Kokosmilch",
+   "menge": "200",
+   "einheit": "ml",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Salz",
+   "menge": "",
+   "einheit": "",
+   "einkaufen": "ja"
+  }
+ ]
+}
