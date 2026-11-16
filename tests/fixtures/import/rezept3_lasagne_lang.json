@@ -1,0 +1,86 @@
+{
+ "bild": "rezept3_lasagne_lang.png",
+ "gericht": {
+  "name": "Ratatouille-Lasagne",
+  "basis_portionen": 6,
+  "kcal_pro_portion": 540,
+  "tags": "Auflauf, vegetarisch",
+  "quelle": "Screenshot 14.11.2026",
+  "status": "fertig",
+  "schritte": "Gemüse anbraten und mit Tomaten köcheln. Béchamel aus Butter, Mehl und Milch rühren. Schichten: Sauce, Platten, Béchamel, Gemüse. Mit Käse bestreuen und 40 Minuten bei 180 Grad backen. Fünf Minuten ruhen lassen."
+ },
+ "zutaten": [
+  {
+   "name": "Lasagneplatten",
+   "menge": "250",
+   "einheit": "g",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Zucchini",
+   "menge": "2",
+   "einheit": "Stück",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Paprika",
+   "menge": "2",
+   "einheit": "Stück",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Aubergine",
+   "menge": "1",
+   "einheit": "Stück",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Passierte Tomaten",
+   "menge": "700",
+   "einheit": "g",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Zwiebel",
+   "menge": "1",
+   "einheit": "Stück",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Knoblauch",
+   "menge": "2",
+   "einheit": "Stück",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Mozzarella",
+   "menge": "250",
+   "einheit": "g",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Parmesan",
+   "menge": "50",
+   "einheit": "g",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Butter",
+   "menge": "40",
+   "einheit": "g",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Mehl",
+   "menge": "40",
+   "einheit": "g",
+   "einkaufen": "ja"
+  },
+  {
+   "name": "Milch",
+   "menge": "0.5",
+   "einheit": "l",
+   "einkaufen": "ja"
+  }
+ ]
+}

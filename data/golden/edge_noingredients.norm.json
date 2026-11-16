@@ -1,0 +1,336 @@
+{
+ "einstellungen": {
+  "standard_portionen": 2,
+  "wiederholungssperre_tage": 21
+ },
+ "gerichte": [
+  {
+   "id": "G001",
+   "name": "Spaghetti Bolognese",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 720,
+   "tags": [
+    "Pasta",
+    "Hackfleisch"
+   ],
+   "favorit": true,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Zwiebel und Knoblauch anbraten, Hack dazu, Tomaten einkochen, Nudeln kochen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-01",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G001",
+     "pos": 1,
+     "name": "Spaghetti",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 2,
+     "name": "Hackfleisch gemischt",
+     "menge": 300,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G001",
+     "pos": 3,
+     "name": "Zwiebel",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G002",
+   "name": "Spaghetti Carbonara",
+   "basis_portionen": 2,
+   "kcal_pro_portion": 780,
+   "tags": [
+    "Pasta"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Speck auslassen, Eier mit Parmesan verrühren, alles mit den heißen Nudeln mischen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-04",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G002",
+     "pos": 1,
+     "name": "Spaghetti",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G002",
+     "pos": 2,
+     "name": "Speck",
+     "menge": 150,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G002",
+     "pos": 3,
+     "name": "Eier",
+     "menge": 3,
+     "einheit": "Stück",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G003",
+   "name": "Hähnchen-Curry mit Reis",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 650,
+   "tags": [
+    "Curry",
+    "Reis"
+   ],
+   "favorit": true,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Hähnchen anbraten, Gemüse und Currypaste dazu, mit Kokosmilch ablöschen, Reis kochen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-07",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G003",
+     "pos": 1,
+     "name": "Hähnchenbrust",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 2,
+     "name": "Reis",
+     "menge": 300,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G003",
+     "pos": 3,
+     "name": "Kokosmilch",
+     "menge": 0.4,
+     "einheit": "l",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G004",
+   "name": "Linsensuppe",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 420,
+   "tags": [
+    "Suppe",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse würfeln, mit Linsen und Brühe 25 Minuten kochen, pürieren.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-10",
+   "status": "fertig",
+   "zutaten": []
+  },
+  {
+   "id": "G005",
+   "name": "Kartoffelsuppe",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 380,
+   "tags": [
+    "Suppe",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse und Kartoffeln würfeln, in Brühe weich kochen, mit Sahne abschmecken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-13",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G005",
+     "pos": 1,
+     "name": "Kartoffeln",
+     "menge": 800,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 2,
+     "name": "Karotten",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G005",
+     "pos": 3,
+     "name": "Lauch",
+     "menge": 1,
+     "einheit": "Stück",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G006",
+   "name": "Gemüselasagne",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 610,
+   "tags": [
+    "Auflauf",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Gemüse anbraten, Béchamel kochen, schichten, 35 Minuten backen.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-16",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G006",
+     "pos": 1,
+     "name": "Lasagneplatten",
+     "menge": 250,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 2,
+     "name": "Zucchini",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G006",
+     "pos": 3,
+     "name": "Paprika",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G007",
+   "name": "Chili con Carne",
+   "basis_portionen": 4,
+   "kcal_pro_portion": 690,
+   "tags": [
+    "Hackfleisch",
+    "scharf"
+   ],
+   "favorit": true,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Hack anbraten, Zwiebeln, Paprika und Tomaten dazu, 30 Minuten köcheln, Bohnen und Mais zugeben.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-19",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G007",
+     "pos": 1,
+     "name": "Hackfleisch gemischt",
+     "menge": 500,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 2,
+     "name": "Kidneybohnen",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G007",
+     "pos": 3,
+     "name": "Mais",
+     "menge": 1,
+     "einheit": "Dose",
+     "einkaufen": true
+    }
+   ]
+  },
+  {
+   "id": "G008",
+   "name": "Pfannkuchen",
+   "basis_portionen": 2,
+   "kcal_pro_portion": null,
+   "tags": [
+    "süß",
+    "vegetarisch"
+   ],
+   "favorit": false,
+   "nie_wieder": false,
+   "aktiv": true,
+   "reicht_fuer_tage": 1,
+   "schritte": "Teig rühren, 10 Minuten ruhen lassen, portionsweise ausbacken.",
+   "quelle": "Testdaten",
+   "angelegt_am": "2026-09-22",
+   "status": "fertig",
+   "zutaten": [
+    {
+     "gericht_id": "G008",
+     "pos": 1,
+     "name": "Mehl",
+     "menge": 200,
+     "einheit": "g",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G008",
+     "pos": 2,
+     "name": "Milch",
+     "menge": 300,
+     "einheit": "ml",
+     "einkaufen": true
+    },
+    {
+     "gericht_id": "G008",
+     "pos": 3,
+     "name": "Eier",
+     "menge": 2,
+     "einheit": "Stück",
+     "einkaufen": true
+    }
+   ]
+  }
+ ],
+ "plan": [],
+ "bewertungen": []
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "anna",
+    "name": "Anna",
+    "datei": "profile_anna.xlsx",
+    "start": "2026-11-18",
+    "standard_portionen": 1,
+    "sperre": 21,
+    "beschreibung": "Single, 1 Portion, 40 Gerichte aktiv, Plan leer"
+  },
+  {
+    "id": "ben_clara",
+    "name": "Ben und Clara",
+    "datei": "profile_ben_clara.xlsx",
+    "start": "2026-11-20",
+    "standard_portionen": 2,
+    "sperre": 21,
+    "beschreibung": "Paar, 2 Portionen, 14 Tage Historie vom 06.11. bis 19.11.2026"
+  },
+  {
+    "id": "weber",
+    "name": "Familie Weber",
+    "datei": "profile_weber.xlsx",
+    "start": "2026-12-30",
+    "standard_portionen": 4,
+    "sperre": 21,
+    "beschreibung": "4 Portionen, nur 6 aktive Gerichte inkl. Meal-Prep, Jahreswechsel"
+  }
+]

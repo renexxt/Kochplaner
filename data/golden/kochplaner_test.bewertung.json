@@ -1,0 +1,238 @@
+{
+ "statistik": {
+  "G003": {
+   "anzahl": 3,
+   "durchschnitt": 4.6667
+  },
+  "G012": {
+   "anzahl": 2,
+   "durchschnitt": 4.5
+  },
+  "G022": {
+   "anzahl": 2,
+   "durchschnitt": 4.5
+  },
+  "G028": {
+   "anzahl": 2,
+   "durchschnitt": 4.5
+  },
+  "G014": {
+   "anzahl": 2,
+   "durchschnitt": 1.5
+  },
+  "G024": {
+   "anzahl": 2,
+   "durchschnitt": 2.0
+  },
+  "G035": {
+   "anzahl": 2,
+   "durchschnitt": 1.5
+  },
+  "G011": {
+   "anzahl": 1,
+   "durchschnitt": 5.0
+  },
+  "G001": {
+   "anzahl": 3,
+   "durchschnitt": 3.3333
+  },
+  "G007": {
+   "anzahl": 2,
+   "durchschnitt": 3.5
+  },
+  "G010": {
+   "anzahl": 2,
+   "durchschnitt": 3.0
+  },
+  "G004": {
+   "anzahl": 2,
+   "durchschnitt": 2.5
+  }
+ },
+ "rangliste": {
+  "alle": [
+   {
+    "gericht_id": "G003",
+    "anzahl": 3,
+    "durchschnitt": 4.6667
+   },
+   {
+    "gericht_id": "G022",
+    "anzahl": 2,
+    "durchschnitt": 4.5
+   },
+   {
+    "gericht_id": "G028",
+    "anzahl": 2,
+    "durchschnitt": 4.5
+   },
+   {
+    "gericht_id": "G012",
+    "anzahl": 2,
+    "durchschnitt": 4.5
+   },
+   {
+    "gericht_id": "G007",
+    "anzahl": 2,
+    "durchschnitt": 3.5
+   },
+   {
+    "gericht_id": "G001",
+    "anzahl": 3,
+    "durchschnitt": 3.3333
+   },
+   {
+    "gericht_id": "G010",
+    "anzahl": 2,
+    "durchschnitt": 3.0
+   },
+   {
+    "gericht_id": "G004",
+    "anzahl": 2,
+    "durchschnitt": 2.5
+   },
+   {
+    "gericht_id": "G024",
+    "anzahl": 2,
+    "durchschnitt": 2.0
+   },
+   {
+    "gericht_id": "G035",
+    "anzahl": 2,
+    "durchschnitt": 1.5
+   },
+   {
+    "gericht_id": "G014",
+    "anzahl": 2,
+    "durchschnitt": 1.5
+   }
+  ],
+  "beste": [
+   "G003",
+   "G022",
+   "G028",
+   "G012",
+   "G007"
+  ],
+  "schwaechste": [
+   "G014",
+   "G035",
+   "G024",
+   "G004",
+   "G010"
+  ]
+ },
+ "gewichte": {
+  "G001": 2.0,
+  "G002": 1.0,
+  "G003": 3.0,
+  "G004": 1.0,
+  "G005": 1.0,
+  "G006": 1.0,
+  "G007": 2.0,
+  "G008": 1.0,
+  "G009": 1.0,
+  "G010": 1.0,
+  "G011": 1.0,
+  "G012": 3.0,
+  "G013": 1.0,
+  "G014": 0.5,
+  "G015": 1.0,
+  "G016": 1.0,
+  "G017": 1.0,
+  "G018": 1.0,
+  "G019": 1.0,
+  "G020": 1.0,
+  "G021": 1.0,
+  "G022": 3.0,
+  "G023": 1.0,
+  "G024": 0.5,
+  "G025": 1.0,
+  "G026": 1.0,
+  "G027": 1.0,
+  "G028": 3.0,
+  "G029": 1.0,
+  "G030": 1.0,
+  "G031": 1.0,
+  "G032": 1.0,
+  "G033": 1.0,
+  "G034": 1.0,
+  "G035": 0.5,
+  "G036": 1.0,
+  "G037": 1.0,
+  "G038": 1.0,
+  "G039": 1.0,
+  "G040": 1.0
+ },
+ "zulaessig_shuffle": [
+  "G001",
+  "G002",
+  "G003",
+  "G004",
+  "G005",
+  "G006",
+  "G007",
+  "G008",
+  "G009",
+  "G010",
+  "G011",
+  "G012",
+  "G013",
+  "G015",
+  "G017",
+  "G018",
+  "G019",
+  "G020",
+  "G021",
+  "G022",
+  "G023",
+  "G024",
+  "G025",
+  "G026",
+  "G028",
+  "G029",
+  "G033",
+  "G034",
+  "G035",
+  "G036",
+  "G037",
+  "G038"
+ ],
+ "auswaehlbar": [
+  "G001",
+  "G002",
+  "G003",
+  "G004",
+  "G005",
+  "G006",
+  "G007",
+  "G008",
+  "G009",
+  "G010",
+  "G011",
+  "G012",
+  "G013",
+  "G014",
+  "G015",
+  "G017",
+  "G018",
+  "G019",
+  "G020",
+  "G021",
+  "G022",
+  "G023",
+  "G024",
+  "G025",
+  "G026",
+  "G028",
+  "G029",
+  "G031",
+  "G032",
+  "G033",
+  "G034",
+  "G035",
+  "G036",
+  "G037",
+  "G038"
+ ]
+}

@@ -1,0 +1,530 @@
+{
+ "2026-11-18": [
+  {
+   "datum": "2026-11-18",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 18.11.2026"
+  },
+  {
+   "datum": "2026-11-19",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 19.11.2026"
+  },
+  {
+   "datum": "2026-11-20",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 20.11.2026"
+  },
+  {
+   "datum": "2026-11-21",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 21.11.2026"
+  },
+  {
+   "datum": "2026-11-22",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 22.11.2026"
+  },
+  {
+   "datum": "2026-11-23",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 23.11.2026"
+  },
+  {
+   "datum": "2026-11-24",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 24.11.2026"
+  }
+ ],
+ "2026-11-20": [
+  {
+   "datum": "2026-11-20",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 20.11.2026"
+  },
+  {
+   "datum": "2026-11-21",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 21.11.2026"
+  },
+  {
+   "datum": "2026-11-22",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 22.11.2026"
+  },
+  {
+   "datum": "2026-11-23",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 23.11.2026"
+  },
+  {
+   "datum": "2026-11-24",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 24.11.2026"
+  },
+  {
+   "datum": "2026-11-25",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 25.11.2026"
+  },
+  {
+   "datum": "2026-11-26",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 26.11.2026"
+  }
+ ],
+ "2026-10-21": [
+  {
+   "datum": "2026-10-21",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 21.10.2026"
+  },
+  {
+   "datum": "2026-10-22",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 22.10.2026"
+  },
+  {
+   "datum": "2026-10-23",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 23.10.2026"
+  },
+  {
+   "datum": "2026-10-24",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 24.10.2026"
+  },
+  {
+   "datum": "2026-10-25",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 25.10.2026"
+  },
+  {
+   "datum": "2026-10-26",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 26.10.2026"
+  },
+  {
+   "datum": "2026-10-27",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 27.10.2026"
+  }
+ ],
+ "2027-03-24": [
+  {
+   "datum": "2027-03-24",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 24.03.2027"
+  },
+  {
+   "datum": "2027-03-25",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 25.03.2027"
+  },
+  {
+   "datum": "2027-03-26",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 26.03.2027"
+  },
+  {
+   "datum": "2027-03-27",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 27.03.2027"
+  },
+  {
+   "datum": "2027-03-28",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 28.03.2027"
+  },
+  {
+   "datum": "2027-03-29",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 29.03.2027"
+  },
+  {
+   "datum": "2027-03-30",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 30.03.2027"
+  }
+ ],
+ "2026-03-25": [
+  {
+   "datum": "2026-03-25",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 25.03.2026"
+  },
+  {
+   "datum": "2026-03-26",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 26.03.2026"
+  },
+  {
+   "datum": "2026-03-27",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 27.03.2026"
+  },
+  {
+   "datum": "2026-03-28",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 28.03.2026"
+  },
+  {
+   "datum": "2026-03-29",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 29.03.2026"
+  },
+  {
+   "datum": "2026-03-30",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 30.03.2026"
+  },
+  {
+   "datum": "2026-03-31",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 31.03.2026"
+  }
+ ],
+ "2026-12-30": [
+  {
+   "datum": "2026-12-30",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 30.12.2026"
+  },
+  {
+   "datum": "2026-12-31",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 31.12.2026"
+  },
+  {
+   "datum": "2027-01-01",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 01.01.2027"
+  },
+  {
+   "datum": "2027-01-02",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 02.01.2027"
+  },
+  {
+   "datum": "2027-01-03",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 03.01.2027"
+  },
+  {
+   "datum": "2027-01-04",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 04.01.2027"
+  },
+  {
+   "datum": "2027-01-05",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 05.01.2027"
+  }
+ ],
+ "2027-12-29": [
+  {
+   "datum": "2027-12-29",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 29.12.2027"
+  },
+  {
+   "datum": "2027-12-30",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 30.12.2027"
+  },
+  {
+   "datum": "2027-12-31",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 31.12.2027"
+  },
+  {
+   "datum": "2028-01-01",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 01.01.2028"
+  },
+  {
+   "datum": "2028-01-02",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 02.01.2028"
+  },
+  {
+   "datum": "2028-01-03",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 03.01.2028"
+  },
+  {
+   "datum": "2028-01-04",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 04.01.2028"
+  }
+ ],
+ "2028-02-26": [
+  {
+   "datum": "2028-02-26",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 26.02.2028"
+  },
+  {
+   "datum": "2028-02-27",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 27.02.2028"
+  },
+  {
+   "datum": "2028-02-28",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 28.02.2028"
+  },
+  {
+   "datum": "2028-02-29",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 29.02.2028"
+  },
+  {
+   "datum": "2028-03-01",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 01.03.2028"
+  },
+  {
+   "datum": "2028-03-02",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 02.03.2028"
+  },
+  {
+   "datum": "2028-03-03",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 03.03.2028"
+  }
+ ],
+ "2027-02-26": [
+  {
+   "datum": "2027-02-26",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 26.02.2027"
+  },
+  {
+   "datum": "2027-02-27",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 27.02.2027"
+  },
+  {
+   "datum": "2027-02-28",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 28.02.2027"
+  },
+  {
+   "datum": "2027-03-01",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 01.03.2027"
+  },
+  {
+   "datum": "2027-03-02",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 02.03.2027"
+  },
+  {
+   "datum": "2027-03-03",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 03.03.2027"
+  },
+  {
+   "datum": "2027-03-04",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 04.03.2027"
+  }
+ ],
+ "2026-11-28": [
+  {
+   "datum": "2026-11-28",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 28.11.2026"
+  },
+  {
+   "datum": "2026-11-29",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 29.11.2026"
+  },
+  {
+   "datum": "2026-11-30",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 30.11.2026"
+  },
+  {
+   "datum": "2026-12-01",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 01.12.2026"
+  },
+  {
+   "datum": "2026-12-02",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 02.12.2026"
+  },
+  {
+   "datum": "2026-12-03",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 03.12.2026"
+  },
+  {
+   "datum": "2026-12-04",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 04.12.2026"
+  }
+ ],
+ "2026-12-27": [
+  {
+   "datum": "2026-12-27",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 27.12.2026"
+  },
+  {
+   "datum": "2026-12-28",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 28.12.2026"
+  },
+  {
+   "datum": "2026-12-29",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 29.12.2026"
+  },
+  {
+   "datum": "2026-12-30",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 30.12.2026"
+  },
+  {
+   "datum": "2026-12-31",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 31.12.2026"
+  },
+  {
+   "datum": "2027-01-01",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 01.01.2027"
+  },
+  {
+   "datum": "2027-01-02",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 02.01.2027"
+  }
+ ],
+ "2026-01-01": [
+  {
+   "datum": "2026-01-01",
+   "wochentag": "Donnerstag",
+   "kurz": "Do",
+   "anzeige": "Do 01.01.2026"
+  },
+  {
+   "datum": "2026-01-02",
+   "wochentag": "Freitag",
+   "kurz": "Fr",
+   "anzeige": "Fr 02.01.2026"
+  },
+  {
+   "datum": "2026-01-03",
+   "wochentag": "Samstag",
+   "kurz": "Sa",
+   "anzeige": "Sa 03.01.2026"
+  },
+  {
+   "datum": "2026-01-04",
+   "wochentag": "Sonntag",
+   "kurz": "So",
+   "anzeige": "So 04.01.2026"
+  },
+  {
+   "datum": "2026-01-05",
+   "wochentag": "Montag",
+   "kurz": "Mo",
+   "anzeige": "Mo 05.01.2026"
+  },
+  {
+   "datum": "2026-01-06",
+   "wochentag": "Dienstag",
+   "kurz": "Di",
+   "anzeige": "Di 06.01.2026"
+  },
+  {
+   "datum": "2026-01-07",
+   "wochentag": "Mittwoch",
+   "kurz": "Mi",
+   "anzeige": "Mi 07.01.2026"
+  }
+ ]
+}
