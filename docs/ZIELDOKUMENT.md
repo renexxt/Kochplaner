@@ -14,12 +14,12 @@ Die App muss können:
 - Einen Einkaufszettel aus den 7 Tagen bilden und nach Apple Erinnerungen und Apple Notes bringen.
 - Neue Gerichte aufnehmen: Du sagst oder schickst sie Claude im Chat (Screenshot, Text oder Diktat), Claude schreibt sie über den Google-Sheets-Konnektor ins Sheet, die App liest sie nur ab; alternativ gibt es ein Formular in der App.
 - Gerichte nach dem Kochen mit 1 bis 5 Sternen bewerten und eine Rangliste der besten und schwächsten Gerichte zeigen; gut bewertete Gerichte werden öfter vorgeschlagen.
+- Fehlt bei einem Gericht kcal pro Portion, automatisch eine Schätzung aus einer einfachen Lebensmittel-Datenbank im Sheet berechnen; ein von Hand eingetragener Wert geht immer vor (F24).
 - Eine Hilfe mit geführter Tour und Anleitung bieten, damit auch deine Frau ohne Erklärung klarkommt.
 
 Bewusst nicht Teil des Ziels:
 
 - Kein Anthropic-API-Key und keine KI-Funktion in der App selbst.
-- Keine automatische Kalorienberechnung; kcal pro Portion trägst du ins Sheet ein.
 - Keine Sortierung des Einkaufszettels nach Supermarktabteilung.
 - Nur eine Mahlzeit pro Tag, immer genau 7 Tage.
 - Keine Live-Kamera und kein Live-Mikrofon in der App, weil beides in iOS-Home-Bildschirm-Apps nach der Recherche unzuverlässig ist.
@@ -38,7 +38,7 @@ Diese Punkte gelten als beschlossen; Claude arbeitet danach ohne Rückfragen wei
 | Zeitraum | Startdatum frei wählbar, immer genau 7 Tage; „Mi–Mi“ heißt Mittwoch bis Dienstag | René, Auslegung ist Annahme |
 | Auswahl | Shuffle schlägt Gerichte vor, ein Tipp auf einen Tag ändert das Gericht | René |
 | Portionen | Standard 2, in den Einstellungen änderbar, pro Tag änderbar | Annahme (Kommentar dazu im Original noch offen, Standard bleibt 2) |
-| Kalorien | kcal pro Portion steht im Sheet und wird von Hand eingetragen, keine Berechnung | René |
+| Kalorien | kcal pro Portion steht im Sheet; ein von Hand eingetragener Wert geht immer vor. Ist das Feld leer, schätzt die App es automatisch aus den Tabs „Lebensmittel“ und „Richtgewichte“ (F24); bleiben Zutaten nicht zuordenbar, zeigt die App „ca.“ und die Anzahl, ohne zu raten | René (ursprünglich „keine Berechnung“), am 27.11.2026 vom Nutzer aufgehoben |
 | Einkaufszettel | Eine flache Liste ohne Abteilungen | René |
 | Export | Zwei Buttons: Apple Erinnerungen per Kurzbefehl und Apple Notes per Kopie mit einem Tap auf „Checkliste“ | René, „Beides“ |
 | Datenbank | Google Sheet in eurem gemeinsamen Google Drive | René |
@@ -59,7 +59,7 @@ Die App kommt als statische Datei vom Hoster, spricht nur mit der Apps-Script-Sc
 
 ## Datenmodell des Google Sheets
 
-Das Sheet hat fünf Tabs. Die Spaltennamen sind fest, weil auch der Claude-Chat-Import danach schreibt. Die App liest tolerant (Dezimalkomma oder -punkt, ja/nein in beliebiger Schreibweise) und schreibt normalisiert.
+Das Sheet hat sieben Tabs. Die Spaltennamen sind fest, weil auch der Claude-Chat-Import danach schreibt. Die App liest tolerant (Dezimalkomma oder -punkt, ja/nein in beliebiger Schreibweise) und schreibt normalisiert.
 
 **Tab „Gerichte“**, eine Zeile pro Gericht:
 
@@ -68,7 +68,7 @@ Das Sheet hat fünf Tabs. Die Spaltennamen sind fest, weil auch der Claude-Chat-
 | id | ja | eindeutig, z. B. G001 |
 | name | ja | Duplikat gibt einen Hinweis, blockiert nicht |
 | basis_portionen | ja | Portionen, auf die sich die Zutatenmengen beziehen, z. B. 4 |
-| kcal_pro_portion | nein | Zahl; leer heißt „kcal fehlt“ in der App, nie 0 |
+| kcal_pro_portion | nein | Zahl; leer heißt „kcal fehlt“ bzw. wird automatisch geschätzt (F24), nie 0 |
 | tags | nein | kommagetrennt, nur für die Suche |
 | favorit | nein | ja/nein, Shuffle gewichtet höher |
 | nie_wieder | nein | ja/nein, Shuffle schlägt das Gericht nie vor |
@@ -78,6 +78,7 @@ Das Sheet hat fünf Tabs. Die Spaltennamen sind fest, weil auch der Claude-Chat-
 | quelle | nein | z. B. „Screenshot 14.11.2026“ |
 | angelegt_am | ja | Datum |
 | status | nein | fertig oder idee, Standard fertig; „idee“ heißt: nur der Name steht fest, Zutaten fehlen noch; Shuffle und Tauschen ignorieren Ideen |
+| typ | nein | hauptgericht oder beilage, Standard hauptgericht (leere Zelle); bestehende Gerichte ohne diese Spalte bleiben Hauptgerichte |
 
 **Tab „Zutaten“**, eine Zeile pro Zutat:
 
@@ -90,11 +91,16 @@ Das Sheet hat fünf Tabs. Die Spaltennamen sind fest, weil auch der Claude-Chat-
 | einheit | nein | g, kg, ml, l, EL, TL, Stück, Dose, Bund, Packung, Prise oder leer |
 | einkaufen | ja | ja/nein, Standard ja; nein z. B. für Wasser |
 
-**Tab „Plan“**, eine Zeile pro Tag, zugleich die Historie für die Wiederholungssperre: woche_start, datum, gericht_id, portionen, fixiert (ja/nein), geaendert_am.
+**Tab „Plan“**, eine Zeile pro Tag, zugleich die Historie für die Wiederholungssperre: woche_start, datum, gericht_id, portionen, fixiert (ja/nein), geaendert_am, beilage_id (optional, Verweis auf ein Gericht mit typ = beilage; leer heißt kein Beilagengericht an diesem Tag). Skalierung und Einkaufszettel verarbeiten gericht_id und beilage_id unabhängig, jedes mit seiner eigenen basis_portionen, beide zusammen mit derselben Portionenzahl des Tages.
 
 **Tab „Bewertungen“**, eine Zeile pro Bewertung: gericht_id, datum, sterne (1 bis 5), notiz, von (Name oder Gerät, optional).
 
 **Tab „Einstellungen“**, Schlüssel und Wert: standard_portionen = 2, wiederholungssperre_tage = 21.
+
+**Tab „Lebensmittel“** (F24), eine Zeile pro Lebensmittel: name, kcal_je_100g (Zahl, bezogen auf 100 g bzw. 100 ml).
+
+**Tab „Richtgewichte“** (F24), eine Zeile pro Lebensmittel-Einheit-Kombination: name, einheit (Stück, EL, TL, Dose, Bund, Packung oder Prise – alles außer g/ml, die direkt umgerechnet werden), gramm
+(z. B. „Ei“, „Stück“, 55). Wandelt Stückzahlen u. Ä. in Gramm um, bevor mit „Lebensmittel“ die Kalorien berechnet werden.
 
 ## Synthetische Testdaten und drei Testprofile
 
@@ -125,7 +131,7 @@ Die erwarteten Ergebnisse (Einkaufszettel, skalierte Mengen, Tagessummen) berech
 
 ## Funktionen und Abnahmekriterien
 
-23 Funktionen, jede mit einem messbaren Kriterium und einem Eintrag im Evidenz-Report. Muss und Soll müssen am Ende bestehen, Kann nur, wenn alles andere grün ist.
+24 Funktionen, jede mit einem messbaren Kriterium und einem Eintrag im Evidenz-Report. Muss und Soll müssen am Ende bestehen, Kann nur, wenn alles andere grün ist.
 
 | ID | Funktion | Prio | Abnahmekriterium |
 |---|---|---|---|
@@ -152,6 +158,8 @@ Die erwarteten Ergebnisse (Einkaufszettel, skalierte Mengen, Tagessummen) berech
 | F21 | Gerichte aktualisieren | Muss | Beim Öffnen und per Button „Aktualisieren“ holt die App die neuesten Daten aus dem Sheet; ein vom Claude-Chat neu eingetragenes Gericht erscheint danach in der Gerichteliste, ohne dass etwas neu installiert wird; die App zeigt die Uhrzeit des letzten Abgleichs. |
 | F22 | Gericht bewerten | Soll | Im Tagesbild eines heutigen oder vergangenen Tages gibt es Sterne von 1 bis 5 und eine optionale Notiz; jede Bewertung wird als Zeile im Tab „Bewertungen“ gespeichert; erneutes Bewerten desselben Tages überschreibt; zukünftige Tage lassen sich nicht bewerten; Durchschnitt und Anzahl je Gericht stimmen mit dem Orakel überein. |
 | F23 | Rangliste und Gewichtung | Soll | Eine Rangliste zeigt die besten und schwächsten Gerichte nach Durchschnitt (ab 2 Bewertungen). Das Shuffle-Gewicht eines Gerichts ist 1, mit Favorit ×2, bei Durchschnitt ab 4 ×1,5 und bei Durchschnitt bis 2 (ab 2 Bewertungen) ×0,5; ein Gericht mit Durchschnitt bis 2 kommt bei 1000 Läufen mit festem Seed höchstens 0,75-mal so oft vor wie ein unbewertetes. |
+| F24 | Automatische Kalorienberechnung | Soll | Ist kcal_pro_portion leer, berechnet die App sie aus den Zutaten über „Lebensmittel“ (g/ml direkt) und „Richtgewichte“ (andere Einheiten erst in Gramm); ein von Hand eingetragener Wert bleibt immer unangetastet; Zutaten ohne Treffer in beiden Tabs werden ausgelassen und als „ca.“ mit Anzahl gekennzeichnet, nicht geraten; Zutaten ohne Menge zählen weder zur Summe noch zu den nicht zuordenbaren. |
+| F25 | Ausgaben erfassen | Soll | Datum, Betrag (Dezimalkomma, größer 0) und Beschreibung lassen sich jederzeit als eigener Eintrag speichern, unabhängig vom Plan oder Einkaufszettel einer bestimmten Woche; erreichbar sowohl über einen Button auf dem Einkaufszettel als auch eigenständig über die Einstellungen; eine Liste zeigt die zuletzt erfassten Ausgaben, neueste zuerst; jede Ausgabe landet als eigene Zeile im Tab „Ausgaben“ (Spalten `datum, betrag, beschreibung, angelegt_am`), unabhängig von „lesen“. |
 
 ## Teststrategie und Beweisführung
 
@@ -202,7 +210,7 @@ Fertig ist das Projekt, wenn die Erfolgskriterien der Iterationsschleife erfüll
 
 Die Sandbox kann vier Dinge nicht beweisen: echtes Safari auf iPhone und iPad, echtes Google, echte Apple Erinnerungen und Notes sowie die echte Bilderkennung. Dafür gibt es diesen Test, grob etwa 30 Minuten (Schätzung). René hakt ab, was passt; was nicht passt, schreibt er mit der Schritt-Nummer.
 
-- [ ] 1. Leeres Google Sheet in eurem Drive anlegen und Claude den Link geben → fünf Tabs mit Kopfzeilen sind da.
+- [ ] 1. Leeres Google Sheet in eurem Drive anlegen und Claude den Link geben → sieben Tabs mit Kopfzeilen sind da.
 - [ ] 2. `Code.gs` in Apps Script einfügen und als Web-App bereitstellen → du hast Adresse und Token.
 - [ ] 3. App-Ordner beim Hoster hochladen → die Adresse öffnet die App in Safari auf dem iPhone.
 - [ ] 4. „Zum Home-Bildschirm“ → Symbol und Name stimmen, die App startet ohne Safari-Leiste.

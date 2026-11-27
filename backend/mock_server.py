@@ -36,12 +36,23 @@ VERSION = 1
 TZ = ZoneInfo("Europe/Berlin")
 TABS = {
     "Gerichte": ["id", "name", "basis_portionen", "kcal_pro_portion", "tags", "favorit", "nie_wieder", "aktiv",
-                 "reicht_fuer_tage", "schritte", "quelle", "angelegt_am", "status"],
+                 "reicht_fuer_tage", "schritte", "quelle", "angelegt_am", "status", "typ"],
     "Zutaten": ["gericht_id", "pos", "name", "menge", "einheit", "einkaufen"],
-    "Plan": ["woche_start", "datum", "gericht_id", "portionen", "fixiert", "geaendert_am"],
+    "Plan": ["woche_start", "datum", "gericht_id", "portionen", "fixiert", "geaendert_am", "beilage_id"],
     "Bewertungen": ["gericht_id", "datum", "sterne", "notiz", "von"],
     "Einstellungen": ["schluessel", "wert"],
+    "Lebensmittel": ["name", "kcal_je_100g"],
+    "Richtgewichte": ["name", "einheit", "gramm"],
+    # Ausgaben (F25): eigenstaendig, nicht an einen bestimmten Einkaufszettel oder Plan gebunden. Die allgemeine
+    # Aktion "lesen" liefert diesen Tab bewusst nicht mit (siehe LESEN_TABS), dafuer gibt es ausgabe_speichern/ausgaben_lesen.
+    "Ausgaben": ["datum", "betrag", "beschreibung", "angelegt_am"],
 }
+# Optionale Spalten, die ein bestehender (aelterer) Tab automatisch bekommt, ohne vorhandene Zeilen anzufassen
+# (dasselbe Prinzip wie setup() in Code.gs: nur die Kopfzeile waechst, leere Zelle = sicherer Standardwert).
+ERGAENZBAR = {"Gerichte": ["typ"], "Plan": ["beilage_id"]}
+# Tabs der allgemeinen Aktion "lesen" (Code.gs: KP.LESEN_TABS). Getrennt von TABS, das zusaetzlich fuer
+# die Spaltenpruefung aller Tabs gilt (auch Ausgaben).
+LESEN_TABS = ["Gerichte", "Zutaten", "Plan", "Bewertungen", "Einstellungen", "Lebensmittel", "Richtgewichte"]
 SETTINGS = {"standard_portionen": (1, 20), "wiederholungssperre_tage": (1, 60)}
 DATE_COLS = {"woche_start", "datum", "angelegt_am", "geaendert_am"}
 
@@ -92,6 +103,27 @@ def kcal_in(v, feld):
         n = None
     if n is None or not (0 < n <= 5000):
         bad(feld, f"{feld} muss leer oder eine Zahl über 0 (höchstens 5000) sein.")
+    return int(n) if n.is_integer() else n
+
+
+def typ_in(v, feld):
+    """typ (Tab Gerichte): leer/hauptgericht/beilage, ohne Gross-/Kleinschreibung. Leer bleibt leer (= hauptgericht beim Lesen)."""
+    if v in ("", None):
+        return ""
+    t = str(v).strip().lower()
+    if t not in ("hauptgericht", "beilage"):
+        bad(feld, f'{feld} muss "hauptgericht" oder "beilage" sein (oder leer).')
+    return t
+
+
+def betrag_in(v, feld):
+    """Betrag einer Ausgabe (F25): immer Pflicht, anders als kcal/Menge nie leer."""
+    try:
+        n = float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else float(str(v).replace(",", "."))
+    except ValueError:
+        n = None
+    if n is None or not (0 < n <= 100000):
+        bad(feld, f"{feld} muss eine Zahl größer als 0 (höchstens 100000) sein.")
     return int(n) if n.is_integer() else n
 
 
@@ -174,6 +206,15 @@ class Table:
         for i, h in enumerate(header):
             if h and h not in self.col:
                 self.col[h] = i
+        # Neue, optionale Spalten (ERGAENZBAR) bei einem bestehenden Tab automatisch ergaenzen: nur die Kopfzeile
+        # waechst, bestehende Zeilen bleiben unberuehrt (gleiches Prinzip wie setup() in Code.gs).
+        if rows:
+            for c in ERGAENZBAR.get(name, []):
+                if c in TABS.get(name, []) and c not in self.col:
+                    idx = len(header)
+                    self.ws.cell(row=1, column=idx + 1, value=c)
+                    header.append(c)
+                    self.col[c] = idx
         if need_all:
             missing = [c for c in TABS[name] if c not in self.col]
             if missing:
@@ -237,9 +278,11 @@ class Store:
             return {"ok": True, "version": VERSION, "zeit": now_iso()}
         if aktion == "lesen":
             return {"ok": True, "version": VERSION, "stand": now_iso(),
-                    "daten": {n: Table(self.wb, n, False).records for n in TABS}}
+                    "daten": {n: Table(self.wb, n, False).records for n in LESEN_TABS}}
+        if aktion == "ausgaben_lesen":
+            return self.ausgaben()
         fn = {"plan_speichern": self.plan, "bewertung_speichern": self.bewertung, "gericht_speichern": self.gericht,
-              "einstellung_speichern": self.einstellung}.get(aktion)
+              "einstellung_speichern": self.einstellung, "ausgabe_speichern": self.ausgabe}.get(aktion)
         if not fn:
             raise ApiError("AKTION_UNBEKANNT", f"Unbekannte Aktion: {aktion}")
         res = fn(req)
@@ -263,7 +306,13 @@ class Store:
             gid = s(r.get("gericht_id"))
             if gid and gid not in known:
                 raise ApiError("GERICHT_UNBEKANNT", f"Gericht unbekannt: {gid}", f + ".gericht_id")
+            # beilage_id: optional, leer heisst kein Beilagengericht; nur die Existenz wird geprueft (wie gericht_id),
+            # nicht ob typ = beilage ist. Wird der Tag geloescht (gid leer), ist beilage_id hinfaellig.
+            bid = s(r.get("beilage_id"))
+            if gid and bid and bid not in known:
+                raise ApiError("GERICHT_UNBEKANNT", f"Gericht unbekannt: {bid}", f + ".beilage_id")
             clean.append({"woche_start": date_str(r.get("woche_start") or d, f + ".woche_start"), "datum": d, "gericht_id": gid,
+                          "beilage_id": bid if gid else "",
                           "portionen": "" if not gid else int_in(r.get("portionen"), 1, 20, f + ".portionen"),
                           "fixiert": yes_no(r.get("fixiert"), f + ".fixiert", "nein"),
                           "geaendert_am": stamp_str(r.get("geaendert_am"), f + ".geaendert_am")})
@@ -358,6 +407,8 @@ class Store:
             rec["schritte"] = text_in(g["schritte"], 20000, "gericht.schritte")
         if has("quelle") or not row:
             rec["quelle"] = text_in(g["quelle"], 500, "gericht.quelle") if has("quelle") else "App"
+        if has("typ") or not row:
+            rec["typ"] = typ_in(g["typ"], "gericht.typ") if has("typ") else "hauptgericht"
         if not row:
             rec["angelegt_am"] = date_str(g["angelegt_am"], "gericht.angelegt_am") if g.get("angelegt_am") else now_iso()[:10]
         zutaten = None
@@ -429,6 +480,22 @@ class Store:
         else:
             t.append([rec])
         return {"ok": True}
+
+    def ausgabe(self, req):
+        """Ausgabe anlegen (F25): immer eine neue Zeile, kein Upsert. angelegt_am setzt die Schnittstelle immer
+        selbst (Serverzeit); ein mitgeschickter Wert wird ignoriert."""
+        datum = date_str(req.get("datum"), "datum")
+        betrag = betrag_in(req.get("betrag"), "betrag")
+        beschreibung = text_in(req.get("beschreibung"), 200, "beschreibung").strip()
+        if not beschreibung:
+            bad("beschreibung", "Die Beschreibung fehlt.")
+        t = Table(self.wb, "Ausgaben", True)
+        t.append([{"datum": datum, "betrag": betrag, "beschreibung": beschreibung, "angelegt_am": now_iso()}])
+        return {"ok": True}
+
+    def ausgaben(self):
+        """Ausgaben lesen (F25): eigene Liste, unabhaengig von "lesen". Tolerant wie die anderen Lese-Aktionen."""
+        return {"ok": True, "ausgaben": Table(self.wb, "Ausgaben", False).records}
 
     def dump(self):
         return {n: Table(self.wb, n, False).records for n in self.wb.sheetnames}

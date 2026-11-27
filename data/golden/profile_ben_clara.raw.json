@@ -13,7 +13,8 @@
    "schritte": "Zwiebel und Knoblauch anbraten, Hack dazu, Tomaten einkochen, Nudeln kochen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-01",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G002",
@@ -28,7 +29,8 @@
    "schritte": "Speck auslassen, Eier mit Parmesan verrühren, alles mit den heißen Nudeln mischen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-04",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G003",
@@ -43,7 +45,8 @@
    "schritte": "Hähnchen anbraten, Gemüse und Currypaste dazu, mit Kokosmilch ablöschen, Reis kochen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-07",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G004",
@@ -58,7 +61,8 @@
    "schritte": "Gemüse würfeln, mit Linsen und Brühe 25 Minuten kochen, pürieren.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-10",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G005",
@@ -73,7 +77,8 @@
    "schritte": "Gemüse und Kartoffeln würfeln, in Brühe weich kochen, mit Sahne abschmecken.",
    "quelle": "Testdaten",
    "angelegt_am": "13.09.2026",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G006",
@@ -88,7 +93,8 @@
    "schritte": "Gemüse anbraten, Béchamel kochen, schichten, 35 Minuten backen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-16",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G007",
@@ -103,7 +109,8 @@
    "schritte": "Hack anbraten, Zwiebeln, Paprika und Tomaten dazu, 30 Minuten köcheln, Bohnen und Mais zugeben.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-19",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G008",
@@ -118,7 +125,8 @@
    "schritte": "Teig rühren, 10 Minuten ruhen lassen, portionsweise ausbacken.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-22",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G009",
@@ -133,7 +141,8 @@
    "schritte": "Kartoffelsalat anmachen, Schnitzel panieren und ausbacken.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-25",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G010",
@@ -148,7 +157,8 @@
    "schritte": "Reis kochen und abkühlen lassen, mit Gemüse und Ei im Wok braten.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-28",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G011",
@@ -163,7 +173,8 @@
    "schritte": "Gemüse schneiden, mit Öl und Kräutern 30 Minuten backen, Feta darüber.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-01",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G012",
@@ -178,7 +189,8 @@
    "schritte": "Kartoffeln kochen, Lachs in Butter braten, Brokkoli dämpfen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-04",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G013",
@@ -193,7 +205,8 @@
    "schritte": "Kürbis würfeln, mit Zwiebeln anschwitzen, mit Brühe und Kokosmilch kochen, pürieren.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-07",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G014",
@@ -208,7 +221,8 @@
    "schritte": "Tortellini kochen, Schinken anbraten, mit Sahne ablöschen.",
    "quelle": "Testdaten",
    "angelegt_am": "10.10.2026",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G015",
@@ -223,7 +237,8 @@
    "schritte": "Eier mit Milch verquirlen, in Butter stocken lassen, Brot toasten.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-13",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G016",
@@ -238,7 +253,8 @@
    "schritte": "Kartoffeln in Scheiben schichten, mit Sahne übergießen, mit Käse überbacken.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-16",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G017",
@@ -253,7 +269,8 @@
    "schritte": "Fleisch scharf anbraten, Zwiebeln und Paprika zugeben, 90 Minuten schmoren.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-19",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G018",
@@ -268,7 +285,8 @@
    "schritte": "Zwiebel anschwitzen, Tomaten und Brühe zugeben, Reis darin garen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-22",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G019",
@@ -283,7 +301,8 @@
    "schritte": "Gemüse im Wok braten, mit Kokosmilch und Currypaste ablöschen, Reisnudeln dazu.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-25",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G020",
@@ -298,7 +317,8 @@
    "schritte": "Kartoffeln kochen und stampfen, Fischstäbchen backen, Erbsen erhitzen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-28",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G021",
@@ -313,7 +333,8 @@
    "schritte": "Hähnchen braten, Gemüse schneiden, Wraps füllen und aufrollen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-31",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G022",
@@ -328,7 +349,8 @@
    "schritte": "Zwiebeln rösten, Spätzle mit Käse schichten, im Ofen überbacken.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-11-03",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G023",
@@ -343,7 +365,8 @@
    "schritte": "Fleisch anbraten, Bohnen, Kartoffeln und Bohnenkraut in Brühe garen.",
    "quelle": "Testdaten",
    "angelegt_am": "06.11.2026",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G024",
@@ -358,7 +381,8 @@
    "schritte": "Zucchini raspeln, ausdrücken, mit Ei und Mehl mischen, braten.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-11-09",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G025",
@@ -373,7 +397,8 @@
    "schritte": "Pute anbraten, Champignons und Zwiebeln dazu, mit Sahne ablöschen, Reis kochen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-03",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G026",
@@ -388,7 +413,8 @@
    "schritte": "Zwiebeln und Paprika anbraten, Tomaten einkochen, Eier hineinschlagen und stocken lassen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-06",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G027",
@@ -403,7 +429,8 @@
    "schritte": "Hackbällchen formen und braten, in Tomatensauce ziehen lassen, Nudeln kochen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-09",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G028",
@@ -418,7 +445,8 @@
    "schritte": "Zwiebel und Ingwer anbraten, Gewürze, Tomaten, Kokosmilch und Kichererbsen 20 Minuten köcheln.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-12",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G029",
@@ -433,7 +461,8 @@
    "schritte": "Kartoffeln kochen, Quark mit Leinöl und Schnittlauch anrühren.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-15",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G030",
@@ -448,7 +477,8 @@
    "schritte": "Brühe erhitzen, Maultaschen 10 Minuten ziehen lassen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-18",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G031",
@@ -463,7 +493,8 @@
    "schritte": "Gemüse würfeln, nacheinander anbraten, mit Tomaten 30 Minuten schmoren.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-21",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G032",
@@ -478,7 +509,8 @@
    "schritte": "Hähnchen und Paprika braten, Reis und Mais zugeben, mit Sojasauce würzen.",
    "quelle": "Testdaten",
    "angelegt_am": "24.09.2026",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G033",
@@ -493,7 +525,8 @@
    "schritte": "Linsen statt Hack: Gemüse anbraten, Linsen und Tomaten zugeben, 20 Minuten köcheln.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-27",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G034",
@@ -508,7 +541,8 @@
    "schritte": "Linsen und Gemüse in Brühe garen, Würstchen zum Schluss erhitzen, mit Essig abschmecken.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-30",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G035",
@@ -523,7 +557,8 @@
    "schritte": "Hackmasse formen und braten, Gurke hobeln und mit Joghurt-Dill anmachen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-03",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G036",
@@ -538,7 +573,8 @@
    "schritte": "Blumenkohl vorgaren, Sauce kochen, überbacken.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-06",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G037",
@@ -553,7 +589,8 @@
    "schritte": "Großen Topf ansetzen, 2 Stunden schmoren, portionsweise einfrieren oder drei Tage essen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-09",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G038",
@@ -568,7 +605,8 @@
    "schritte": "Gemüse schneiden, mit Feta, Oliven und Öl anmachen, Fladenbrot aufbacken.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-12",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G039",
@@ -583,7 +621,8 @@
    "schritte": "Kartoffeln und Erbsen in Brühe kochen, pürieren, Würstchen dazu.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-15",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G040",
@@ -598,7 +637,8 @@
    "schritte": "",
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-18",
-   "status": "idee"
+   "status": "idee",
+   "typ": ""
   }
  ],
  "Zutaten": [
@@ -3002,7 +3042,8 @@
    "gericht_id": "G005",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-06",
@@ -3010,7 +3051,8 @@
    "gericht_id": "G008",
    "portionen": 2,
    "fixiert": "ja",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-06",
@@ -3018,7 +3060,8 @@
    "gericht_id": "G020",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-06",
@@ -3026,7 +3069,8 @@
    "gericht_id": "G021",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-06",
@@ -3034,7 +3078,8 @@
    "gericht_id": "G018",
    "portionen": 2,
    "fixiert": "ja",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-06",
@@ -3042,7 +3087,8 @@
    "gericht_id": "G019",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-06",
@@ -3050,7 +3096,8 @@
    "gericht_id": "G028",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-13",
@@ -3058,7 +3105,8 @@
    "gericht_id": "G038",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-13",
@@ -3066,7 +3114,8 @@
    "gericht_id": "G034",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-13",
@@ -3074,7 +3123,8 @@
    "gericht_id": "G001",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-13",
@@ -3082,7 +3132,8 @@
    "gericht_id": "G017",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-13",
@@ -3090,7 +3141,8 @@
    "gericht_id": "G037",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-13",
@@ -3098,7 +3150,8 @@
    "gericht_id": "G015",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   },
   {
    "woche_start": "2026-11-13",
@@ -3106,7 +3159,8 @@
    "gericht_id": "G029",
    "portionen": 2,
    "fixiert": "nein",
-   "geaendert_am": "2026-11-14T09:30:00"
+   "geaendert_am": "2026-11-14T09:30:00",
+   "beilage_id": ""
   }
  ],
  "Bewertungen": [
@@ -3295,5 +3349,7 @@
    "schluessel": "wiederholungssperre_tage",
    "wert": 21
   }
- ]
+ ],
+ "Lebensmittel": [],
+ "Richtgewichte": []
 }

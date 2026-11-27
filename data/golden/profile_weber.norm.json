@@ -21,6 +21,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-01",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G001",
@@ -112,6 +113,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-04",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G002",
@@ -180,6 +182,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-07",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G003",
@@ -280,6 +283,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-10",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G004",
@@ -364,6 +368,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-13",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G005",
@@ -456,6 +461,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-16",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G006",
@@ -548,6 +554,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-19",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G007",
@@ -640,6 +647,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-22",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G008",
@@ -708,6 +716,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-25",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G009",
@@ -808,6 +817,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-28",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G010",
@@ -884,6 +894,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-01",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G011",
@@ -976,6 +987,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-04",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G012",
@@ -1060,6 +1072,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-07",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G013",
@@ -1135,6 +1148,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-10",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G014",
@@ -1195,6 +1209,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-13",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G015",
@@ -1263,6 +1278,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-16",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G016",
@@ -1339,6 +1355,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-19",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G017",
@@ -1423,6 +1440,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-22",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G018",
@@ -1507,6 +1525,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-25",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G019",
@@ -1591,6 +1610,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-28",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G020",
@@ -1659,6 +1679,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-31",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G021",
@@ -1735,6 +1756,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-11-03",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G022",
@@ -1810,6 +1832,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-11-06",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G023",
@@ -1885,6 +1908,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-11-09",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G024",
@@ -1954,6 +1978,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-03",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G025",
@@ -2038,6 +2063,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-06",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G026",
@@ -2122,6 +2148,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-09",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G027",
@@ -2207,6 +2234,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-12",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G028",
@@ -2299,6 +2327,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-15",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G029",
@@ -2367,6 +2396,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-18",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G030",
@@ -2427,6 +2457,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-21",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G031",
@@ -2519,6 +2550,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-24",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G032",
@@ -2595,6 +2627,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-27",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G033",
@@ -2679,6 +2712,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-30",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G034",
@@ -2770,6 +2804,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-03",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G035",
@@ -2854,6 +2889,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-06",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G036",
@@ -2938,6 +2974,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-09",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G037",
@@ -3030,6 +3067,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-12",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G038",
@@ -3113,6 +3151,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-15",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G039",
@@ -3189,6 +3228,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-10-18",
    "status": "idee",
+   "typ": "hauptgericht",
    "zutaten": []
   }
  ],
@@ -3197,6 +3237,7 @@
    "woche_start": "2026-12-23",
    "datum": "2026-12-23",
    "gericht_id": "G007",
+   "beilage_id": "",
    "portionen": 4,
    "fixiert": false
   },
@@ -3204,6 +3245,7 @@
    "woche_start": "2026-12-23",
    "datum": "2026-12-24",
    "gericht_id": "G022",
+   "beilage_id": "",
    "portionen": 4,
    "fixiert": false
   },
@@ -3211,6 +3253,7 @@
    "woche_start": "2026-12-23",
    "datum": "2026-12-25",
    "gericht_id": "G037",
+   "beilage_id": "",
    "portionen": 4,
    "fixiert": false
   },
@@ -3218,6 +3261,7 @@
    "woche_start": "2026-12-23",
    "datum": "2026-12-26",
    "gericht_id": "G004",
+   "beilage_id": "",
    "portionen": 4,
    "fixiert": false
   },
@@ -3225,6 +3269,7 @@
    "woche_start": "2026-12-23",
    "datum": "2026-12-27",
    "gericht_id": "G013",
+   "beilage_id": "",
    "portionen": 4,
    "fixiert": false
   },
@@ -3232,6 +3277,7 @@
    "woche_start": "2026-12-23",
    "datum": "2026-12-28",
    "gericht_id": "G036",
+   "beilage_id": "",
    "portionen": 4,
    "fixiert": false
   },
@@ -3239,6 +3285,7 @@
    "woche_start": "2026-12-23",
    "datum": "2026-12-29",
    "gericht_id": "G007",
+   "beilage_id": "",
    "portionen": 4,
    "fixiert": false
   }
@@ -3419,5 +3466,7 @@
    "notiz": "",
    "von": "Partnerin"
   }
- ]
+ ],
+ "lebensmittel": [],
+ "richtgewichte": []
 }

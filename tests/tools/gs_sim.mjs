@@ -16,11 +16,13 @@ export const TZ = 'Europe/Berlin';
 
 export const HEADERS = {
   Gerichte: ['id', 'name', 'basis_portionen', 'kcal_pro_portion', 'tags', 'favorit', 'nie_wieder', 'aktiv',
-    'reicht_fuer_tage', 'schritte', 'quelle', 'angelegt_am', 'status'],
+    'reicht_fuer_tage', 'schritte', 'quelle', 'angelegt_am', 'status', 'typ'],
   Zutaten: ['gericht_id', 'pos', 'name', 'menge', 'einheit', 'einkaufen'],
-  Plan: ['woche_start', 'datum', 'gericht_id', 'portionen', 'fixiert', 'geaendert_am'],
+  Plan: ['woche_start', 'datum', 'gericht_id', 'portionen', 'fixiert', 'geaendert_am', 'beilage_id'],
   Bewertungen: ['gericht_id', 'datum', 'sterne', 'notiz', 'von'],
   Einstellungen: ['schluessel', 'wert'],
+  Lebensmittel: ['name', 'kcal_je_100g'],
+  Richtgewichte: ['name', 'einheit', 'gramm'],
 };
 
 // ---- Zeit in Europe/Berlin ------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { emptySlots, clampPortionen, setPortionen, stepPortionen, setDish, toggleFix, isComplete, slotsToTage, slotsToRows, rowsToSlots }
+import { emptySlots, clampPortionen, setPortionen, stepPortionen, setDish, setBeilage, toggleFix, isComplete, slotsToTage, slotsToRows, rowsToSlots }
   from '../../app/js/core/plan.js';
 import { shoppingList } from '../../app/js/core/shopping.js';
 import { normalize } from '../../app/js/core/normalize.js';
@@ -59,8 +59,34 @@ test('F10: Plan speichern und wieder laden (Zeilen fuer den Tab Plan) ist verlus
   s = toggleFix(s, 1);
   const rows = slotsToRows(s, '2026-11-20', '2026-11-14T09:30:00');
   assert.equal(rows.length, 7);
-  assert.deepEqual(rows[0], { woche_start: '2026-11-20', datum: '2026-11-20', gericht_id: 'G001', portionen: 2, fixiert: 'nein', geaendert_am: '2026-11-14T09:30:00' });
+  assert.deepEqual(rows[0], { woche_start: '2026-11-20', datum: '2026-11-20', gericht_id: 'G001', portionen: 2, fixiert: 'nein', geaendert_am: '2026-11-14T09:30:00', beilage_id: '' });
   // wie das Sheet sie zurueckliefert (Text), dann normalisieren und wieder in Slots
+  const norm = normalize({ Plan: rows });
+  const back = rowsToSlots(norm.plan, '2026-11-20', 2);
+  assert.deepEqual(back, s);
+});
+
+test('Beilage: emptySlots startet mit beilage_id null, setBeilage setzt nur den einen Tag und laesst gericht_id in Ruhe', () => {
+  let s = emptySlots('2026-11-18', 2);
+  assert.deepEqual(s.map((x) => x.beilage_id), [null, null, null, null, null, null, null]);
+  s = setDish(s, 0, 'G001');
+  const b = setBeilage(s, 0, 'B001');
+  assert.equal(b[0].gericht_id, 'G001', 'Hauptgericht unveraendert');
+  assert.equal(b[0].beilage_id, 'B001');
+  assert.equal(s[0].beilage_id, null, 'urspruengliche Slots unveraendert (unveraenderlich)');
+  assert.equal(b[1].beilage_id, null, 'andere Tage unberuehrt');
+});
+
+test('Beilage: slotsToTage nimmt beilage_id mit (null, wenn keine gesetzt), slotsToRows/rowsToSlots sind verlustfrei', () => {
+  let s = emptySlots('2026-11-20', 2);
+  s = setDish(s, 0, 'G001');
+  s = setBeilage(s, 0, 'B001');
+  s = setDish(s, 1, 'G004'); // Tag 1 hat ein Hauptgericht, aber bewusst keine Beilage
+  assert.deepEqual(slotsToTage(s)[0], { gericht_id: 'G001', portionen: 2, beilage_id: 'B001' });
+  assert.deepEqual(slotsToTage(s)[1], { gericht_id: 'G004', portionen: 2, beilage_id: null });
+  const rows = slotsToRows(s, '2026-11-20', '2026-11-14T09:30:00');
+  assert.equal(rows[0].beilage_id, 'B001');
+  assert.equal(rows[1].beilage_id, '', 'leer statt null fuer das Protokoll');
   const norm = normalize({ Plan: rows });
   const back = rowsToSlots(norm.plan, '2026-11-20', 2);
   assert.deepEqual(back, s);

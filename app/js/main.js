@@ -12,6 +12,7 @@ import { dishesView } from './ui/views/dishes.js';
 import { dishFormView } from './ui/views/dishForm.js';
 import { rankingView } from './ui/views/ranking.js';
 import { settingsView } from './ui/views/settings.js';
+import { expensesView } from './ui/views/expenses.js';
 import { helpView, helpNewDishView, helpSetupView } from './ui/views/help.js';
 import { createTour } from './ui/tour.js';
 
@@ -65,6 +66,9 @@ const ROUTES = [
   { re: /^#\/gericht\/([\w-]+)$/, tab: 'gerichte', titel: 'Gericht', back: '#/gerichte', build: (m) => dishFormView(app, { id: m[1], go, reload }) },
   { re: /^#\/rangliste$/, tab: 'rangliste', titel: 'Rangliste', build: () => rankingView(app, ctx), main: true },
   { re: /^#\/einstellungen$/, tab: 'einstellungen', titel: 'Einstellungen', build: () => settingsView(app, ctx), main: true },
+  // Ausgaben (F25): eigenstaendiger Einstiegspunkt (Einstellungen, zusaetzlich ein Button auf dem Einkaufszettel),
+  // bewusst kein eigener Tab in der Hauptnavigation. "zurueck" fuehrt zu lastMain, wie bei #/hilfe.
+  { re: /^#\/ausgaben$/, titel: 'Ausgaben', back: () => lastMain, build: () => expensesView(app, ctx) },
   { re: /^#\/hilfe$/, titel: 'Hilfe', back: () => lastMain, build: () => helpView(app, { go, startTour, from: helpFrom }) },
   { re: /^#\/hilfe\/neu$/, titel: 'Neues Gericht', back: '#/hilfe', build: () => helpNewDishView(app, { go }) },
   { re: /^#\/hilfe\/einrichtung$/, titel: 'Einrichtung', back: '#/hilfe', build: () => helpSetupView() },

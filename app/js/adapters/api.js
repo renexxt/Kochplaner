@@ -14,7 +14,7 @@ export class ApiError extends Error {
   get vorruebergehend() { return ['NETZWERK', 'ZEITUEBERSCHREITUNG', 'HTTP_FEHLER', 'BESCHAEFTIGT'].includes(this.code); }
 }
 
-const LESEN = new Set(['ping', 'lesen']);
+const LESEN = new Set(['ping', 'lesen', 'ausgaben_lesen']);
 
 export function createClient({ url, token, fetchImpl, timeoutMs = 20000, retries = 1, retryDelayMs = 400 }) {
   const doFetch = fetchImpl || ((...a) => globalThis.fetch(...a));
@@ -75,5 +75,8 @@ export function createClient({ url, token, fetchImpl, timeoutMs = 20000, retries
     // anfrageId: Wiederholungsschluessel, damit ein zweiter Versuch nach verlorener Antwort kein doppeltes Gericht anlegt
     gerichtSpeichern: (gericht, zutaten, anfrageId) => call('gericht_speichern', { gericht, ...(zutaten === undefined ? {} : { zutaten }), ...(anfrageId ? { anfrage_id: anfrageId } : {}) }),
     einstellungSpeichern: (schluessel, wert) => call('einstellung_speichern', { schluessel, wert }),
+    // Ausgaben (F25): eigenstaendig, nicht an einen bestimmten Einkaufszettel oder Plan gebunden.
+    ausgabeSpeichern: (ausgabe) => call('ausgabe_speichern', ausgabe),
+    ausgabenLesen: () => call('ausgaben_lesen'),
   };
 }

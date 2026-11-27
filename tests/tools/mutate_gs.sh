@@ -6,7 +6,7 @@ rm -rf /tmp/mutgs && mkdir -p /tmp/mutgs
 mkdir -p /tmp/mutgs/k && tar -C "$SRC" --exclude=evidence --exclude=node_modules --exclude=__pycache__ --exclude=.pytest_cache -cf - . | tar -C /tmp/mutgs/k -xf -
 cd /tmp/mutgs/k
 cp backend/Code.gs /tmp/mutgs/Code.orig
-run() { node --test "tests/contract/**/*.test.mjs" 2>&1 | grep -E '^# fail' | awk '{print $3}'; }
+run() { node --test --test-reporter=tap "tests/contract/**/*.test.mjs" 2>&1 | grep -E '^# fail' | awk '{print $3}'; }
 mut() { # name, python-replace old, new
   cp /tmp/mutgs/Code.orig backend/Code.gs
   python3 - "$2" "$3" <<'PY'
@@ -46,4 +46,9 @@ mut "M25 Einstellungsschluessel constructor wird nicht abgewiesen" "Object.proto
 mut "M26 Wiederholung behaelt status idee trotz Zutaten" "} else if (!row || wdh) {" "} else if (!row) {"
 mut "M27 Kennung wird nicht auf Zeichen und Laenge geprueft" "if (aid !== '' && !/^[A-Za-z0-9_-]{1,64}\$/.test(aid)) bad_(" "if (false) bad_("
 mut "M28 Wiederholung ersetzt die Zutaten nicht" "if ((!row || wdh) && zutaten === null) zutaten = [];" "if (!row && zutaten === null) zutaten = [];"
+mut "M29 typ wird nicht validiert (jeder Text waere gueltig)" "if (s !== 'hauptgericht' && s !== 'beilage') bad_(feld, feld + ' muss \"hauptgericht\" oder \"beilage\" sein (oder leer).');" "/* keine Pruefung */"
+mut "M30 beilage_id: Existenz wird nicht geprueft" "if (gid !== '' && bid !== '' && !known[bid]) throw err_('GERICHT_UNBEKANNT', 'Gericht unbekannt: ' + bid, f + '.beilage_id');" "if (false) throw err_('GERICHT_UNBEKANNT', 'Gericht unbekannt: ' + bid, f + '.beilage_id');"
+mut "M31 setup() ergaenzt typ/beilage_id nicht mehr automatisch" "var toAdd = ergaenzbar.filter(function (c) { return cols.indexOf(c) >= 0 && head.indexOf(c) < 0; });" "var toAdd = [];"
+mut "M32 Lebensmittel fehlt in KP.TABS (Tab wird bei setup() nie angelegt, bei lesen() nie mitgeliefert)" "    Lebensmittel: ['name', 'kcal_je_100g'],
+" ""
 cd /; rm -rf /tmp/mutgs

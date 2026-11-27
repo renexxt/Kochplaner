@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { proposePlan, rerollDay, mulberry32, seedFrom, recentIds, ShuffleError, weightedOrder } from '../../app/js/core/shuffle.js';
-import { emptySlots, setDish, toggleFix } from '../../app/js/core/plan.js';
-import { eligibleIds } from '../../app/js/core/normalize.js';
+import { proposePlan, proposeBeilage, rerollDay, rerollBeilage, mulberry32, seedFrom, recentIds, ShuffleError, weightedOrder } from '../../app/js/core/shuffle.js';
+import { emptySlots, setDish, setBeilage, toggleFix } from '../../app/js/core/plan.js';
+import { eligibleIds, selectableIds } from '../../app/js/core/normalize.js';
 import { loadNorm } from './helpers.mjs';
 
 const START = '2026-11-18';
@@ -59,6 +59,86 @@ test('Modus "diaet": rerollDay bleibt innerhalb der Diaet-Gerichte', () => {
     const r = rerollDay({ norm, startIso: START, slots, index: 0, history: [], seed: i, modus: 'diaet' });
     assert.ok(diaetIds.includes(r.slots[0].gericht_id), r.slots[0].gericht_id);
   }
+});
+
+// Fuer die Beilage-Tests: ein Teil der Gerichte wird im Speicher zu Beilagen umetikettiert (die Testdatei selbst
+// hat keine, siehe D0x-Vorschlag in der PR-Beschreibung). Alle gewaehlten Gerichte sind aktiv/fertig/nicht nie_wieder.
+const withTyp = (norm, ids, typ) => ({ ...norm, gerichte: norm.gerichte.map((g) => (ids.includes(g.id) ? { ...g, typ } : g)) });
+const BEILAGEN = ['G001', 'G002', 'G003', 'G004', 'G005', 'G006', 'G007', 'G008', 'G009', 'G010'];
+
+test('Beilage: eligibleIds/selectableIds mit typ="beilage" liefern nur die als Beilage markierten Gerichte', () => {
+  const norm = withTyp(loadNorm('kochplaner_test'), BEILAGEN, 'beilage');
+  assert.deepEqual(new Set(eligibleIds(norm, 'alle', 'beilage')), new Set(BEILAGEN));
+  assert.deepEqual(new Set(selectableIds(norm, 'beilage')), new Set(BEILAGEN));
+  // Hauptgericht-Pool (Standard) schliesst die Beilagen jetzt aus
+  assert.equal(new Set(eligibleIds(norm)).has('G001'), false);
+  assert.equal(eligibleIds(norm).length, eligibleIds(loadNorm('kochplaner_test')).length - BEILAGEN.length);
+});
+
+test('Beilage: proposeBeilage fuellt nur beilage_id, nie gericht_id, nur aus dem Beilage-Pool, ohne Wiederholung', () => {
+  const norm = withTyp(loadNorm('kochplaner_test'), BEILAGEN, 'beilage');
+  const r = proposeBeilage({ norm, startIso: START, slots: emptySlots(START, 2), history: [], seed: 1 });
+  assert.equal(r.slots.length, 7);
+  assert.equal(r.slots.every((s) => s.gericht_id === null), true, 'proposeBeilage ruehrt gericht_id nicht an');
+  const chosen = r.slots.map((s) => s.beilage_id);
+  assert.equal(new Set(chosen).size, 7, 'keine Wiederholung bei genug Beilagen');
+  for (const id of chosen) assert.ok(BEILAGEN.includes(id), id);
+});
+
+test('Beilage: proposePlan (Hauptgericht) und proposeBeilage stoeren sich nicht, auch nicht nacheinander auf denselben Slots', () => {
+  const norm = withTyp(loadNorm('kochplaner_test'), BEILAGEN, 'beilage');
+  const nachHaupt = proposePlan({ norm, startIso: START, slots: emptySlots(START, 2), history: [], seed: 7 }).slots;
+  assert.ok(nachHaupt.every((s) => s.beilage_id === null));
+  const nachBeilage = proposeBeilage({ norm, startIso: START, slots: nachHaupt, history: [], seed: 8 }).slots;
+  // Hauptgericht-Wahl bleibt unveraendert, nur beilage_id kommt dazu
+  nachBeilage.forEach((s, i) => assert.equal(s.gericht_id, nachHaupt[i].gericht_id));
+  assert.equal(nachBeilage.every((s) => s.beilage_id !== null), true);
+  for (const s of nachBeilage) {
+    assert.ok(BEILAGEN.includes(s.beilage_id));
+    assert.ok(!BEILAGEN.includes(s.gericht_id), 'Hauptgericht ist nie eine Beilage');
+  }
+});
+
+test('Beilage: rerollBeilage aendert nur die Beilage des einen Tages, gericht_id und andere Tage bleiben unberuehrt', () => {
+  const norm = withTyp(loadNorm('kochplaner_test'), BEILAGEN, 'beilage');
+  let slots = proposePlan({ norm, startIso: START, slots: emptySlots(START, 2), history: [], seed: 2 }).slots;
+  slots = proposeBeilage({ norm, startIso: START, slots, history: [], seed: 3 }).slots;
+  const r = rerollBeilage({ norm, startIso: START, slots, index: 2, history: [], seed: 40 });
+  assert.equal(r.geaendert, true);
+  r.slots.forEach((s, i) => {
+    assert.equal(s.gericht_id, slots[i].gericht_id);
+    if (i !== 2) assert.equal(s.beilage_id, slots[i].beilage_id);
+  });
+  assert.notEqual(r.slots[2].beilage_id, slots[2].beilage_id);
+});
+
+test('Beilage: ein fixierter Tag wird von rerollBeilage nicht veraendert (wie rerollDay beim Hauptgericht)', () => {
+  const norm = withTyp(loadNorm('kochplaner_test'), BEILAGEN, 'beilage');
+  let slots = setDish(emptySlots(START, 2), 3, 'G020');
+  slots = setBeilage(slots, 3, 'G001');
+  slots = toggleFix(slots, 3);
+  const r = rerollBeilage({ norm, startIso: START, slots, index: 3, history: [], seed: 5 });
+  assert.equal(r.geaendert, false);
+  assert.deepEqual(r.slots, slots);
+});
+
+test('Beilage: proposeBeilage fuellt eine fehlende Beilage an einem fixierten Tag, ohne "fixiert" zurueckzusetzen', () => {
+  // Anders als proposePlan beim Hauptgericht: ein fixierter Tag ohne Beilage bekommt eine, bleibt aber fixiert
+  // (fixiert gehoert zum ganzen Tag/Hauptgericht, nicht nur zur Beilage).
+  const norm = withTyp(loadNorm('kochplaner_test'), BEILAGEN, 'beilage');
+  let slots = setDish(emptySlots(START, 2), 3, 'G020');
+  slots = toggleFix(slots, 3);
+  assert.equal(slots[3].beilage_id, null);
+  const r = proposeBeilage({ norm, startIso: START, slots, history: [], seed: 11 });
+  assert.equal(r.slots[3].fixiert, true, 'fixiert bleibt erhalten');
+  assert.equal(r.slots[3].gericht_id, 'G020', 'Hauptgericht des fixierten Tages unveraendert');
+  assert.ok(BEILAGEN.includes(r.slots[3].beilage_id), 'die zuvor leere Beilage wurde gefuellt');
+});
+
+test('Beilage: recentIds mit feld "beilage_id" fuehrt eine eigene Sperrfrist-Historie, unabhaengig vom Hauptgericht', () => {
+  const h = [{ datum: '2026-11-10', gericht_id: 'G001', beilage_id: 'G002' }, { datum: '2026-11-12', gericht_id: 'G003', beilage_id: '' }];
+  assert.deepEqual([...recentIds(h, START, 21)], ['G001', 'G003']);
+  assert.deepEqual([...recentIds(h, START, 21, 'beilage_id')], ['G002']);
 });
 
 test('F02: gleicher Seed ergibt denselben Plan, auch bei anderer Reihenfolge der Gerichte; andere Seeds streuen', () => {
