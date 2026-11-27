@@ -23,6 +23,7 @@ export const HEADERS = {
   Einstellungen: ['schluessel', 'wert'],
   Lebensmittel: ['name', 'kcal_je_100g'],
   Richtgewichte: ['name', 'einheit', 'gramm'],
+  Ausgaben: ['datum', 'betrag', 'beschreibung', 'angelegt_am'],
 };
 
 // ---- Zeit in Europe/Berlin ------------------------------------------------------------------------------
