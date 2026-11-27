@@ -3,7 +3,7 @@
  *
  * Die App liest und schreibt das Google Sheet nur über diese Schnittstelle. Protokoll: docs/PROTOCOL.md
  * Einrichtung: Sheet öffnen > Erweiterungen > Apps Script > diesen Code einfügen > Funktion setup() ausführen
- * (legt die 5 Tabs an und gibt das Token aus) > Bereitstellen > Neue Bereitstellung > Web-App
+ * (legt die 7 Tabs an und gibt das Token aus) > Bereitstellen > Neue Bereitstellung > Web-App
  * (Ausführen als: Ich, Zugriff: Jeder). URL und Token ergeben den Setup-Code für die App.
  *
  * Läuft im Apps-Script-Runtime V8. Keine Abhängigkeit von Node oder Browser.
@@ -16,12 +16,17 @@ var KP = {
   DATUMSSPALTEN: ['woche_start', 'datum', 'angelegt_am', 'geaendert_am'],
   TABS: {
     Gerichte: ['id', 'name', 'basis_portionen', 'kcal_pro_portion', 'tags', 'favorit', 'nie_wieder', 'aktiv',
-      'reicht_fuer_tage', 'schritte', 'quelle', 'angelegt_am', 'status'],
+      'reicht_fuer_tage', 'schritte', 'quelle', 'angelegt_am', 'status', 'typ'],
     Zutaten: ['gericht_id', 'pos', 'name', 'menge', 'einheit', 'einkaufen'],
-    Plan: ['woche_start', 'datum', 'gericht_id', 'portionen', 'fixiert', 'geaendert_am'],
+    Plan: ['woche_start', 'datum', 'gericht_id', 'portionen', 'fixiert', 'geaendert_am', 'beilage_id'],
     Bewertungen: ['gericht_id', 'datum', 'sterne', 'notiz', 'von'],
-    Einstellungen: ['schluessel', 'wert']
+    Einstellungen: ['schluessel', 'wert'],
+    Lebensmittel: ['name', 'kcal_je_100g'],
+    Richtgewichte: ['name', 'einheit', 'gramm']
   },
+  // Spalten, die setup() bei einem bestehenden (aelteren) Tab automatisch ergaenzt, ohne vorhandene Daten anzufassen.
+  // Nur fuer neue, optionale Spalten mit sicherem Standardwert bei leerer Zelle (siehe DECISIONS.md).
+  ERGAENZBAR: { Gerichte: ['typ'], Plan: ['beilage_id'] },
   SETTINGS: {
     standard_portionen: { min: 1, max: 20, standard: 2 },
     wiederholungssperre_tage: { min: 1, max: 60, standard: 21 }
@@ -92,7 +97,17 @@ function setup() {
       sheet.setFrozenRows(1);
       log.push('Kopfzeile geschrieben: ' + name);
     } else {
-      var head = sheet.getRange(1, 1, 1, Math.max(1, sheet.getLastColumn())).getValues()[0].map(trim_);
+      var lastCol = Math.max(1, sheet.getLastColumn());
+      var head = sheet.getRange(1, 1, 1, lastCol).getValues()[0].map(trim_);
+      // Neue, optionale Spalten (ERGAENZBAR) duerfen bei einem bestehenden Tab automatisch angehaengt werden:
+      // nur die Kopfzeile wird erweitert, bestehende Zeilen bleiben unberuehrt (leere Zelle = sicherer Standardwert).
+      var ergaenzbar = KP.ERGAENZBAR[name] || [];
+      var toAdd = ergaenzbar.filter(function (c) { return cols.indexOf(c) >= 0 && head.indexOf(c) < 0; });
+      if (toAdd.length) {
+        sheet.getRange(1, lastCol + 1, 1, toAdd.length).setValues([toAdd]);
+        log.push('Spalte ergänzt in ' + name + ': ' + toAdd.join(', '));
+        head = head.concat(toAdd);
+      }
       var missing = cols.filter(function (c) { return head.indexOf(c) < 0; });
       log.push(missing.length ? 'ACHTUNG ' + name + ': Spalten fehlen: ' + missing.join(', ') : 'Tab vorhanden und vollständig: ' + name);
     }
@@ -158,10 +173,15 @@ function planSpeichern_(req) {
     seen[datum] = true;
     var gid = r.gericht_id == null ? '' : trim_(r.gericht_id);
     if (gid !== '' && !known[gid]) throw err_('GERICHT_UNBEKANNT', 'Gericht unbekannt: ' + gid, f + '.gericht_id');
+    // beilage_id: optional, leer heisst kein Beilagengericht; geprueft wird nur die Existenz (wie bei gericht_id),
+    // nicht ob typ = beilage ist. Wird der Tag geloescht (gid leer), ist beilage_id hinfaellig, wie schon bei portionen.
+    var bid = r.beilage_id == null ? '' : trim_(r.beilage_id);
+    if (gid !== '' && bid !== '' && !known[bid]) throw err_('GERICHT_UNBEKANNT', 'Gericht unbekannt: ' + bid, f + '.beilage_id');
     return {
       woche_start: dateStr_(r.woche_start || datum, f + '.woche_start'),
       datum: datum,
       gericht_id: gid,
+      beilage_id: gid === '' ? '' : bid,
       portionen: gid === '' ? '' : intIn_(r.portionen, 1, 20, f + '.portionen'),
       fixiert: yesNo_(r.fixiert, f + '.fixiert', 'nein'),
       geaendert_am: stampStr_(r.geaendert_am, f + '.geaendert_am')
@@ -248,6 +268,7 @@ function gerichtSpeichern_(req) {
   if (has('reicht_fuer_tage') || !row) rec.reicht_fuer_tage = has('reicht_fuer_tage') ? intIn_(g.reicht_fuer_tage, 1, 7, 'gericht.reicht_fuer_tage') : 1;
   if (has('schritte')) rec.schritte = textIn_(g.schritte, 20000, 'gericht.schritte');
   if (has('quelle') || !row) rec.quelle = has('quelle') ? textIn_(g.quelle, 500, 'gericht.quelle') : 'App';
+  if (has('typ') || !row) rec.typ = has('typ') ? typIn_(g.typ, 'gericht.typ') : 'hauptgericht';
   if (!row) rec.angelegt_am = g.angelegt_am ? dateStr_(g.angelegt_am, 'gericht.angelegt_am') : nowIso_().slice(0, 10);
 
   var zutaten = null;
@@ -443,6 +464,14 @@ function kcalIn_(v, feld) {
   var n = typeof v === 'number' ? v : Number(String(v).replace(',', '.'));
   if (!isFinite(n) || n <= 0 || n > 5000) bad_(feld, feld + ' muss leer oder eine Zahl über 0 (höchstens 5000) sein.');
   return n;
+}
+
+/** typ (Tab Gerichte): leer/hauptgericht/beilage, ohne Gross-/Kleinschreibung. Leer bleibt leer (gilt beim Lesen als hauptgericht). */
+function typIn_(v, feld) {
+  if (v === '' || v === null || v === undefined) return '';
+  var s = String(v).trim().toLowerCase();
+  if (s !== 'hauptgericht' && s !== 'beilage') bad_(feld, feld + ' muss "hauptgericht" oder "beilage" sein (oder leer).');
+  return s;
 }
 
 function mengeIn_(v, feld) {

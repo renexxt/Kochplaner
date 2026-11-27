@@ -20,11 +20,15 @@ Beide Seiten sind unabhängig geschrieben, `tests/contract/` prüft sie mit dens
 | aktion | Parameter | Antwort |
 |---|---|---|
 | `ping` | – | `{version, zeit}` |
-| `lesen` | – | `{version, stand, daten: {Gerichte, Zutaten, Plan, Bewertungen, Einstellungen}}`, je Tab eine Liste von Zeilen als Objekte (Spaltenname → Wert) |
-| `plan_speichern` | `zeilen: [{datum, gericht_id, portionen, fixiert, woche_start?, geaendert_am?}]` (1 bis 62) | `{geschrieben, geloescht}` |
+| `lesen` | – | `{version, stand, daten: {Gerichte, Zutaten, Plan, Bewertungen, Einstellungen, Lebensmittel, Richtgewichte}}`, je Tab eine Liste von Zeilen als Objekte (Spaltenname → Wert) |
+| `plan_speichern` | `zeilen: [{datum, gericht_id, portionen, fixiert, beilage_id?, woche_start?, geaendert_am?}]` (1 bis 62) | `{geschrieben, geloescht}` |
 | `bewertung_speichern` | `gericht_id, datum, sterne (1–5), notiz?, von?` | `{ueberschrieben}` |
-| `gericht_speichern` | `gericht: {id?, name, basis_portionen?, kcal_pro_portion?, tags?, favorit?, nie_wieder?, aktiv?, reicht_fuer_tage?, schritte?, quelle?, status?}`, `zutaten?: [{name, menge, einheit, einkaufen}]`, `anfrage_id?` (1–64 Zeichen aus Buchstaben, Ziffern, `_`, `-`) | `{id, neu, warnungen: [{code:"NAME_EXISTIERT", id}], wiederholt?}` |
+| `gericht_speichern` | `gericht: {id?, name, basis_portionen?, kcal_pro_portion?, tags?, favorit?, nie_wieder?, aktiv?, reicht_fuer_tage?, schritte?, quelle?, status?, typ?}`, `zutaten?: [{name, menge, einheit, einkaufen}]`, `anfrage_id?` (1–64 Zeichen aus Buchstaben, Ziffern, `_`, `-`) | `{id, neu, warnungen: [{code:"NAME_EXISTIERT", id}], wiederholt?}` |
 | `einstellung_speichern` | `schluessel` (`standard_portionen` 1–20, `wiederholungssperre_tage` 1–60), `wert` | `{}` |
+
+Für `Lebensmittel` (Spalten `name`, `kcal_je_100g`) und `Richtgewichte` (Spalten `name`, `einheit`, `gramm`, z. B. „Ei“, „Stück“, 55) gibt es keine eigene
+Schreib-Aktion. Beide Tabs werden nur über `lesen` gelesen; Zeilen pflegt man direkt im Sheet. `setup()` legt beide Tabs mit Kopfzeile an, wenn sie fehlen
+(siehe unten). Sie sind die Grundlage für die automatische Kalorienberechnung in `app/js/core/kcal.js` (reine Funktion, läuft nur im Client).
 
 ## Regeln beim Lesen
 
@@ -39,6 +43,8 @@ Beide Seiten sind unabhängig geschrieben, `tests/contract/` prüft sie mit dens
 - Schreiben ist **Upsert** und ändert nur die genannten Felder. Zellen in Spalten, die die App nicht kennt, behalten ihren Wert. Formeln in eigenen Spalten werden beim Schreiben der Zeile aber zu Werten (Zeile wird als Ganzes zurückgeschrieben): keine eigenen Formeln in den fünf Tabs.
 - `plan_speichern`: Schlüssel = `datum` (je Tag höchstens eine Zeile). Leeres `gericht_id` löscht die Zeile dieses Tages.
   `gericht_id` muss existieren (`GERICHT_UNBEKANNT`). `woche_start` ist standardmäßig das Datum, `geaendert_am` die Serverzeit.
+  `beilage_id` ist optional (leer = keine Beilage an diesem Tag); ist sie gesetzt, muss auch sie in „Gerichte“ existieren, sonst `GERICHT_UNBEKANNT`
+  (dieselbe Prüfung wie bei `gericht_id`, nicht ob `typ = beilage` ist: wie bei `gericht_id` wird nur die Existenz geprüft, nicht Status oder Typ).
 - `bewertung_speichern`: Schlüssel = (`gericht_id`, `datum`, `von`). Gleicher Schlüssel überschreibt (`ueberschrieben: true`).
 - `gericht_speichern` ohne `id` legt ein neues Gericht an: Nummer = größte vorhandene `G###` + 1, `angelegt_am` = heute,
   `status` = `idee` ohne Zutaten, sonst `fertig`; Standardwerte: 2 Portionen, `favorit` nein, `nie_wieder` nein, `aktiv` ja,
@@ -50,6 +56,8 @@ Beide Seiten sind unabhängig geschrieben, `tests/contract/` prüft sie mit dens
 - `setup()` stellt die Zeitzone des Sheets auf Europe/Berlin (Datumszellen sind Mitternacht in der Zeitzone des Sheets).
 - Text wird so gespeichert, wie er ankommt: `"=1+1"`, `"5"` oder `"2026-11-20"` in einem Textfeld bleiben Text.
 - Mengen: `""` oder Zahl 0 bis 100000 (Komma-Text wie `"1,5"` wird akzeptiert). `kcal_pro_portion`: `""` oder Zahl über 0 bis 5000.
+- `typ` (Tab „Gerichte“): `""`, `"hauptgericht"` oder `"beilage"`, ohne Groß-/Kleinschreibung; jeder andere Wert ist `EINGABE_UNGUELTIG`. Ein neues Gericht ohne
+  ausdrücklichen `typ` bekommt `"hauptgericht"`. Leere Zelle beim Lesen gilt ebenfalls als `hauptgericht` (siehe D06-Prinzip „nichts raten, aber nichts blockieren“).
 
 ## Fehlercodes
 

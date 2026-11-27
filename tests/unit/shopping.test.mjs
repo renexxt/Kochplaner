@@ -89,6 +89,43 @@ test('Unbekanntes Gericht im Plan gibt einen klaren Fehler', () => {
   assert.throws(() => shoppingList(norm, [{ gericht_id: 'X999', portionen: 2 }]), /nicht gefunden/);
 });
 
+test('Beilage: eigene Zutatenliste mit eigener Portionenskalierung (eigene basis_portionen), beide fliessen in denselben Einkaufszettel', () => {
+  const norm = loadNorm('kochplaner_test');
+  // G001 (Spaghetti Bolognese, Basis 2) als Hauptgericht + G013 (Kuerbissuppe, Basis 4) als Beilage, beide mit 2 Portionen
+  // des Tages: Hauptgericht skaliert mit 2/2=1 (unveraendert), Beilage mit 2/4=0,5 (eigene Basis).
+  const z = shoppingList(norm, [{ gericht_id: 'G001', beilage_id: 'G013', portionen: 2 }]).zeilen;
+  // Nur im Hauptgericht: unveraendert wie beim Einzelplan
+  assert.ok(z.includes('250 g Spaghetti'));
+  assert.ok(z.includes('300 g Hackfleisch gemischt'));
+  assert.ok(z.includes('2 Stück Knoblauch'));
+  assert.ok(z.includes('1 Dose Tomaten gehackt'));
+  assert.ok(z.includes('Pfeffer'));
+  // Nur in der Beilage: mit 0,5 skaliert (eigene Basis 4)
+  assert.ok(z.includes('0,5 Stück Hokkaido-Kürbis'));
+  assert.ok(z.includes('100 ml Kokosmilch'));
+  assert.ok(z.includes('300 ml Gemüsebrühe'));
+  assert.ok(z.includes('0,5 Stück Ingwer'));
+  // Gemeinsame Zutaten beider Gerichte werden addiert: Zwiebel 1 (Haupt) + 0,5 (Beilage) = 1,5; Olivenöl 2 EL + 1 EL = 3 EL
+  assert.ok(z.includes('1,5 Stück Zwiebel'));
+  assert.ok(z.includes('3 EL Olivenöl'));
+  // Tomatenmark nur im Hauptgericht (die Beilage hat keins): bleibt bei 1 EL, nicht addiert mit etwas anderem
+  assert.ok(z.includes('1 EL Tomatenmark'));
+  // Salz ohne Menge kommt in beiden Gerichten vor, erscheint aber nur einmal
+  assert.equal(z.filter((l) => l === 'Salz').length, 1);
+});
+
+test('Beilage: unbekannte beilage_id gibt denselben Fehler wie ein unbekanntes Hauptgericht', () => {
+  const norm = loadNorm('kochplaner_test');
+  assert.throws(() => shoppingList(norm, [{ gericht_id: 'G001', beilage_id: 'X999', portionen: 2 }]), /nicht gefunden/);
+});
+
+test('Beilage: ohne beilage_id (null, leer oder weggelassen) aendert sich nichts gegenueber vorher', () => {
+  const norm = loadNorm('kochplaner_test');
+  const ohne = shoppingList(norm, [{ gericht_id: 'G001', portionen: 2 }]);
+  assert.deepEqual(shoppingList(norm, [{ gericht_id: 'G001', portionen: 2, beilage_id: null }]), ohne);
+  assert.deepEqual(shoppingList(norm, [{ gericht_id: 'G001', portionen: 2, beilage_id: '' }]), ohne);
+});
+
 test('Leere Plaene und Gerichte ohne Zutaten brechen nichts', () => {
   const norm = loadNorm('edge_noingredients');
   assert.deepEqual(shoppingList(norm, []).zeilen, []);

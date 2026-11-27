@@ -24,11 +24,13 @@ import openpyxl
 OUT = Path(__file__).resolve().parent
 
 H_GERICHTE = ["id", "name", "basis_portionen", "kcal_pro_portion", "tags", "favorit", "nie_wieder",
-              "aktiv", "reicht_fuer_tage", "schritte", "quelle", "angelegt_am", "status"]
+              "aktiv", "reicht_fuer_tage", "schritte", "quelle", "angelegt_am", "status", "typ"]
 H_ZUTATEN = ["gericht_id", "pos", "name", "menge", "einheit", "einkaufen"]
-H_PLAN = ["woche_start", "datum", "gericht_id", "portionen", "fixiert", "geaendert_am"]
+H_PLAN = ["woche_start", "datum", "gericht_id", "portionen", "fixiert", "geaendert_am", "beilage_id"]
 H_BEW = ["gericht_id", "datum", "sterne", "notiz", "von"]
 H_EINST = ["schluessel", "wert"]
+H_LEBENSMITTEL = ["name", "kcal_je_100g"]
+H_RICHTGEWICHTE = ["name", "einheit", "gramm"]
 
 # ---------------------------------------------------------------------------
 # Gerichte. Zutatenzeilen: name;menge;einheit[;einkaufen]
@@ -520,6 +522,10 @@ def build(path, dishes, bew, plan, settings, aktiv_override=None):
     bs.append(H_BEW)
     es = wb.create_sheet("Einstellungen")
     es.append(H_EINST)
+    ls = wb.create_sheet("Lebensmittel")
+    ls.append(H_LEBENSMITTEL)
+    rg = wb.create_sheet("Richtgewichte")
+    rg.append(H_RICHTGEWICHTE)
     rowc = 0
     for idx, d in enumerate(dishes):
         aktiv = d["aktiv"] if aktiv_override is None else aktiv_override(d)
@@ -527,7 +533,7 @@ def build(path, dishes, bew, plan, settings, aktiv_override=None):
         angelegt_cell = angelegt if idx % 9 != 4 else angelegt.strftime("%d.%m.%Y")
         ws.append([d["id"], d["name"], d["basis"], d["kcal"], d["tags"], d["fav"], d["nie"], aktiv,
                    d["tage"] if d["tage"] != 1 else (None if idx % 2 else 1), d["schritte"],
-                   "Testdaten", angelegt_cell, "" if d["status"] == "fertig" and idx % 3 == 0 else d["status"]])
+                   "Testdaten", angelegt_cell, "" if d["status"] == "fertig" and idx % 3 == 0 else d["status"], ""])
         for pos, line in enumerate(d["z"], start=1):
             parts = line.split(";")
             name, menge, einheit = parts[0], parts[1], parts[2]
@@ -551,7 +557,7 @@ def plan_rows(start, picks, portionen, fixed=()):
     for i, gid in enumerate(picks):
         d = to_date(start) + timedelta(days=i)
         woche = to_date(start) + timedelta(days=(i // 7) * 7)
-        rows.append([woche, d, gid, portionen, "ja" if i in fixed else "nein", datetime(2026, 11, 14, 9, 30)])
+        rows.append([woche, d, gid, portionen, "ja" if i in fixed else "nein", datetime(2026, 11, 14, 9, 30), ""])
     return rows
 
 

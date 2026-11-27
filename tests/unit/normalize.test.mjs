@@ -60,8 +60,39 @@ test('Fehlende Werte fallen auf Standardwerte, Zeilen ohne id oder Name werden i
   assert.equal(n.gerichte[0].favorit, false);
   assert.equal(n.gerichte[0].status, 'fertig');
   assert.equal(n.gerichte[0].kcal_pro_portion, null);
+  assert.equal(n.gerichte[0].typ, 'hauptgericht');
   assert.equal(n.gerichte[0].zutaten.length, 1);
   assert.equal(n.gerichte[0].zutaten[0].einkaufen, true);
   assert.equal(n.gerichte[0].zutaten[0].menge, null);
   assert.deepEqual(n.einstellungen, { standard_portionen: 2, wiederholungssperre_tage: 21 });
+  assert.deepEqual(n.lebensmittel, []);
+  assert.deepEqual(n.richtgewichte, []);
+});
+
+test('typ: leer oder unbekannt wird hauptgericht, "beilage" ohne Gross-/Kleinschreibung bleibt beilage', () => {
+  const n = normalize({ Gerichte: [
+    { id: 'A1', name: 'Hauptgericht pur' },
+    { id: 'A2', name: 'Explizit Haupt', typ: 'hauptgericht' },
+    { id: 'A3', name: 'Beilage', typ: 'Beilage' },
+    { id: 'A4', name: 'Beilage gross', typ: 'BEILAGE' },
+    { id: 'A5', name: 'Unsinn bleibt Hauptgericht', typ: 'unsinn' },
+  ] });
+  assert.deepEqual(n.gerichte.map((g) => g.typ), ['hauptgericht', 'hauptgericht', 'beilage', 'beilage', 'hauptgericht']);
+});
+
+test('Plan: beilage_id wird gelesen (leer, wenn nicht gesetzt), fliesst nicht in die Sperrfrist-Historie des Hauptgerichts ein', () => {
+  const n = normalize({
+    Gerichte: [{ id: 'G1', name: 'Haupt' }, { id: 'B1', name: 'Beilage', typ: 'beilage' }],
+    Plan: [{ datum: '2026-11-18', gericht_id: 'G1', beilage_id: 'B1', portionen: 2 }, { datum: '2026-11-19', gericht_id: 'G1', portionen: 2 }],
+  });
+  assert.deepEqual(n.plan.map((p) => p.beilage_id), ['B1', '']);
+});
+
+test('Lebensmittel und Richtgewichte: Zahlen tolerant, Einheiten wie bei Zutaten normalisiert, unvollstaendige Zeilen werden ausgelassen', () => {
+  const n = normalize({
+    Lebensmittel: [{ name: ' Reis ', kcal_je_100g: '130,5' }, { name: '', kcal_je_100g: 100 }, { name: 'Ohne Kalorien', kcal_je_100g: '' }],
+    Richtgewichte: [{ name: 'Ei', einheit: 'Stk.', gramm: 55 }, { name: 'Ohne Einheit', einheit: '', gramm: 10 }, { name: 'Ohne Gramm', einheit: 'EL', gramm: '' }],
+  });
+  assert.deepEqual(n.lebensmittel, [{ name: 'Reis', kcal_je_100g: 130.5 }]);
+  assert.deepEqual(n.richtgewichte, [{ name: 'Ei', einheit: 'Stück', gramm: 55 }]);
 });

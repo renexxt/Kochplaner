@@ -22,7 +22,7 @@ def tabs_aus_code_gs():
 def main():
     ziel = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "kochplaner_vorlage.xlsx"
     tabs = tabs_aus_code_gs()
-    assert list(tabs) == ["Gerichte", "Zutaten", "Plan", "Bewertungen", "Einstellungen"], tabs
+    assert list(tabs) == ["Gerichte", "Zutaten", "Plan", "Bewertungen", "Einstellungen", "Lebensmittel", "Richtgewichte"], tabs
     wb = openpyxl.Workbook()
     wb.remove(wb.active)
     for name, cols in tabs.items():

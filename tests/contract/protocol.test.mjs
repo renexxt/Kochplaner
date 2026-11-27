@@ -38,9 +38,9 @@ for (const kind of KINDS) {
       assert.match(r.zeit, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/);
     });
 
-    it('lesen liefert alle 5 Tabs, identisch mit den Rohdaten der Testdatei (Datum als Text, leer = "", "1,5" bleibt Text)', async () => {
+    it('lesen liefert alle 7 Tabs, identisch mit den Rohdaten der Testdatei (Datum als Text, leer = "", "1,5" bleibt Text)', async () => {
       const r = await api.lesen();
-      assert.deepEqual(Object.keys(r.daten), ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen']);
+      assert.deepEqual(Object.keys(r.daten), ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen', 'Lebensmittel', 'Richtgewichte']);
       assert.deepEqual(r.daten, golden('kochplaner_test.raw.json'));
       assert.equal(r.daten.Gerichte.length, 40);
       assert.equal(r.daten.Zutaten.length, 299);
@@ -93,7 +93,7 @@ for (const kind of KINDS) {
       assert.deepEqual(r, { ok: true, geschrieben: 7, geloescht: 0 });
       let p = (await api.lesen()).daten.Plan;
       assert.equal(p.length, 7);
-      assert.deepEqual(p[0], { woche_start: '2026-11-18', datum: '2026-11-18', gericht_id: 'G001', portionen: 2, fixiert: 'nein', geaendert_am: STAMP });
+      assert.deepEqual(p[0], { woche_start: '2026-11-18', datum: '2026-11-18', gericht_id: 'G001', portionen: 2, fixiert: 'nein', geaendert_am: STAMP, beilage_id: '' });
       assert.deepEqual(p.map((x) => x.datum), ['2026-11-18', '2026-11-19', '2026-11-20', '2026-11-21', '2026-11-22', '2026-11-23', '2026-11-24']);
 
       // Upsert: Tag 3 bekommt 5 Portionen und fixiert, Tag 5 ein anderes Gericht
@@ -104,7 +104,7 @@ for (const kind of KINDS) {
       assert.equal(r2.geschrieben, 2);
       p = (await api.lesen()).daten.Plan;
       assert.equal(p.length, 7, 'keine Duplikate');
-      assert.deepEqual(p[2], { woche_start: '2026-11-18', datum: '2026-11-20', gericht_id: 'G007', portionen: 5, fixiert: 'ja', geaendert_am: '2026-11-15T10:00:00' });
+      assert.deepEqual(p[2], { woche_start: '2026-11-18', datum: '2026-11-20', gericht_id: 'G007', portionen: 5, fixiert: 'ja', geaendert_am: '2026-11-15T10:00:00', beilage_id: '' });
       assert.equal(p[4].gericht_id, 'G003');
       assert.equal(p[0].geaendert_am, STAMP, 'andere Tage unveraendert');
 
@@ -143,6 +143,7 @@ for (const kind of KINDS) {
         [[], 'EINGABE_UNGUELTIG', 'zeilen'],
         [null, 'EINGABE_UNGUELTIG', 'zeilen'],
         [[ok, { ...ok, datum: '2026-11-19', gericht_id: 'G999' }], 'GERICHT_UNBEKANNT', 'zeilen[1].gericht_id'],
+        [[ok, { ...ok, datum: '2026-11-19', beilage_id: 'G999' }], 'GERICHT_UNBEKANNT', 'zeilen[1].beilage_id'],
         [[ok, { ...ok, datum: '2026-02-30' }], 'EINGABE_UNGUELTIG', 'zeilen[1].datum'],
         [[ok, { ...ok, datum: '18.11.2026' }], 'EINGABE_UNGUELTIG', 'zeilen[1].datum'],
         [[ok, { ...ok, datum: '2026-11-19', portionen: 0 }], 'EINGABE_UNGUELTIG', 'zeilen[1].portionen'],
@@ -165,6 +166,20 @@ for (const kind of KINDS) {
     it('plan_speichern: Wahrheitswerte als fixiert werden zu ja/nein', async () => {
       await api.planSpeichern([{ datum: '2026-11-18', gericht_id: 'G001', portionen: 2, fixiert: true }, { datum: '2026-11-19', gericht_id: 'G004', portionen: 2, fixiert: false }]);
       assert.deepEqual((await api.lesen()).daten.Plan.map((p) => p.fixiert), ['ja', 'nein']);
+    });
+
+    it('plan_speichern: beilage_id wird geschrieben, gelesen und wieder entfernt; leer heisst keine Beilage', async () => {
+      await api.planSpeichern([{ datum: '2026-11-18', gericht_id: 'G001', beilage_id: 'G004', portionen: 2 }, { datum: '2026-11-19', gericht_id: 'G007', portionen: 2 }]);
+      let p = (await api.lesen()).daten.Plan;
+      assert.equal(p[0].beilage_id, 'G004');
+      assert.equal(p[1].beilage_id, '', 'ohne beilage_id gesendet bleibt es leer');
+      // dieselbe Zeile ohne beilage_id erneut speichern entfernt die Beilage (plan_speichern ist eine volle Zeilenangabe)
+      await api.planSpeichern([{ datum: '2026-11-18', gericht_id: 'G001', portionen: 2 }]);
+      p = (await api.lesen()).daten.Plan;
+      assert.equal(p[0].beilage_id, '');
+      // Tag ohne Hauptgericht: eine mitgeschickte beilage_id ist hinfaellig, die Zeile wird trotzdem geloescht
+      const r = await api.planSpeichern([{ datum: '2026-11-18', gericht_id: '', beilage_id: 'G004' }]);
+      assert.equal(r.geloescht, 1);
     });
 
     // ---------------------------------------------------------------- Bewertungen
@@ -216,7 +231,7 @@ for (const kind of KINDS) {
       assert.deepEqual(r, { ok: true, id: 'G041', neu: true, warnungen: [] });
       const g = (await api.lesen()).daten.Gerichte.at(-1);
       assert.deepEqual(g, { id: 'G041', name: 'Kürbis Suppe', basis_portionen: 2, kcal_pro_portion: 420, tags: 'Suppe', favorit: 'nein', nie_wieder: 'nein', aktiv: 'ja',
-        reicht_fuer_tage: 1, schritte: 'Kochen.\nPürieren.', quelle: 'App', angelegt_am: '2026-11-14', status: 'fertig' });
+        reicht_fuer_tage: 1, schritte: 'Kochen.\nPürieren.', quelle: 'App', angelegt_am: '2026-11-14', status: 'fertig', typ: 'hauptgericht' });
       const z = (await api.lesen()).daten.Zutaten.filter((x) => x.gericht_id === 'G041');
       assert.deepEqual(z, [
         { gericht_id: 'G041', pos: 1, name: 'Kürbis', menge: 1, einheit: 'Stück', einkaufen: 'ja' },
@@ -258,6 +273,23 @@ for (const kind of KINDS) {
       assert.equal((await api.lesen()).daten.Gerichte.find((g) => g.id === 'G001').kcal_pro_portion, '');
     });
 
+    it('gericht_speichern: typ wird geschrieben und gelesen, ohne Angabe bleibt ein bestehendes Gericht unveraendert (hauptgericht)', async () => {
+      const r1 = await api.gerichtSpeichern({ name: 'Kartoffelgratin als Beilage', angelegt_am: '2026-11-14', typ: 'beilage' });
+      let g = (await api.lesen()).daten.Gerichte.find((x) => x.id === r1.id);
+      assert.equal(g.typ, 'beilage');
+      // vorhandene Gerichte der Testdatei haben keine eigene typ-Spalte befuellt -> gilt als hauptgericht
+      const g1 = (await api.lesen()).daten.Gerichte.find((x) => x.id === 'G001');
+      assert.equal(g1.typ === '' || g1.typ === 'hauptgericht', true, 'leer bzw. hauptgericht, nie beilage');
+      // Aendern ohne typ laesst den vorhandenen Wert stehen
+      await api.gerichtSpeichern({ id: r1.id, kcal_pro_portion: 300 });
+      g = (await api.lesen()).daten.Gerichte.find((x) => x.id === r1.id);
+      assert.equal(g.typ, 'beilage', 'typ bleibt ohne erneute Angabe erhalten');
+      // explizit zurueck auf hauptgericht
+      await api.gerichtSpeichern({ id: r1.id, typ: 'hauptgericht' });
+      g = (await api.lesen()).daten.Gerichte.find((x) => x.id === r1.id);
+      assert.equal(g.typ, 'hauptgericht');
+    });
+
     it('gericht_speichern: zutaten ersetzen alle Zutaten dieses Gerichts, andere bleiben, Reihenfolge der anderen bleibt', async () => {
       const vorher = (await api.lesen()).daten.Zutaten;
       const andere = vorher.filter((z) => z.gericht_id !== 'G004');
@@ -285,6 +317,7 @@ for (const kind of KINDS) {
         [{ ...ok, kcal_pro_portion: 'viel' }, undefined, 'gericht.kcal_pro_portion'], [{ ...ok, kcal_pro_portion: 5001 }, undefined, 'gericht.kcal_pro_portion'],
         [{ ...ok, favorit: 'eventuell' }, undefined, 'gericht.favorit'], [{ ...ok, reicht_fuer_tage: 8 }, undefined, 'gericht.reicht_fuer_tage'],
         [{ ...ok, status: 'fast' }, undefined, 'gericht.status'], [{ ...ok, angelegt_am: 'heute' }, undefined, 'gericht.angelegt_am'],
+        [{ ...ok, typ: 'unsinn' }, undefined, 'gericht.typ'], [{ ...ok, typ: 'Hauptspeise' }, undefined, 'gericht.typ'],
         [{ ...ok, tags: 'x'.repeat(201) }, undefined, 'gericht.tags'],
         [ok, [{ ...z, name: '' }], 'zutaten[0].name'], [ok, [z, { ...z, menge: -1 }], 'zutaten[1].menge'], [ok, [{ ...z, menge: 'ein bisschen' }], 'zutaten[0].menge'],
         [ok, [{ ...z, einkaufen: 'vielleicht' }], 'zutaten[0].einkaufen'], [ok, [{ ...z, einheit: 'x'.repeat(21) }], 'zutaten[0].einheit'],
@@ -544,7 +577,8 @@ describe('setup() in Code.gs', () => {
     const sim = (await import('../tools/gs_sim.mjs')).createAppsScript({ empty: true, configured: false });
     sim.book.insertSheet('Tabelle1');
     const log1 = sim.run('setup');
-    assert.deepEqual(sim.book.getSheets().map((s) => s.getName()), ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen']);
+    assert.deepEqual(sim.book.getSheets().map((s) => s.getName()),
+      ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen', 'Lebensmittel', 'Richtgewichte']);
     assert.match(log1, /Leeres Standard-Tab entfernt: Tabelle1/);
     assert.equal(sim.book.getSpreadsheetTimeZone(), 'Europe/Berlin', 'Zeitzone des Sheets = Zeitzone der Schnittstelle');
     assert.match(log1, /Zeitzone des Sheets auf Europe\/Berlin gestellt/);
@@ -572,14 +606,41 @@ describe('setup() in Code.gs', () => {
     assert.equal(JSON.parse(sim.post(JSON.stringify({ token: neu, aktion: 'ping' })).body).ok, true);
   });
 
-  it('setup() an einem Tab mit fehlenden Spalten warnt, ohne etwas zu veraendern', async () => {
+  it('setup() an einem Tab mit fehlenden (nicht ergaenzbaren) Spalten warnt, ohne etwas zu veraendern', async () => {
     const sim = (await import('../tools/gs_sim.mjs')).createAppsScript({ empty: true, configured: false });
     const s = sim.book.insertSheet('Plan');
-    s.getRange(1, 1, 1, 2).setValues([['datum', 'gericht_id']]);
-    s.getRange(2, 1, 1, 2).setValues([['2026-11-18', 'G001']]);
+    // beilage_id ist schon da (sonst wuerde setup() sie automatisch ergaenzen, siehe naechster Test); die anderen 4 fehlen echt.
+    s.getRange(1, 1, 1, 3).setValues([['datum', 'gericht_id', 'beilage_id']]);
+    s.getRange(2, 1, 1, 3).setValues([['2026-11-18', 'G001', '']]);
     const log = sim.run('setup');
     assert.match(log, /ACHTUNG Plan: Spalten fehlen: woche_start, portionen, fixiert, geaendert_am/);
-    assert.equal(s.getLastColumn(), 2);
+    assert.equal(s.getLastColumn(), 3);
+  });
+
+  it('setup() ergaenzt die neuen optionalen Spalten typ/beilage_id in bestehenden Tabs automatisch, ohne Daten zu ueberschreiben', async () => {
+    const sim = (await import('../tools/gs_sim.mjs')).createAppsScript({ empty: true, configured: false });
+    const g = sim.book.insertSheet('Gerichte');
+    g.getRange(1, 1, 1, 13).setValues([['id', 'name', 'basis_portionen', 'kcal_pro_portion', 'tags', 'favorit', 'nie_wieder',
+      'aktiv', 'reicht_fuer_tage', 'schritte', 'quelle', 'angelegt_am', 'status']]);
+    g.getRange(2, 1, 1, 13).setValues([['G001', 'Alt-Gericht', 4, 500, '', 'nein', 'nein', 'ja', 1, '', 'Alt', '2026-01-01', 'fertig']]);
+    const p = sim.book.insertSheet('Plan');
+    p.getRange(1, 1, 1, 6).setValues([['woche_start', 'datum', 'gericht_id', 'portionen', 'fixiert', 'geaendert_am']]);
+    p.getRange(2, 1, 1, 6).setValues([['2026-11-18', '2026-11-18', 'G001', 2, 'nein', '2026-11-18T09:00:00']]);
+    const log = sim.run('setup');
+    assert.match(log, /Spalte ergänzt in Gerichte: typ/);
+    assert.match(log, /Spalte ergänzt in Plan: beilage_id/);
+    assert.equal(g.getRange(1, 14).getValue(), 'typ');
+    assert.equal(g.getRange(2, 14).getValue(), '', 'bestehende Zeile bleibt leer (= hauptgericht), wird nicht erfunden');
+    assert.equal(g.getRange(2, 1).getValue(), 'G001', 'vorhandene Daten unberuehrt');
+    assert.equal(g.getRange(2, 2).getValue(), 'Alt-Gericht', 'vorhandene Daten unberuehrt');
+    assert.equal(p.getRange(1, 7).getValue(), 'beilage_id');
+    assert.equal(p.getRange(2, 7).getValue(), '', 'bestehende Zeile bleibt leer (= keine Beilage)');
+    assert.equal(p.getRange(2, 3).getValue(), 'G001', 'gericht_id unveraendert');
+    // danach sofort benutzbar, inklusive der neuen Spalten
+    const token = sim.props.get('TOKEN');
+    const r = JSON.parse(sim.post(JSON.stringify({ token, aktion: 'gericht_speichern', gericht: { name: 'Neu', angelegt_am: '2026-11-14', typ: 'beilage' } })).body);
+    assert.equal(r.ok, true);
+    assert.equal(g.getRange(3, 14).getValue(), 'beilage');
   });
 });
 

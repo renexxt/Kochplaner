@@ -25,7 +25,7 @@ from pathlib import Path
 import openpyxl
 
 ROOT = Path(__file__).resolve().parent.parent
-TABS = ["Gerichte", "Zutaten", "Plan", "Bewertungen", "Einstellungen"]
+TABS = ["Gerichte", "Zutaten", "Plan", "Bewertungen", "Einstellungen", "Lebensmittel", "Richtgewichte"]
 WOCHENTAGE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
 KURZ = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 
@@ -200,6 +200,7 @@ def normalize(raw):
         tage = parse_amount(r.get("reicht_fuer_tage"))
         tage = int(tage) if tage is not None and tage >= 1 else 1
         status = "idee" if str(r.get("status", "")).strip().casefold() == "idee" else "fertig"
+        typ = "beilage" if str(r.get("typ", "")).strip().casefold() == "beilage" else "hauptgericht"
         z = sorted(zut.get(gid, []), key=lambda x: (x["pos"], x["_row"]))
         gerichte.append({
             "id": gid, "name": " ".join(str(r.get("name", "")).split()), "basis_portionen": _num(basis), "_basis": basis,
@@ -208,7 +209,7 @@ def normalize(raw):
             "favorit": to_bool(r.get("favorit"), False), "nie_wieder": to_bool(r.get("nie_wieder"), False),
             "aktiv": to_bool(r.get("aktiv"), True), "reicht_fuer_tage": tage, "schritte": str(r.get("schritte", "")),
             "quelle": str(r.get("quelle", "")), "angelegt_am": parse_date(r.get("angelegt_am")), "status": status,
-            "zutaten": z})
+            "typ": typ, "zutaten": z})
 
     plan = []
     for r in raw.get("Plan", []):
@@ -219,6 +220,7 @@ def normalize(raw):
         if d is None or not gid:
             continue
         plan.append({"woche_start": parse_date(r.get("woche_start")), "datum": d, "gericht_id": gid,
+                     "beilage_id": str(r.get("beilage_id", "")).strip(),
                      "portionen": int(p) if p is not None and p >= 1 else settings["standard_portionen"],
                      "fixiert": to_bool(r.get("fixiert"), False)})
 
@@ -232,8 +234,32 @@ def normalize(raw):
             continue
         von = str(r.get("von", "")).strip()
         bew[(gid, d, von)] = {"gericht_id": gid, "datum": d, "sterne": int(s), "notiz": str(r.get("notiz", "")), "von": von}
+
+    lebensmittel = []
+    for r in raw.get("Lebensmittel", []):
+        r = _lower_keys(r)
+        name = " ".join(str(r.get("name", "")).split())
+        if not name:
+            continue
+        kcal100 = parse_amount(r.get("kcal_je_100g"))
+        if kcal100 is None:
+            continue
+        lebensmittel.append({"name": name, "kcal_je_100g": _num(kcal100)})
+
+    richtgewichte = []
+    for r in raw.get("Richtgewichte", []):
+        r = _lower_keys(r)
+        name = " ".join(str(r.get("name", "")).split())
+        einheit = norm_unit(r.get("einheit"))
+        if not name or not einheit:
+            continue
+        gramm = parse_amount(r.get("gramm"))
+        if gramm is None:
+            continue
+        richtgewichte.append({"name": name, "einheit": einheit, "gramm": _num(gramm)})
+
     return {"einstellungen": settings, "gerichte": gerichte, "plan": sorted(plan, key=lambda x: (x["datum"], x["gericht_id"])),
-            "bewertungen": list(bew.values())}
+            "bewertungen": list(bew.values()), "lebensmittel": lebensmittel, "richtgewichte": richtgewichte}
 
 
 def to_json(obj):
@@ -286,9 +312,10 @@ def shopping_list(norm, tage):
     groups = {}
     amountless = {}
     order = 0
-    for t in tage:
-        d = gerichte[t["gericht_id"]]
-        scale = Fraction(t["portionen"]) / d["_basis"]
+
+    def add(d, portionen):
+        nonlocal order
+        scale = Fraction(portionen) / d["_basis"]
         for z in d["zutaten"]:
             if not z["einkaufen"]:
                 continue
@@ -312,6 +339,14 @@ def shopping_list(norm, tage):
                 fam = unit.casefold()
             g = groups.setdefault((key, fam), {"name": disp, "fam": fam, "unit": unit, "total": Fraction(0), "order": order})
             g["total"] += amt
+
+    # Hauptgericht und Beilage (falls gesetzt) fliessen unabhaengig in dieselbe Liste, jedes mit eigener Skalierung
+    # ueber seine eigene basis_portionen, beide mit derselben Portionenzahl des Tages.
+    for t in tage:
+        add(gerichte[t["gericht_id"]], t["portionen"])
+        bid = t.get("beilage_id")
+        if bid:
+            add(gerichte[bid], t["portionen"])
     items = []
     for (key, fam), g in groups.items():
         total = g["total"]

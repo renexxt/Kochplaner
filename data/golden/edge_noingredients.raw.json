@@ -13,7 +13,8 @@
    "schritte": "Zwiebel und Knoblauch anbraten, Hack dazu, Tomaten einkochen, Nudeln kochen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-01",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G002",
@@ -28,7 +29,8 @@
    "schritte": "Speck auslassen, Eier mit Parmesan verrühren, alles mit den heißen Nudeln mischen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-04",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G003",
@@ -43,7 +45,8 @@
    "schritte": "Hähnchen anbraten, Gemüse und Currypaste dazu, mit Kokosmilch ablöschen, Reis kochen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-07",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G004",
@@ -58,7 +61,8 @@
    "schritte": "Gemüse würfeln, mit Linsen und Brühe 25 Minuten kochen, pürieren.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-10",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G005",
@@ -73,7 +77,8 @@
    "schritte": "Gemüse und Kartoffeln würfeln, in Brühe weich kochen, mit Sahne abschmecken.",
    "quelle": "Testdaten",
    "angelegt_am": "13.09.2026",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G006",
@@ -88,7 +93,8 @@
    "schritte": "Gemüse anbraten, Béchamel kochen, schichten, 35 Minuten backen.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-16",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   },
   {
    "id": "G007",
@@ -103,7 +109,8 @@
    "schritte": "Hack anbraten, Zwiebeln, Paprika und Tomaten dazu, 30 Minuten köcheln, Bohnen und Mais zugeben.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-19",
-   "status": ""
+   "status": "",
+   "typ": ""
   },
   {
    "id": "G008",
@@ -118,7 +125,8 @@
    "schritte": "Teig rühren, 10 Minuten ruhen lassen, portionsweise ausbacken.",
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-22",
-   "status": "fertig"
+   "status": "fertig",
+   "typ": ""
   }
  ],
  "Zutaten": [
@@ -302,5 +310,7 @@
    "schluessel": "wiederholungssperre_tage",
    "wert": 21
   }
- ]
+ ],
+ "Lebensmittel": [],
+ "Richtgewichte": []
 }

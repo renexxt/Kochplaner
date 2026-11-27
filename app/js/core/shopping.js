@@ -6,16 +6,16 @@ export function scaleFactor(portionen, basis) {
   return Fr.of(portionen).div(basis);
 }
 
-// tage: [{gericht_id, portionen}] -> { items:[{key,name,einheit,menge,menge_exakt,anzeige}], zeilen:[...] }
+// tage: [{gericht_id, portionen, beilage_id?}] -> { items:[{key,name,einheit,menge,menge_exakt,anzeige}], zeilen:[...] }
 export function shoppingList(norm, tage) {
   const gerichte = new Map(norm.gerichte.map((g) => [g.id, g]));
   const groups = new Map();
   const amountless = new Map();
   let order = 0;
-  for (const t of tage) {
-    const d = gerichte.get(t.gericht_id);
-    if (!d) throw new Error('Gericht nicht gefunden: ' + t.gericht_id);
-    const scale = scaleFactor(t.portionen, d._basis);
+  // Zutaten eines Gerichts einrechnen, mit seiner eigenen basis_portionen skaliert. Wird fuer Hauptgericht
+  // und Beilage eines Tages je einmal mit derselben Portionenzahl aufgerufen, beide landen im selben Ergebnis.
+  const addZutaten = (d, portionen) => {
+    const scale = scaleFactor(portionen, d._basis);
     for (const z of d.zutaten) {
       if (!z.einkaufen) continue;
       const key = nameKey(z.name);
@@ -37,6 +37,16 @@ export function shoppingList(norm, tage) {
       if (!groups.has(gk)) groups.set(gk, { key, name: disp, fam, unit, total: Fr.ZERO, order });
       const g = groups.get(gk);
       g.total = g.total.add(amt);
+    }
+  };
+  for (const t of tage) {
+    const d = gerichte.get(t.gericht_id);
+    if (!d) throw new Error('Gericht nicht gefunden: ' + t.gericht_id);
+    addZutaten(d, t.portionen);
+    if (t.beilage_id) {
+      const b = gerichte.get(t.beilage_id);
+      if (!b) throw new Error('Gericht nicht gefunden: ' + t.beilage_id);
+      addZutaten(b, t.portionen);
     }
   }
   const items = [];

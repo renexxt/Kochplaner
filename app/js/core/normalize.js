@@ -56,7 +56,8 @@ export function normalize(raw) {
       tags: str(r.tags).split(',').map((t) => t.trim()).filter(Boolean),
       favorit: toBool(r.favorit, false), nie_wieder: toBool(r.nie_wieder, false), aktiv: toBool(r.aktiv, true),
       reicht_fuer_tage: tage, schritte: str(r.schritte), quelle: str(r.quelle), angelegt_am: parseDate(r.angelegt_am),
-      status: str(r.status).trim().toLowerCase() === 'idee' ? 'idee' : 'fertig', zutaten: z,
+      status: str(r.status).trim().toLowerCase() === 'idee' ? 'idee' : 'fertig',
+      typ: str(r.typ).trim().toLowerCase() === 'beilage' ? 'beilage' : 'hauptgericht', zutaten: z,
     });
   }
 
@@ -68,7 +69,7 @@ export function normalize(raw) {
     const p = parseAmount(r.portionen);
     if (d === null || !gid) continue;
     plan.push({
-      woche_start: parseDate(r.woche_start), datum: d, gericht_id: gid,
+      woche_start: parseDate(r.woche_start), datum: d, gericht_id: gid, beilage_id: str(r.beilage_id).trim(),
       portionen: p !== null && p.gte(Fr.ONE) ? Number(p.floor()) : settings.standard_portionen,
       fixiert: toBool(r.fixiert, false),
     });
@@ -85,7 +86,29 @@ export function normalize(raw) {
     const von = str(r.von).trim();
     bew.set(`${gid}\u0000${d}\u0000${von}`, { gericht_id: gid, datum: d, sterne: Number(s.n), notiz: str(r.notiz), von });
   }
-  return { einstellungen: settings, gerichte, plan, bewertungen: [...bew.values()] };
+
+  const lebensmittel = [];
+  for (const r0 of raw.Lebensmittel || []) {
+    const r = lowerKeys(r0);
+    const name = collapse(r.name);
+    if (!name) continue;
+    const kcal100 = parseAmount(r.kcal_je_100g);
+    if (kcal100 === null) continue;
+    lebensmittel.push({ name, kcal_je_100g: numOut(kcal100) });
+  }
+
+  const richtgewichte = [];
+  for (const r0 of raw.Richtgewichte || []) {
+    const r = lowerKeys(r0);
+    const name = collapse(r.name);
+    const einheit = normUnit(r.einheit);
+    if (!name || !einheit) continue;
+    const gramm = parseAmount(r.gramm);
+    if (gramm === null) continue;
+    richtgewichte.push({ name, einheit, gramm: numOut(gramm) });
+  }
+
+  return { einstellungen: settings, gerichte, plan, bewertungen: [...bew.values()], lebensmittel, richtgewichte };
 }
 
 // entfernt interne Felder (Unterstrich) fuer JSON-Vergleiche
@@ -100,8 +123,11 @@ export function stripInternal(o) {
 }
 
 const isDiaet = (g) => g.tags.some((t) => t.trim().toLowerCase() === 'diät');
-export const eligibleIds = (norm, modus = 'alle') => norm.gerichte
-  .filter((g) => g.aktiv && g.status === 'fertig' && !g.nie_wieder)
+// typ: 'hauptgericht' (Standard) oder 'beilage' - unabhaengige Pools, damit Haupt- und Beilage getrennt gewuerfelt
+// und getauscht werden koennen (siehe shuffle.js proposeBeilage/rerollBeilage).
+export const eligibleIds = (norm, modus = 'alle', typ = 'hauptgericht') => norm.gerichte
+  .filter((g) => g.aktiv && g.status === 'fertig' && !g.nie_wieder && g.typ === typ)
   .filter((g) => modus === 'diaet' ? isDiaet(g) : modus === 'lecker' ? !isDiaet(g) : true)
   .map((g) => g.id);
-export const selectableIds = (norm) => norm.gerichte.filter((g) => g.aktiv && g.status === 'fertig').map((g) => g.id);
+export const selectableIds = (norm, typ = 'hauptgericht') =>
+  norm.gerichte.filter((g) => g.aktiv && g.status === 'fertig' && g.typ === typ).map((g) => g.id);

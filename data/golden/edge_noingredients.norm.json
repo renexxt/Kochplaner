@@ -21,6 +21,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-01",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G001",
@@ -64,6 +65,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-04",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G002",
@@ -108,6 +110,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-07",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G003",
@@ -152,6 +155,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-10",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": []
   },
   {
@@ -171,6 +175,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-13",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G005",
@@ -215,6 +220,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-16",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G006",
@@ -259,6 +265,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-19",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G007",
@@ -303,6 +310,7 @@
    "quelle": "Testdaten",
    "angelegt_am": "2026-09-22",
    "status": "fertig",
+   "typ": "hauptgericht",
    "zutaten": [
     {
      "gericht_id": "G008",
@@ -332,5 +340,7 @@
   }
  ],
  "plan": [],
- "bewertungen": []
+ "bewertungen": [],
+ "lebensmittel": [],
+ "richtgewichte": []
 }
