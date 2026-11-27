@@ -1,7 +1,7 @@
 // Offline-Modus (F17): die App-Dateien werden nach dem ersten Laden zwischengespeichert.
 // Strategie: Netz zuerst (mit kurzer Wartezeit), sonst Zwischenspeicher. So kommen Updates an, und ohne Netz laeuft die App trotzdem.
 // Anfragen an die Schnittstelle (andere Adresse) und alle Schreibzugriffe gehen unveraendert durch.
-const VERSION = '1.2.0';
+const VERSION = '1.3.0';
 const CACHE = `kochplaner-${VERSION}`;
 const DATEIEN = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
@@ -9,10 +9,10 @@ const DATEIEN = [
   'js/main.js', 'js/state.js', 'js/version.js',
   'js/adapters/api.js', 'js/adapters/clipboard.js', 'js/adapters/storage.js',
   'js/content/help.js', 'js/content/import_prompt.js',
-  'js/core/dates.js', 'js/core/export.js', 'js/core/format.js', 'js/core/fraction.js', 'js/core/kcal.js', 'js/core/normalize.js', 'js/core/parse.js', 'js/core/parser.js',
+  'js/core/dates.js', 'js/core/expenses.js', 'js/core/export.js', 'js/core/format.js', 'js/core/fraction.js', 'js/core/kcal.js', 'js/core/normalize.js', 'js/core/parse.js', 'js/core/parser.js',
   'js/core/plan.js', 'js/core/ratings.js', 'js/core/setupcode.js', 'js/core/shopping.js', 'js/core/shuffle.js',
   'js/ui/chooser.js', 'js/ui/dom.js', 'js/ui/tour.js',
-  'js/ui/views/dishForm.js', 'js/ui/views/dishes.js', 'js/ui/views/help.js', 'js/ui/views/plan.js', 'js/ui/views/ranking.js', 'js/ui/views/settings.js', 'js/ui/views/shopping.js',
+  'js/ui/views/dishForm.js', 'js/ui/views/dishes.js', 'js/ui/views/expenses.js', 'js/ui/views/help.js', 'js/ui/views/plan.js', 'js/ui/views/ranking.js', 'js/ui/views/settings.js', 'js/ui/views/shopping.js',
 ];
 
 self.addEventListener('install', (e) => {

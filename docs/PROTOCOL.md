@@ -25,6 +25,8 @@ Beide Seiten sind unabhängig geschrieben, `tests/contract/` prüft sie mit dens
 | `bewertung_speichern` | `gericht_id, datum, sterne (1–5), notiz?, von?` | `{ueberschrieben}` |
 | `gericht_speichern` | `gericht: {id?, name, basis_portionen?, kcal_pro_portion?, tags?, favorit?, nie_wieder?, aktiv?, reicht_fuer_tage?, schritte?, quelle?, status?, typ?}`, `zutaten?: [{name, menge, einheit, einkaufen}]`, `anfrage_id?` (1–64 Zeichen aus Buchstaben, Ziffern, `_`, `-`) | `{id, neu, warnungen: [{code:"NAME_EXISTIERT", id}], wiederholt?}` |
 | `einstellung_speichern` | `schluessel` (`standard_portionen` 1–20, `wiederholungssperre_tage` 1–60), `wert` | `{}` |
+| `ausgabe_speichern` | `datum`, `betrag` (Zahl, Dezimalkomma möglich, größer 0 bis 100000), `beschreibung` (Freitext, höchstens 200 Zeichen) | `{}` |
+| `ausgaben_lesen` | – | `{ausgaben: [{datum, betrag, beschreibung, angelegt_am}]}` |
 
 Für `Lebensmittel` (Spalten `name`, `kcal_je_100g`) und `Richtgewichte` (Spalten `name`, `einheit`, `gramm`, z. B. „Ei“, „Stück“, 55) gibt es keine eigene
 Schreib-Aktion. Beide Tabs werden nur über `lesen` gelesen; Zeilen pflegt man direkt im Sheet. `setup()` legt beide Tabs mit Kopfzeile an, wenn sie fehlen
@@ -40,7 +42,7 @@ Schreib-Aktion. Beide Tabs werden nur über `lesen` gelesen; Zeilen pflegt man d
 
 ## Regeln beim Schreiben
 
-- Schreiben ist **Upsert** und ändert nur die genannten Felder. Zellen in Spalten, die die App nicht kennt, behalten ihren Wert. Formeln in eigenen Spalten werden beim Schreiben der Zeile aber zu Werten (Zeile wird als Ganzes zurückgeschrieben): keine eigenen Formeln in den fünf Tabs.
+- Schreiben ist **Upsert** und ändert nur die genannten Felder. Zellen in Spalten, die die App nicht kennt, behalten ihren Wert. Formeln in eigenen Spalten werden beim Schreiben der Zeile aber zu Werten (Zeile wird als Ganzes zurückgeschrieben): keine eigenen Formeln in den Tabs.
 - `plan_speichern`: Schlüssel = `datum` (je Tag höchstens eine Zeile). Leeres `gericht_id` löscht die Zeile dieses Tages.
   `gericht_id` muss existieren (`GERICHT_UNBEKANNT`). `woche_start` ist standardmäßig das Datum, `geaendert_am` die Serverzeit.
   `beilage_id` ist optional (leer = keine Beilage an diesem Tag); ist sie gesetzt, muss auch sie in „Gerichte“ existieren, sonst `GERICHT_UNBEKANNT`
@@ -55,9 +57,13 @@ Schreib-Aktion. Beide Tabs werden nur über `lesen` gelesen; Zeilen pflegt man d
   So legt ein zweiter Versuch nach verlorener Antwort kein Doppel an. Mit `id` wird `anfrage_id` ignoriert.
 - `setup()` stellt die Zeitzone des Sheets auf Europe/Berlin (Datumszellen sind Mitternacht in der Zeitzone des Sheets).
 - Text wird so gespeichert, wie er ankommt: `"=1+1"`, `"5"` oder `"2026-11-20"` in einem Textfeld bleiben Text.
-- Mengen: `""` oder Zahl 0 bis 100000 (Komma-Text wie `"1,5"` wird akzeptiert). `kcal_pro_portion`: `""` oder Zahl über 0 bis 5000.
+- Mengen: `""` oder Zahl 0 bis 100000 (Komma-Text wie `"1,5"` wird akzeptiert). `kcal_pro_portion`: `""` oder Zahl über 0 bis 5000. `betrag`: Zahl größer 0 bis 100000 (Komma-Text wird akzeptiert), nie leer.
 - `typ` (Tab „Gerichte“): `""`, `"hauptgericht"` oder `"beilage"`, ohne Groß-/Kleinschreibung; jeder andere Wert ist `EINGABE_UNGUELTIG`. Ein neues Gericht ohne
   ausdrücklichen `typ` bekommt `"hauptgericht"`. Leere Zelle beim Lesen gilt ebenfalls als `hauptgericht` (siehe D06-Prinzip „nichts raten, aber nichts blockieren“).
+- `ausgabe_speichern` legt immer eine neue Zeile im Tab „Ausgaben“ an (kein Upsert, keine Dopplungsprüfung): zwei Ausgaben
+  am selben Tag mit demselben Betrag sind zwei unabhängige Einträge, unabhängig vom Plan oder Einkaufszettel einer Woche.
+  `angelegt_am` setzt die Schnittstelle immer selbst (Serverzeit); ein mitgeschickter Wert wird ignoriert. Die allgemeine
+  Aktion `lesen` liefert den Tab „Ausgaben“ bewusst nicht mit, dafür gibt es `ausgaben_lesen`.
 
 ## Fehlercodes
 

@@ -3,7 +3,7 @@
  *
  * Die App liest und schreibt das Google Sheet nur über diese Schnittstelle. Protokoll: docs/PROTOCOL.md
  * Einrichtung: Sheet öffnen > Erweiterungen > Apps Script > diesen Code einfügen > Funktion setup() ausführen
- * (legt die 7 Tabs an und gibt das Token aus) > Bereitstellen > Neue Bereitstellung > Web-App
+ * (legt die Tabs an und gibt das Token aus) > Bereitstellen > Neue Bereitstellung > Web-App
  * (Ausführen als: Ich, Zugriff: Jeder). URL und Token ergeben den Setup-Code für die App.
  *
  * Läuft im Apps-Script-Runtime V8. Keine Abhängigkeit von Node oder Browser.
@@ -22,7 +22,11 @@ var KP = {
     Bewertungen: ['gericht_id', 'datum', 'sterne', 'notiz', 'von'],
     Einstellungen: ['schluessel', 'wert'],
     Lebensmittel: ['name', 'kcal_je_100g'],
-    Richtgewichte: ['name', 'einheit', 'gramm']
+    Richtgewichte: ['name', 'einheit', 'gramm'],
+    // Ausgaben (F25): eigenstaendig, nicht an einen bestimmten Einkaufszettel oder Plan gebunden. setup() legt den Tab
+    // ueber denselben generischen Lauf wie die anderen an. lesen_() liest ihn bewusst NICHT mit (KP.LESEN_TABS),
+    // dafuer gibt es die eigenen Aktionen ausgabe_speichern/ausgaben_lesen.
+    Ausgaben: ['datum', 'betrag', 'beschreibung', 'angelegt_am']
   },
   // Spalten, die setup() bei einem bestehenden (aelteren) Tab automatisch ergaenzt, ohne vorhandene Daten anzufassen.
   // Nur fuer neue, optionale Spalten mit sicherem Standardwert bei leerer Zelle (siehe DECISIONS.md).
@@ -32,6 +36,11 @@ var KP = {
     wiederholungssperre_tage: { min: 1, max: 60, standard: 21 }
   }
 };
+// Tabs, die die allgemeine Aktion "lesen" zurueckgibt. Bewusst getrennt von KP.TABS (das zusaetzlich fuer setup()
+// und die Spaltenpruefung aller Tabs gilt), damit "lesen" weiterhin genau diese fuenf liefert. Als eigene Zeile
+// nach KP definiert (nicht als Eintrag in KP.TABS), damit tools/make_vorlage.py die Tab-Liste weiterhin sauber
+// allein aus "TABS: { ... }" lesen kann.
+KP.LESEN_TABS = ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen'];
 
 /* ------------------------------------------------------------------ Einstiegspunkte */
 
@@ -71,6 +80,8 @@ function dispatch_(aktion, req) {
     case 'bewertung_speichern': return locked_(function () { return bewertungSpeichern_(req); });
     case 'gericht_speichern': return locked_(function () { return gerichtSpeichern_(req); });
     case 'einstellung_speichern': return locked_(function () { return einstellungSpeichern_(req); });
+    case 'ausgabe_speichern': return locked_(function () { return ausgabeSpeichern_(req); });
+    case 'ausgaben_lesen': return ausgabenLesen_();
     default: throw err_('AKTION_UNBEKANNT', 'Unbekannte Aktion: ' + aktion);
   }
 }
@@ -150,11 +161,30 @@ function tokenErneuern() {
 function lesen_() {
   var ss = openSheet_();
   var daten = {};
-  Object.keys(KP.TABS).forEach(function (name) {
+  KP.LESEN_TABS.forEach(function (name) {
     var t = openTable_(ss, name, false);
     daten[name] = t.records;
   });
   return { ok: true, version: KP.VERSION, stand: nowIso_(), daten: daten };
+}
+
+/** Ausgaben (F25): eigene Liste, unabhaengig von "lesen". Tolerant wie die anderen Lese-Aktionen (nur Tab muss da sein). */
+function ausgabenLesen_() {
+  var t = openTable_(openSheet_(), 'Ausgaben', false);
+  return { ok: true, ausgaben: t.records };
+}
+
+/** Ausgabe anlegen (F25): immer eine neue Zeile, kein Upsert (zwei Ausgaben am selben Tag sind zwei Eintraege).
+ *  angelegt_am setzt die Schnittstelle immer selbst (Serverzeit); ein mitgeschickter Wert wird ignoriert. */
+function ausgabeSpeichern_(req) {
+  var datum = dateStr_(req.datum, 'datum');
+  var betrag = betragIn_(req.betrag, 'betrag');
+  var beschreibung = textIn_(req.beschreibung, 200, 'beschreibung').trim();
+  if (!beschreibung) bad_('beschreibung', 'Die Beschreibung fehlt.');
+  var t = openTable_(openSheet_(), 'Ausgaben', true);
+  var rec = { datum: datum, betrag: betrag, beschreibung: beschreibung, angelegt_am: nowIso_() };
+  appendRows_(t, [mergeRow_(t, null, rec)]);
+  return { ok: true };
 }
 
 function planSpeichern_(req) {
@@ -472,6 +502,13 @@ function typIn_(v, feld) {
   var s = String(v).trim().toLowerCase();
   if (s !== 'hauptgericht' && s !== 'beilage') bad_(feld, feld + ' muss "hauptgericht" oder "beilage" sein (oder leer).');
   return s;
+}
+
+/** Betrag einer Ausgabe (F25): immer Pflicht, anders als kcal/Menge nie leer. */
+function betragIn_(v, feld) {
+  var n = typeof v === 'number' ? v : Number(String(v).replace(',', '.'));
+  if (!isFinite(n) || n <= 0 || n > 100000) bad_(feld, feld + ' muss eine Zahl größer als 0 (höchstens 100000) sein.');
+  return n;
 }
 
 function mengeIn_(v, feld) {
