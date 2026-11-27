@@ -399,6 +399,31 @@ for (const kind of KINDS) {
       });
     });
 
+    it('Text bleibt Text auch nach Teil-Update ohne dieses Feld: quelle/schritte/tags/name verlieren den Schutz nicht erneut', async () => {
+      // Regression: mergeRow_ in Code.gs uebernimmt unveraenderte Spalten direkt aus getValues() und schrieb sie ohne
+      // erneutes cellOut_-Escaping zurueck. Ein einmal gespeichertes "1,5" wurde dadurch beim naechsten Speichern,
+      // das dieses Feld nicht mitschickt, von Sheets als Zahl 1.5 umgedeutet (gefunden ueber Fuzzing, siehe D70).
+      const nasty = '1,5';
+      const r = await api.gerichtSpeichern({ name: nasty, tags: nasty, schritte: nasty, quelle: nasty, angelegt_am: '2026-11-14' });
+      const pruef = async () => {
+        const g = (await tab(be, 'Gerichte')).find((x) => x.id === r.id);
+        ['name', 'tags', 'schritte', 'quelle'].forEach((k) => {
+          assert.equal(g[k], nasty, `${k} muss "${nasty}" bleiben`);
+          assert.equal(typeof g[k], 'string', `${k} muss Text bleiben, nicht Zahl werden`);
+        });
+        return g;
+      };
+      await pruef();
+      // Teil-Update: nur favorit aendern, quelle/schritte/tags/name werden NICHT mitgeschickt (bestehender Wert bleibt)
+      await api.gerichtSpeichern({ id: r.id, favorit: 'ja' });
+      const g1 = await pruef();
+      assert.equal(g1.favorit, 'ja');
+      // Zweites Teil-Update ohne diese Felder: muss auch nach mehrfachem Zusammenfuehren geschuetzt bleiben
+      await api.gerichtSpeichern({ id: r.id, nie_wieder: 'ja' });
+      const g2 = await pruef();
+      assert.equal(g2.nie_wieder, 'ja');
+    });
+
     it('Zahlen bleiben Zahlen: Menge 1,5 / "2,25" / 0 / 0.001, Portionen, kcal', async () => {
       await api.gerichtSpeichern({ name: 'Zahlentest', kcal_pro_portion: '512,5', basis_portionen: '4', angelegt_am: '2026-11-14' },
         [{ name: 'A', menge: 1.5, einheit: 'l' }, { name: 'B', menge: '2,25', einheit: 'kg' }, { name: 'C', menge: 0, einheit: 'g' }, { name: 'D', menge: 0.001, einheit: 'g' }, { name: 'E', menge: '3', einheit: 'g' }]);

@@ -418,10 +418,16 @@ function openTable_(ss, name, needAllColumns) {
   return { sheet: sheet, name: name, header: header, col: col, ncols: header.length, records: records, rowNums: rowNums, lastRow: lastRow };
 }
 
-/** Zeile für setValues: vorhandene Zellen bleiben erhalten (auch Spalten, die der Nutzer selbst ergänzt hat). */
+/** Zeile für setValues: vorhandene Zellen bleiben erhalten (auch Spalten, die der Nutzer selbst ergänzt hat).
+ *  Ein unveraenderter Altwert kommt aus getValues() ohne das Schutz-Apostroph (das speichert Sheets nicht mit).
+ *  Ohne erneutes cellOut_ wuerde Sheets einen so zurueckgeschriebenen Text wie "1,5" beim naechsten Speichern
+ *  wieder als Zahl/Datum/Formel umdeuten, auch wenn die Anfrage dieses Feld gar nicht aendern wollte (siehe D29). */
 function mergeRow_(t, rowNum, rec) {
   var out = rowNum ? t.sheet.getRange(rowNum, 1, 1, t.ncols).getValues()[0] : [];
-  for (var i = 0; i < t.ncols; i++) if (out[i] === undefined) out[i] = '';
+  for (var i = 0; i < t.ncols; i++) {
+    if (out[i] === undefined) out[i] = '';
+    else out[i] = cellOut_(out[i], t.header[i]);
+  }
   Object.keys(rec).forEach(function (k) {
     if (!(k in t.col)) return;
     out[t.col[k]] = cellOut_(rec[k], k);
