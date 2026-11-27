@@ -146,7 +146,7 @@ def test_b3_neu_verbinden_behaelt_ungespeicherten_plan(lab):
     app.start_setzen(p["start"])
     rec.schritt("Schreiben scheitert mit falschem Token")
     m.fehler("token", None)
-    app.t("btn-shuffle").click()
+    app.t("btn-shuffle-alle").click()
     app.page.wait_for_selector('[data-testid="banner-offen"]', timeout=10000)
     tage = app.tage()
     rec.pruefe("F16", all(t["name"] != "Gericht wählen" for t in tage), "Plan steht auf dem Bildschirm")

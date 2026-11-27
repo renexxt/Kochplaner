@@ -136,7 +136,7 @@ export function dishFormView(app, { id, go, reload = () => go('#/gerichte') }) {
     h('div', { class: 'two' },
       field('Basisportionen', h('input', { type: 'text', inputmode: 'numeric', value: f.basis, 'data-testid': 'gericht-basis', oninput: (e) => { f.basis = e.target.value; keepDraft(); } }), 'Für diese Portionen gelten die Mengen.'),
       field('kcal pro Portion', h('input', { type: 'text', inputmode: 'decimal', value: f.kcal, placeholder: 'optional', 'data-testid': 'gericht-kcal', oninput: (e) => { f.kcal = e.target.value; keepDraft(); } }), 'Leer = „kcal fehlt“.')),
-    field('Tags', h('input', { type: 'text', value: f.tags, placeholder: 'Suppe, vegetarisch', 'data-testid': 'gericht-tags', oninput: (e) => { f.tags = e.target.value; keepDraft(); } }), 'Mit Komma trennen. Nur für die Suche.'),
+    field('Tags', h('input', { type: 'text', value: f.tags, placeholder: 'Suppe, vegetarisch', 'data-testid': 'gericht-tags', oninput: (e) => { f.tags = e.target.value; keepDraft(); } }), 'Mit Komma trennen, für die Suche. Der Tag „diät“ markiert ein Diät-Gericht zum Würfeln.'),
     h('section', { class: 'card inner' },
       h('h3', {}, 'Zutaten'),
       field('Schnell eingeben (eine Zutat pro Zeile, Diktat geht auch)', quickEl),

@@ -23,7 +23,9 @@ export function planView(app, { overlay, setupNeeded }) {
     onchange: (e) => { if (!app.setStart(e.target.value)) e.target.value = S.startIso; },
   });
   const rangeEl = h('p', { class: 'range', 'data-testid': 'plan-bereich' });
-  const shuffleBtn = h('button', { class: 'btn primary big', 'data-testid': 'btn-shuffle', 'data-tour': 'shuffle', onclick: () => app.shuffleAll() }, icon('dice', 22), h('span', {}));
+  const shuffleDiaetBtn = h('button', { class: 'btn primary', 'data-testid': 'btn-shuffle-diaet', onclick: () => app.shuffleAll('diaet') }, icon('dice', 20), h('span', {}, 'Diät würfeln'));
+  const shuffleAlleBtn = h('button', { class: 'btn primary', 'data-testid': 'btn-shuffle-alle', 'data-tour': 'shuffle', onclick: () => app.shuffleAll('alle') }, icon('dice', 20), h('span', {}, 'Alle würfeln'));
+  const shuffleLeckerBtn = h('button', { class: 'btn primary', 'data-testid': 'btn-shuffle-lecker', onclick: () => app.shuffleAll('lecker') }, icon('dice', 20), h('span', {}, 'Lecker würfeln'));
   const statusEl = h('p', { class: 'plan-status', 'data-testid': 'plan-status', role: 'status' });
   const warnEl = h('div', { 'data-testid': 'plan-warnung' });
   const listEl = h('ol', { class: 'days', 'data-testid': 'plan-tage' });
@@ -33,7 +35,7 @@ export function planView(app, { overlay, setupNeeded }) {
       h('label', { for: 'startdatum', class: 'lbl' }, 'Startdatum'),
       h('div', { class: 'row' }, startInput, h('button', { class: 'btn quiet', 'aria-label': 'Heute als Start', 'data-testid': 'start-heute', onclick: () => { app.setStart(app.today()); } }, 'Heute')),
       rangeEl),
-    h('div', { class: 'actions' }, shuffleBtn),
+    h('div', { class: 'actions row shuffle-row' }, shuffleDiaetBtn, shuffleAlleBtn, shuffleLeckerBtn),
     warnEl, statusEl, listEl);
 
   const dish = (id) => S.norm.gerichte.find((g) => g.id === id) || null;
@@ -106,9 +108,6 @@ export function planView(app, { overlay, setupNeeded }) {
     const days = weekDays(S.startIso);
     if (startInput.value !== S.startIso) startInput.value = S.startIso;
     rangeEl.textContent = `${days[0].wochentag}, ${formatDE(days[0].datum)} bis ${days[6].wochentag}, ${formatDE(days[6].datum)} (7 Tage)`;
-    const any = S.slots.some((s) => s.gericht_id);
-    shuffleBtn.lastChild.textContent = any ? 'Alle neu würfeln' : 'Vorschlag würfeln';
-    shuffleBtn.dataset.modus = any ? 'alle' : 'vorschlag';
     clear(warnEl);
     if (S.warnung === 'WENIGER_ALS_7') warnEl.append(h('p', { class: 'note warn', role: 'alert' }, 'Es gibt weniger als 7 passende Gerichte. Einzelne Gerichte kommen deshalb mehrfach vor. Lege weitere Gerichte an, damit es abwechslungsreicher wird.'));
     if (S.norm.gerichte.length === 0) warnEl.append(h('p', { class: 'note', 'data-testid': 'plan-keine-gerichte' }, 'Im Sheet gibt es noch keine Gerichte. Unter „Gerichte“ kannst du eines anlegen, oder du lässt Claude welche eintragen (siehe Hilfe).'));

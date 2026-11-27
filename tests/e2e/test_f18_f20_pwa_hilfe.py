@@ -227,7 +227,7 @@ def test_f20_tour_angebot_ueberspringen_wiederholen(lab):
     rec.gleich("F20", app.t("tour-schritt").text_content(), "Schritt 1 von 7", "Tour laesst sich auch aus den Einstellungen wiederholen")
 
 
-EXPECT_TITEL = ["Startdatum", "Vorschlag würfeln", "Tag antippen", "Portionen", "Bewerten", "Einkaufszettel", "Liste weitergeben"]
+EXPECT_TITEL = ["Startdatum", "Würfeln", "Tag antippen", "Portionen", "Bewerten", "Einkaufszettel", "Liste weitergeben"]
 EXPECT_ZIEL = ['[data-tour="start"]', '[data-tour="shuffle"]', '[data-tour="tag"]', '[data-tour="portionen"]', '[data-tour="bewerten"]', '[data-tour="liste"] .shop-item', '[data-tour="export"]']
 
 
@@ -294,8 +294,8 @@ def test_f20_neuling_schafft_plan_und_einkaufszettel_mit_der_tour(lab):
         pg.get_by_role("button", name="Fertig" if i == 6 else "Weiter").click()
     rec.gleich("F20", texte, EXPECT_TITEL, "Neuling liest alle sieben Tour-Schritte")
     pg.wait_for_function("!document.querySelector('#tour.open')")
-    rec.schritt("laut Tour 'Vorschlag würfeln' tippen")
-    pg.get_by_role("button", name="Vorschlag würfeln").click()
+    rec.schritt("laut Tour 'Alle würfeln' tippen")
+    pg.get_by_role("button", name="Alle würfeln").click()
     pg.wait_for_function("[...document.querySelectorAll('.dish-name')].filter(e => e.innerText !== 'Gericht wählen').length === 7")
     rec.gleich("F20", pg.evaluate("[...document.querySelectorAll('.dish-name')].filter(e => e.innerText !== 'Gericht wählen').length"), 7, "Plan mit 7 Gerichten allein mit der Tour erstellt")
     rec.shot(pg, "neuling_plan")

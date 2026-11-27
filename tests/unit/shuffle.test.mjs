@@ -28,6 +28,39 @@ test('F02: 1000 Plaene, je 7 Gerichte, nur aktive, fertige, ohne nie_wieder, kei
   }
 });
 
+test('Modus "diaet"/"lecker": eligibleIds filtert ueber den Tag "diät" (Gross-/Kleinschreibung egal)', () => {
+  const norm = loadNorm('kochplaner_test');
+  const alle = new Set(eligibleIds(norm));
+  const diaet = new Set(eligibleIds(norm, 'diaet'));
+  const lecker = new Set(eligibleIds(norm, 'lecker'));
+  assert.deepEqual(diaet, new Set(['G012', 'G025', 'G028'])); // G012: "Fisch,diät", G025: "...,diät", G028: "...,Diät"
+  assert.equal(lecker.size, alle.size - diaet.size);
+  for (const id of lecker) assert.ok(!diaet.has(id), id);
+  assert.deepEqual(new Set(eligibleIds(norm, 'alle')), alle);
+});
+
+test('Modus "diaet": proposePlan waehlt nur Diaet-Gerichte, Modus "lecker" schliesst sie aus', () => {
+  const norm = loadNorm('kochplaner_test');
+  const diaetIds = ['G012', 'G025', 'G028'];
+  for (let i = 0; i < 50; i++) {
+    const rDiaet = proposePlan({ norm, startIso: START, slots: emptySlots(START, 2), history: [], seed: i, modus: 'diaet' });
+    for (const id of ids(rDiaet)) assert.ok(diaetIds.includes(id), id);
+    assert.equal(rDiaet.warnung, 'WENIGER_ALS_7');
+    const rLecker = proposePlan({ norm, startIso: START, slots: emptySlots(START, 2), history: [], seed: i, modus: 'lecker' });
+    for (const id of ids(rLecker)) assert.ok(!diaetIds.includes(id), id);
+  }
+});
+
+test('Modus "diaet": rerollDay bleibt innerhalb der Diaet-Gerichte', () => {
+  const norm = loadNorm('kochplaner_test');
+  const diaetIds = ['G012', 'G025', 'G028'];
+  const slots = emptySlots(START, 2);
+  for (let i = 0; i < 50; i++) {
+    const r = rerollDay({ norm, startIso: START, slots, index: 0, history: [], seed: i, modus: 'diaet' });
+    assert.ok(diaetIds.includes(r.slots[0].gericht_id), r.slots[0].gericht_id);
+  }
+});
+
 test('F02: gleicher Seed ergibt denselben Plan, auch bei anderer Reihenfolge der Gerichte; andere Seeds streuen', () => {
   const norm = loadNorm('kochplaner_test');
   const rev = { ...norm, gerichte: norm.gerichte.slice().reverse() };
