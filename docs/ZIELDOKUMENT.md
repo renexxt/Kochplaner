@@ -125,7 +125,7 @@ Die erwarteten Ergebnisse (Einkaufszettel, skalierte Mengen, Tagessummen) berech
 
 ## Funktionen und Abnahmekriterien
 
-23 Funktionen, jede mit einem messbaren Kriterium und einem Eintrag im Evidenz-Report. Muss und Soll müssen am Ende bestehen, Kann nur, wenn alles andere grün ist.
+24 Funktionen, jede mit einem messbaren Kriterium und einem Eintrag im Evidenz-Report. Muss und Soll müssen am Ende bestehen, Kann nur, wenn alles andere grün ist.
 
 | ID | Funktion | Prio | Abnahmekriterium |
 |---|---|---|---|
@@ -152,6 +152,7 @@ Die erwarteten Ergebnisse (Einkaufszettel, skalierte Mengen, Tagessummen) berech
 | F21 | Gerichte aktualisieren | Muss | Beim Öffnen und per Button „Aktualisieren“ holt die App die neuesten Daten aus dem Sheet; ein vom Claude-Chat neu eingetragenes Gericht erscheint danach in der Gerichteliste, ohne dass etwas neu installiert wird; die App zeigt die Uhrzeit des letzten Abgleichs. |
 | F22 | Gericht bewerten | Soll | Im Tagesbild eines heutigen oder vergangenen Tages gibt es Sterne von 1 bis 5 und eine optionale Notiz; jede Bewertung wird als Zeile im Tab „Bewertungen“ gespeichert; erneutes Bewerten desselben Tages überschreibt; zukünftige Tage lassen sich nicht bewerten; Durchschnitt und Anzahl je Gericht stimmen mit dem Orakel überein. |
 | F23 | Rangliste und Gewichtung | Soll | Eine Rangliste zeigt die besten und schwächsten Gerichte nach Durchschnitt (ab 2 Bewertungen). Das Shuffle-Gewicht eines Gerichts ist 1, mit Favorit ×2, bei Durchschnitt ab 4 ×1,5 und bei Durchschnitt bis 2 (ab 2 Bewertungen) ×0,5; ein Gericht mit Durchschnitt bis 2 kommt bei 1000 Läufen mit festem Seed höchstens 0,75-mal so oft vor wie ein unbewertetes. |
+| F24 | Ausgaben erfassen | Soll | Datum, Betrag (Dezimalkomma, größer 0) und Beschreibung lassen sich jederzeit als eigener Eintrag speichern, unabhängig vom Plan oder Einkaufszettel einer bestimmten Woche; erreichbar sowohl über einen Button auf dem Einkaufszettel als auch eigenständig über die Einstellungen; eine Liste zeigt die zuletzt erfassten Ausgaben, neueste zuerst; jede Ausgabe landet als eigene Zeile im Tab „Ausgaben“ (Spalten `datum, betrag, beschreibung, angelegt_am`), unabhängig von „lesen“. |
 
 ## Teststrategie und Beweisführung
 

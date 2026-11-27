@@ -37,6 +37,8 @@ export function createApp({ storage, clock, makeClient, seedFor = null, openUrl,
     setup: null, raw: null, norm: normalize({}), syncedAt: null, online: true, loading: false, loadError: null,
     startIso: null, slots: [], planDirty: false, planStatus: 'leer', planFehler: null, warnung: null,
     pending: [], checked: {}, prefs: { name: '', sheetLink: '', tourDone: false }, toast: null, shuffleCount: 0, shuffleModus: 'alle', listeFehler: null,
+    // Ausgaben (F24): eigener, unabhaengiger Zustand, nicht Teil von raw/norm (bewusst getrennt vom Plan/Einkaufszettel).
+    ausgaben: [], ausgabenLoading: false, ausgabenFehler: null,
   };
   const listeners = new Set();
   const emit = () => listeners.forEach((f) => f(S));
@@ -79,6 +81,7 @@ export function createApp({ storage, clock, makeClient, seedFor = null, openUrl,
     S.prefs = { ...S.prefs, ...(storage.get('prefs') || {}) };
     S.checked = storage.get('checked') || {};
     S.pending = storage.get('pending') || [];
+    S.ausgaben = storage.get('ausgaben') || [];
     const cache = storage.get('cache');
     if (cache && cache.raw) { S.raw = cache.raw; S.norm = normalize(cache.raw); S.syncedAt = cache.syncedAt || null; }
     const p = storage.get('plan');
@@ -137,7 +140,8 @@ export function createApp({ storage, clock, makeClient, seedFor = null, openUrl,
   }
   function disconnect() {
     S.setup = null; S.raw = null; S.norm = normalize({}); S.syncedAt = null; S.pending = []; S.planDirty = false; S.loadError = null;
-    for (const k of ['setup', 'cache', 'plan', 'pending', 'checked', 'draft']) storage.remove(k);
+    S.ausgaben = []; S.ausgabenFehler = null;
+    for (const k of ['setup', 'cache', 'plan', 'pending', 'checked', 'draft', 'ausgaben']) storage.remove(k);
     S.checked = {}; S.slots = buildSlots(); S.planStatus = 'leer';
     emit();
   }
@@ -288,6 +292,28 @@ export function createApp({ storage, clock, makeClient, seedFor = null, openUrl,
   }
   function resetChecks() { S.checked = {}; storage.set('checked', S.checked); emit(); }
 
+  // ---- Ausgaben (F24): eigenstaendig, unabhaengig von einem bestimmten Einkaufszettel oder Plan. Bewusst nicht
+  // Teil von raw/rawVersion/refresh(): die Liste wird geladen, wenn der Ausgaben-Bildschirm geoeffnet wird.
+  const persistAusgaben = () => storage.set('ausgaben', S.ausgaben);
+  async function loadAusgaben() {
+    if (!S.setup) return false;
+    S.ausgabenLoading = true; emit();
+    try {
+      const r = await client().ausgabenLesen();
+      S.ausgaben = r.ausgaben;
+      S.ausgabenFehler = null;
+      persistAusgaben();
+      return true;
+    } catch (e) {
+      S.ausgabenFehler = fehlerInfo(e);
+      return false;
+    } finally { S.ausgabenLoading = false; emit(); }
+  }
+  async function saveAusgabe(eintrag) {
+    await client().ausgabeSpeichern(eintrag); // Fehler gehen an die Eingabemaske, die offen bleibt (wie saveDish)
+    await loadAusgaben();
+  }
+
   async function retryPending() {
     const ops = S.pending.slice();
     for (const op of ops) {
@@ -305,6 +331,7 @@ export function createApp({ storage, clock, makeClient, seedFor = null, openUrl,
     setStart, shuffleAll, reroll, chooseDish, fixToggle, portionen, flushSave,
     rate, ownRating, saveDish, setDishFlag, saveSetting, setPrefs, getDraft, setDraft, clearDraft,
     shopping, toggleCheck, resetChecks, retryPending, toast,
+    loadAusgaben, saveAusgabe,
     today, now, copyText, shareText, openUrl, selectable: () => selectableIds(S.norm),
     isComplete: () => isComplete(S.slots), addDays, emptySlots,
   };

@@ -41,7 +41,13 @@ TABS = {
     "Plan": ["woche_start", "datum", "gericht_id", "portionen", "fixiert", "geaendert_am"],
     "Bewertungen": ["gericht_id", "datum", "sterne", "notiz", "von"],
     "Einstellungen": ["schluessel", "wert"],
+    # Ausgaben (F24): eigenstaendig, nicht an einen bestimmten Einkaufszettel oder Plan gebunden. Die allgemeine
+    # Aktion "lesen" liefert diesen Tab bewusst nicht mit (siehe LESEN_TABS), dafuer gibt es ausgabe_speichern/ausgaben_lesen.
+    "Ausgaben": ["datum", "betrag", "beschreibung", "angelegt_am"],
 }
+# Tabs der allgemeinen Aktion "lesen" (Code.gs: KP.LESEN_TABS). Getrennt von TABS, das zusaetzlich fuer
+# die Spaltenpruefung aller Tabs gilt (auch Ausgaben).
+LESEN_TABS = ["Gerichte", "Zutaten", "Plan", "Bewertungen", "Einstellungen"]
 SETTINGS = {"standard_portionen": (1, 20), "wiederholungssperre_tage": (1, 60)}
 DATE_COLS = {"woche_start", "datum", "angelegt_am", "geaendert_am"}
 
@@ -92,6 +98,17 @@ def kcal_in(v, feld):
         n = None
     if n is None or not (0 < n <= 5000):
         bad(feld, f"{feld} muss leer oder eine Zahl über 0 (höchstens 5000) sein.")
+    return int(n) if n.is_integer() else n
+
+
+def betrag_in(v, feld):
+    """Betrag einer Ausgabe (F24): immer Pflicht, anders als kcal/Menge nie leer."""
+    try:
+        n = float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else float(str(v).replace(",", "."))
+    except ValueError:
+        n = None
+    if n is None or not (0 < n <= 100000):
+        bad(feld, f"{feld} muss eine Zahl größer als 0 (höchstens 100000) sein.")
     return int(n) if n.is_integer() else n
 
 
@@ -237,9 +254,11 @@ class Store:
             return {"ok": True, "version": VERSION, "zeit": now_iso()}
         if aktion == "lesen":
             return {"ok": True, "version": VERSION, "stand": now_iso(),
-                    "daten": {n: Table(self.wb, n, False).records for n in TABS}}
+                    "daten": {n: Table(self.wb, n, False).records for n in LESEN_TABS}}
+        if aktion == "ausgaben_lesen":
+            return self.ausgaben()
         fn = {"plan_speichern": self.plan, "bewertung_speichern": self.bewertung, "gericht_speichern": self.gericht,
-              "einstellung_speichern": self.einstellung}.get(aktion)
+              "einstellung_speichern": self.einstellung, "ausgabe_speichern": self.ausgabe}.get(aktion)
         if not fn:
             raise ApiError("AKTION_UNBEKANNT", f"Unbekannte Aktion: {aktion}")
         res = fn(req)
@@ -429,6 +448,22 @@ class Store:
         else:
             t.append([rec])
         return {"ok": True}
+
+    def ausgabe(self, req):
+        """Ausgabe anlegen (F24): immer eine neue Zeile, kein Upsert. angelegt_am setzt die Schnittstelle immer
+        selbst (Serverzeit); ein mitgeschickter Wert wird ignoriert."""
+        datum = date_str(req.get("datum"), "datum")
+        betrag = betrag_in(req.get("betrag"), "betrag")
+        beschreibung = text_in(req.get("beschreibung"), 200, "beschreibung").strip()
+        if not beschreibung:
+            bad("beschreibung", "Die Beschreibung fehlt.")
+        t = Table(self.wb, "Ausgaben", True)
+        t.append([{"datum": datum, "betrag": betrag, "beschreibung": beschreibung, "angelegt_am": now_iso()}])
+        return {"ok": True}
+
+    def ausgaben(self):
+        """Ausgaben lesen (F24): eigene Liste, unabhaengig von "lesen". Tolerant wie die anderen Lese-Aktionen."""
+        return {"ok": True, "ausgaben": Table(self.wb, "Ausgaben", False).records}
 
     def dump(self):
         return {n: Table(self.wb, n, False).records for n in self.wb.sheetnames}

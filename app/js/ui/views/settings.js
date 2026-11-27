@@ -80,6 +80,12 @@ export function settingsView(app, { go, startTour }) {
     h('h2', {}, 'Dieses Gerät'),
     field('Dein Name (für Bewertungen)', h('input', { type: 'text', value: S.prefs.name, placeholder: 'z. B. Anna', maxlength: 40, 'data-testid': 'einst-name', onchange: (e) => app.setPrefs({ name: e.target.value.trim() }) }), 'Optional. So können zwei Personen dasselbe Gericht am selben Tag getrennt bewerten.'),
     field('Link zum Google Sheet (optional)', h('input', { type: 'url', value: S.prefs.sheetLink, placeholder: 'https://docs.google.com/spreadsheets/…', 'data-testid': 'einst-sheetlink', onchange: (e) => app.setPrefs({ sheetLink: e.target.value.trim() }) }), 'Wird nur in die Chat-Vorlage unter „Neues Gericht“ eingesetzt und bleibt auf diesem Gerät.'));
+  // Ausgaben (F24): eigenstaendiger Einstiegspunkt, jederzeit nutzbar, unabhaengig vom aktuellen Einkaufszettel.
+  const expensesCard = h('section', { class: 'card' },
+    h('h2', {}, 'Ausgaben'),
+    h('p', { class: 'hint' }, 'Erfasse Einkäufe und Sonderausgaben wie „10 kg Mehl, Mühle“ – unabhängig vom Wochenplan.'),
+    h('button', { class: 'btn', 'data-testid': 'btn-ausgaben-oeffnen', onclick: () => go('#/ausgaben') }, 'Ausgaben erfassen'));
+
   const aboutCard = h('section', { class: 'card' },
     h('h2', {}, 'Hilfe und Info'),
     h('div', { class: 'stack' },
@@ -87,7 +93,7 @@ export function settingsView(app, { go, startTour }) {
       h('button', { class: 'btn', onclick: () => go('#/hilfe') }, 'Hilfe öffnen')),
     h('p', { class: 'hint', 'data-testid': 'version' }, `Kochplaner Version ${APP_VERSION}`));
 
-  root.append(verb, planCard, deviceCard, aboutCard);
+  root.append(verb, planCard, expensesCard, deviceCard, aboutCard);
   renderConn(); renderPlan();
   let sig = `${!!S.setup}|${S.syncedAt}|${S.norm.gerichte.length}`;
   return { el: root, update: () => { const n = `${!!S.setup}|${S.syncedAt}|${S.norm.gerichte.length}`; if (n !== sig && !connecting) { sig = n; renderConn(); renderPlan(); } } };

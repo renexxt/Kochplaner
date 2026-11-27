@@ -52,7 +52,12 @@ export function shoppingView(app, { setupNeeded, go }) {
         h('button', { class: 'btn primary big', 'data-testid': 'btn-erinnerungen', onclick: toReminders }, icon('check', 20), 'In Erinnerungen'),
         h('button', { class: 'btn big', 'data-testid': 'btn-notes', onclick: toNotes }, icon('copy', 20), 'Für Notes kopieren'),
         h('button', { class: 'btn quiet', 'data-testid': 'btn-teilen', onclick: share }, icon('share', 18), 'Teilen …')),
-      notesHint, msg));
+      notesHint, msg),
+    // Ausgaben (F24): unabhaengig von dieser Liste, auch fuer Sonderfaelle wie "10 kg Mehl, Mühle".
+    h('section', { class: 'card' },
+      h('h2', {}, 'Nach dem Einkaufen'),
+      h('p', { class: 'hint' }, 'Trage ein, was der Einkauf gekostet hat – unabhängig vom Einkaufszettel.'),
+      h('button', { class: 'btn', 'data-testid': 'btn-ausgabe-eintragen', onclick: () => go('#/ausgaben') }, 'Ausgabe eintragen')));
 
   function render() {
     const items = app.shopping();

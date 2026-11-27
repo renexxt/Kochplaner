@@ -544,7 +544,9 @@ describe('setup() in Code.gs', () => {
     const sim = (await import('../tools/gs_sim.mjs')).createAppsScript({ empty: true, configured: false });
     sim.book.insertSheet('Tabelle1');
     const log1 = sim.run('setup');
-    assert.deepEqual(sim.book.getSheets().map((s) => s.getName()), ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen']);
+    // Ausgaben (F24) ist Teil von KP.TABS, damit setup() den Tab mit Kopfzeile anlegt; die allgemeine Aktion
+    // "lesen" liefert ihn trotzdem nicht mit (siehe Test weiter unten, KP.LESEN_TABS).
+    assert.deepEqual(sim.book.getSheets().map((s) => s.getName()), ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen', 'Ausgaben']);
     assert.match(log1, /Leeres Standard-Tab entfernt: Tabelle1/);
     assert.equal(sim.book.getSpreadsheetTimeZone(), 'Europe/Berlin', 'Zeitzone des Sheets = Zeitzone der Schnittstelle');
     assert.match(log1, /Zeitzone des Sheets auf Europe\/Berlin gestellt/);
