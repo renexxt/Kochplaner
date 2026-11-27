@@ -31,7 +31,7 @@ Voraussetzungen: Node 22, Python 3.13 mit `pytest`, `playwright`, `openpyxl`, `p
     npm run test:all                    # Testdaten, Orakel, Unit- und Vertragstests (ca. 1 Minute)
     cd tests/e2e && python3 -m pytest   # Browser-Tests mit iPhone- und iPad-Emulation (ca. 5 Minuten)
     python3 tests/tools/mutate_app.py   # 15 absichtliche App-Fehler, alle müssen gefunden werden
-    bash tests/tools/mutate_gs.sh       # 28 absichtliche Fehler in Code.gs
+    bash tests/tools/mutate_gs.sh       # 32 absichtliche Fehler in Code.gs
     python3 backend/mock_server.py --xlsx data/kochplaner_test.xlsx --app app --token <mind. 16 Zeichen> --port 0   # App lokal mit Mock
 
 Der Mock gibt `PORT=…` aus. Setup-Code für lokale Tests: `KP1.` plus base64url von `{"u":"http://127.0.0.1:PORT/exec","t":"TOKEN"}`.
