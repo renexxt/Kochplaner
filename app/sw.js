@@ -1,7 +1,7 @@
 // Offline-Modus (F17): die App-Dateien werden nach dem ersten Laden zwischengespeichert.
 // Strategie: Netz zuerst (mit kurzer Wartezeit), sonst Zwischenspeicher. So kommen Updates an, und ohne Netz laeuft die App trotzdem.
 // Anfragen an die Schnittstelle (andere Adresse) und alle Schreibzugriffe gehen unveraendert durch.
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 const CACHE = `kochplaner-${VERSION}`;
 const DATEIEN = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',

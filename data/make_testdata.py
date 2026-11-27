@@ -169,7 +169,7 @@ Thymian;1;Bund
 Salz;;Prise
 Pfeffer;;
 """)
-dish("G012", "Lachs mit Brokkoli", 2, 590, "Fisch", "ja", "nein", "ja", 1,
+dish("G012", "Lachs mit Brokkoli", 2, 590, "Fisch,diät", "ja", "nein", "ja", 1,
      "Kartoffeln kochen, Lachs in Butter braten, Brokkoli dämpfen.", """
 Lachsfilet;300;g
 Brokkoli;1;Stück
@@ -298,7 +298,7 @@ Feta;100;g
 Joghurt;150;g
 Rapsöl;3;EL
 """)
-dish("G025", "Putengeschnetzeltes mit Reis", 2, 600, "Pute,Reis", "nein", "nein", "ja", 1,
+dish("G025", "Putengeschnetzeltes mit Reis", 2, 600, "Pute,Reis,diät", "nein", "nein", "ja", 1,
      "Pute anbraten, Champignons und Zwiebeln dazu, mit Sahne ablöschen, Reis kochen.", """
 Putenbrust;350;g
 Reis;200;g
@@ -331,7 +331,7 @@ Knoblauch;2;Stück
 Nudeln;400;g
 Olivenöl;2;EL
 """)
-dish("G028", "Kichererbsen-Curry", 4, 520, "vegetarisch,Curry", "ja", "nein", "ja", 1,
+dish("G028", "Kichererbsen-Curry", 4, 520, "vegetarisch,Curry,Diät", "ja", "nein", "ja", 1,
      "Zwiebel und Ingwer anbraten, Gewürze, Tomaten, Kokosmilch und Kichererbsen 20 Minuten köcheln.", """
 Kichererbsen;2;Dose
 Kokosmilch;400;ml

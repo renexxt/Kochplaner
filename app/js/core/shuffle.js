@@ -58,9 +58,9 @@ const wOf = (norm) => {
 };
 
 // slots: [{index, datum, gericht_id|null, portionen, fixiert}] -> neue slots (fixierte Tage bleiben)
-export function proposePlan({ norm, startIso, slots, history = [], seed, rng }) {
+export function proposePlan({ norm, startIso, slots, history = [], seed, rng, modus = 'alle' }) {
   rng = rng || mulberry32(seed ?? 1);
-  const eligible = eligibleIds(norm);
+  const eligible = eligibleIds(norm, modus);
   if (eligible.length === 0) throw new ShuffleError('KEINE_GERICHTE', 'Keine passenden Gerichte vorhanden.');
   const weightOf = wOf(norm);
   const sperre = norm.einstellungen.wiederholungssperre_tage;
@@ -81,11 +81,11 @@ export function proposePlan({ norm, startIso, slots, history = [], seed, rng }) 
 }
 
 // Neu wuerfeln fuer genau einen Tag
-export function rerollDay({ norm, startIso, slots, index, history = [], seed, rng }) {
+export function rerollDay({ norm, startIso, slots, index, history = [], seed, rng, modus = 'alle' }) {
   rng = rng || mulberry32(seed ?? 1);
   const cur = slots[index];
   if (cur.fixiert) return { slots, geaendert: false };
-  const eligible = eligibleIds(norm);
+  const eligible = eligibleIds(norm, modus);
   if (eligible.length === 0) throw new ShuffleError('KEINE_GERICHTE', 'Keine passenden Gerichte vorhanden.');
   const weightOf = wOf(norm);
   const recent = recentIds(history, startIso, norm.einstellungen.wiederholungssperre_tage);

@@ -36,7 +36,7 @@ export function createApp({ storage, clock, makeClient, seedFor = null, openUrl,
   const S = {
     setup: null, raw: null, norm: normalize({}), syncedAt: null, online: true, loading: false, loadError: null,
     startIso: null, slots: [], planDirty: false, planStatus: 'leer', planFehler: null, warnung: null,
-    pending: [], checked: {}, prefs: { name: '', sheetLink: '', tourDone: false }, toast: null, shuffleCount: 0, listeFehler: null,
+    pending: [], checked: {}, prefs: { name: '', sheetLink: '', tourDone: false }, toast: null, shuffleCount: 0, shuffleModus: 'alle', listeFehler: null,
   };
   const listeners = new Set();
   const emit = () => listeners.forEach((f) => f(S));
@@ -185,10 +185,11 @@ export function createApp({ storage, clock, makeClient, seedFor = null, openUrl,
   }
   const flushSave = async () => { clearTimeout(saveTimer); if (S.planDirty) saving = saving.then(doSave); await saving; };
 
-  function shuffleAll() {
+  function shuffleAll(modus = 'alle') {
+    S.shuffleModus = modus;
     S.shuffleCount += 1;
     try {
-      const r = proposePlan({ norm: S.norm, startIso: S.startIso, slots: S.slots, history: S.norm.plan, seed: seedFor(S.shuffleCount, nowIso()) });
+      const r = proposePlan({ norm: S.norm, startIso: S.startIso, slots: S.slots, history: S.norm.plan, seed: seedFor(S.shuffleCount, nowIso()), modus });
       S.warnung = r.warnung;
       changed(r.slots);
       return true;
@@ -199,7 +200,7 @@ export function createApp({ storage, clock, makeClient, seedFor = null, openUrl,
     if (s.fixiert) { toast('Dieser Tag ist fixiert. Erst die Fixierung lösen.', 'info'); return false; }
     S.shuffleCount += 1;
     try {
-      const r = rerollDay({ norm: S.norm, startIso: S.startIso, slots: S.slots, index, history: S.norm.plan, seed: seedFor(S.shuffleCount, nowIso()) });
+      const r = rerollDay({ norm: S.norm, startIso: S.startIso, slots: S.slots, index, history: S.norm.plan, seed: seedFor(S.shuffleCount, nowIso()), modus: S.shuffleModus });
       if (!r.geaendert) { toast('Es gibt kein anderes passendes Gericht.', 'info'); return false; }
       changed(r.slots);
       return true;

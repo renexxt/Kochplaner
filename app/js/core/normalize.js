@@ -99,5 +99,9 @@ export function stripInternal(o) {
   return o;
 }
 
-export const eligibleIds = (norm) => norm.gerichte.filter((g) => g.aktiv && g.status === 'fertig' && !g.nie_wieder).map((g) => g.id);
+const isDiaet = (g) => g.tags.some((t) => t.trim().toLowerCase() === 'diät');
+export const eligibleIds = (norm, modus = 'alle') => norm.gerichte
+  .filter((g) => g.aktiv && g.status === 'fertig' && !g.nie_wieder)
+  .filter((g) => modus === 'diaet' ? isDiaet(g) : modus === 'lecker' ? !isDiaet(g) : true)
+  .map((g) => g.id);
 export const selectableIds = (norm) => norm.gerichte.filter((g) => g.aktiv && g.status === 'fertig').map((g) => g.id);

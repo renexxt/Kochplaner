@@ -965,7 +965,8 @@
    "basis_portionen": 2,
    "kcal_pro_portion": 590,
    "tags": [
-    "Fisch"
+    "Fisch",
+    "diät"
    ],
    "favorit": true,
    "nie_wieder": false,
@@ -1942,7 +1943,8 @@
    "kcal_pro_portion": 600,
    "tags": [
     "Pute",
-    "Reis"
+    "Reis",
+    "diät"
    ],
    "favorit": false,
    "nie_wieder": false,
@@ -2194,7 +2196,8 @@
    "kcal_pro_portion": 520,
    "tags": [
     "vegetarisch",
-    "Curry"
+    "Curry",
+    "Diät"
    ],
    "favorit": true,
    "nie_wieder": false,

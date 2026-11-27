@@ -187,7 +187,7 @@ class App:
         return self.page.evaluate(JS_TAGE)
 
     def wuerfeln(self):
-        self.t("btn-shuffle").click()
+        self.t("btn-shuffle-alle").click()
         self.gespeichert()
 
     def start_setzen(self, iso):
