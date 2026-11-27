@@ -86,8 +86,9 @@ describe('Gegenprobe Code.gs gegen Mock', () => {
       const [ra, rb] = [await mock.client().lesen(), await gs.client().lesen()];
       assert.deepEqual(stable(rb), stable(ra));
       assert.deepEqual(await gs.dump(), await mock.dump());
-      // Lesen und unabhaengiger Sheet-Dump zeigen dasselbe
-      assert.deepEqual(rb.daten, await gs.dump());
+      // Lesen und unabhaengiger Sheet-Dump zeigen dasselbe, bis auf "Ausgaben" (KP.LESEN_TABS liefert es bewusst nicht mit)
+      const { Ausgaben, ...dumpRest } = await gs.dump();
+      assert.deepEqual(rb.daten, dumpRest);
       assert.ok(okCount > 40 && errCount > 5, `Mischung gueltig/ungueltig: ${okCount}/${errCount}`);
     });
   }

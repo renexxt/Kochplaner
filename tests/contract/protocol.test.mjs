@@ -41,7 +41,9 @@ for (const kind of KINDS) {
     it('lesen liefert alle 7 Tabs, identisch mit den Rohdaten der Testdatei (Datum als Text, leer = "", "1,5" bleibt Text)', async () => {
       const r = await api.lesen();
       assert.deepEqual(Object.keys(r.daten), ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen', 'Lebensmittel', 'Richtgewichte']);
-      assert.deepEqual(r.daten, golden('kochplaner_test.raw.json'));
+      // golden('...raw.json') enthaelt alle Tabs der xlsx-Datei (auch "Ausgaben"), lesen() bewusst nur die obigen 7 (KP.LESEN_TABS).
+      const { Ausgaben, ...rohRest } = golden('kochplaner_test.raw.json');
+      assert.deepEqual(r.daten, rohRest);
       assert.equal(r.daten.Gerichte.length, 40);
       assert.equal(r.daten.Zutaten.length, 299);
       for (const b of r.daten.Bewertungen) assert.match(b.datum, /^\d{4}-\d{2}-\d{2}$/);

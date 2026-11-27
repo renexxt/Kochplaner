@@ -31,6 +31,7 @@ H_BEW = ["gericht_id", "datum", "sterne", "notiz", "von"]
 H_EINST = ["schluessel", "wert"]
 H_LEBENSMITTEL = ["name", "kcal_je_100g"]
 H_RICHTGEWICHTE = ["name", "einheit", "gramm"]
+H_AUSGABEN = ["datum", "betrag", "beschreibung", "angelegt_am"]
 
 # ---------------------------------------------------------------------------
 # Gerichte. Zutatenzeilen: name;menge;einheit[;einkaufen]
@@ -526,6 +527,8 @@ def build(path, dishes, bew, plan, settings, aktiv_override=None):
     ls.append(H_LEBENSMITTEL)
     rg = wb.create_sheet("Richtgewichte")
     rg.append(H_RICHTGEWICHTE)
+    aus = wb.create_sheet("Ausgaben")
+    aus.append(H_AUSGABEN)
     rowc = 0
     for idx, d in enumerate(dishes):
         aktiv = d["aktiv"] if aktiv_override is None else aktiv_override(d)
