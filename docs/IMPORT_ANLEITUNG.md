@@ -15,7 +15,7 @@ Ablauf:
 3. Neue Gerichte bekommen als id den Buchstaben G und die höchste vorhandene Nummer plus 1, dreistellig (G041, G042 …). Ändere oder lösche nie vorhandene Zeilen.
 
 Tab „Gerichte“, eine Zeile je Gericht. Spalten in dieser Reihenfolge:
-id, name, basis_portionen, kcal_pro_portion, tags, favorit, nie_wieder, aktiv, reicht_fuer_tage, schritte, quelle, angelegt_am, status
+id, name, basis_portionen, kcal_pro_portion, tags, favorit, nie_wieder, aktiv, reicht_fuer_tage, schritte, quelle, angelegt_am, status, typ
 - name: kurzer, klarer Name des Gerichts
 - basis_portionen: für wie viele Portionen die Mengen im Rezept gelten (ganze Zahl; steht nichts da, nimm 2)
 - kcal_pro_portion: nur eintragen, wenn es im Rezept steht. Sonst leer lassen, nie 0 und nie schätzen
@@ -25,6 +25,7 @@ id, name, basis_portionen, kcal_pro_portion, tags, favorit, nie_wieder, aktiv, r
 - quelle: zum Beispiel „Screenshot 14.11.2026“, „Text“ oder „Diktat“
 - angelegt_am: heutiges Datum als JJJJ-MM-TT
 - status: fertig, wenn Zutaten da sind. Steht nur ein Name fest (eine Idee ohne Rezept), dann status idee und keine Zutaten anlegen
+- typ: leer lassen (gilt als hauptgericht)
 
 Tab „Zutaten“, eine Zeile je Zutat. Spalten in dieser Reihenfolge:
 gericht_id, pos, name, menge, einheit, einkaufen

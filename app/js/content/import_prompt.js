@@ -1,6 +1,6 @@
 // Vorlage fuer den Claude-Chat (F19): ein Screenshot, ein Text oder ein Diktat ergibt ein Gericht im Google Sheet.
 // Diese Datei ist die einzige Quelle; docs/IMPORT_ANLEITUNG.md wird daraus erzeugt (tests/tools/export_import_prompt.mjs).
-export const SPALTEN_GERICHTE = ['id', 'name', 'basis_portionen', 'kcal_pro_portion', 'tags', 'favorit', 'nie_wieder', 'aktiv', 'reicht_fuer_tage', 'schritte', 'quelle', 'angelegt_am', 'status'];
+export const SPALTEN_GERICHTE = ['id', 'name', 'basis_portionen', 'kcal_pro_portion', 'tags', 'favorit', 'nie_wieder', 'aktiv', 'reicht_fuer_tage', 'schritte', 'quelle', 'angelegt_am', 'status', 'typ'];
 export const SPALTEN_ZUTATEN = ['gericht_id', 'pos', 'name', 'menge', 'einheit', 'einkaufen'];
 
 export function importPrompt({ sheetLink = '' } = {}) {
@@ -24,6 +24,7 @@ ${SPALTEN_GERICHTE.join(', ')}
 - quelle: zum Beispiel „Screenshot 14.11.2026“, „Text“ oder „Diktat“
 - angelegt_am: heutiges Datum als JJJJ-MM-TT
 - status: fertig, wenn Zutaten da sind. Steht nur ein Name fest (eine Idee ohne Rezept), dann status idee und keine Zutaten anlegen
+- typ: leer lassen (gilt als hauptgericht)
 
 Tab „Zutaten“, eine Zeile je Zutat. Spalten in dieser Reihenfolge:
 ${SPALTEN_ZUTATEN.join(', ')}

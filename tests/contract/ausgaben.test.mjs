@@ -134,7 +134,7 @@ describe('Ausgaben (F25): ausgabe_speichern, ausgaben_lesen', () => {
       it('die allgemeine Aktion "lesen" liefert den Tab Ausgaben bewusst nicht mit', async () => {
         await api.ausgabeSpeichern({ datum: '2026-11-20', betrag: 5, beschreibung: 'x' });
         const r = await api.lesen();
-        assert.deepEqual(Object.keys(r.daten), ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen']);
+        assert.deepEqual(Object.keys(r.daten), ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen', 'Lebensmittel', 'Richtgewichte']);
       });
     });
   }

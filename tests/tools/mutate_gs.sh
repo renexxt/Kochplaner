@@ -6,7 +6,7 @@ rm -rf /tmp/mutgs && mkdir -p /tmp/mutgs
 mkdir -p /tmp/mutgs/k && tar -C "$SRC" --exclude=evidence --exclude=node_modules --exclude=__pycache__ --exclude=.pytest_cache -cf - . | tar -C /tmp/mutgs/k -xf -
 cd /tmp/mutgs/k
 cp backend/Code.gs /tmp/mutgs/Code.orig
-run() { node --test "tests/contract/**/*.test.mjs" 2>&1 | grep -E '^# fail' | awk '{print $3}'; }
+run() { node --test --test-reporter=tap "tests/contract/**/*.test.mjs" 2>&1 | grep -E '^# fail' | awk '{print $3}'; }
 mut() { # name, python-replace old, new
   cp /tmp/mutgs/Code.orig backend/Code.gs
   python3 - "$2" "$3" <<'PY'

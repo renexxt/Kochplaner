@@ -52,7 +52,7 @@ TABS = {
 ERGAENZBAR = {"Gerichte": ["typ"], "Plan": ["beilage_id"]}
 # Tabs der allgemeinen Aktion "lesen" (Code.gs: KP.LESEN_TABS). Getrennt von TABS, das zusaetzlich fuer
 # die Spaltenpruefung aller Tabs gilt (auch Ausgaben).
-LESEN_TABS = ["Gerichte", "Zutaten", "Plan", "Bewertungen", "Einstellungen"]
+LESEN_TABS = ["Gerichte", "Zutaten", "Plan", "Bewertungen", "Einstellungen", "Lebensmittel", "Richtgewichte"]
 SETTINGS = {"standard_portionen": (1, 20), "wiederholungssperre_tage": (1, 60)}
 DATE_COLS = {"woche_start", "datum", "angelegt_am", "geaendert_am"}
 

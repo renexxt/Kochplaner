@@ -40,7 +40,7 @@ var KP = {
 // und die Spaltenpruefung aller Tabs gilt), damit "lesen" weiterhin genau diese fuenf liefert. Als eigene Zeile
 // nach KP definiert (nicht als Eintrag in KP.TABS), damit tools/make_vorlage.py die Tab-Liste weiterhin sauber
 // allein aus "TABS: { ... }" lesen kann.
-KP.LESEN_TABS = ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen'];
+KP.LESEN_TABS = ['Gerichte', 'Zutaten', 'Plan', 'Bewertungen', 'Einstellungen', 'Lebensmittel', 'Richtgewichte'];
 
 /* ------------------------------------------------------------------ Einstiegspunkte */
 
