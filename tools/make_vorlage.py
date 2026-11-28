@@ -15,7 +15,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def tabs_aus_code_gs():
     text = (ROOT / "backend" / "Code.gs").read_text(encoding="utf-8")
-    block = text[text.index("TABS: {"):text.index("SETTINGS:")]
+    start = text.index("TABS: {") + len("TABS: ")
+    depth, ende = 0, start
+    for i, ch in enumerate(text[start:], start):
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                ende = i + 1
+                break
+    block = text[start:ende]
     return {m.group(1): re.findall(r"'([^']+)'", m.group(2)) for m in re.finditer(r"(\w+): \[(.*?)\]", block, re.S)}
 
 
